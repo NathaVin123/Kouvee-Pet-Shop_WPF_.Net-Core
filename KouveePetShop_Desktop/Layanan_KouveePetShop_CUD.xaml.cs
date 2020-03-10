@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,16 +23,20 @@ namespace KouveePetShop_Desktop
         public Layanan_KouveePetShop()
         {
             InitializeComponent();
-            String connectionString = "SERVER=localhost:8081,DATABASE=backend_p3l,UID=root,PASSWORD=;";
+            string connectionString = "SERVER=localhost;DATABASE=9127;UID=root;PASSWORD=;";
 
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySql.Data.MySqlClient.MySqlConnection connection = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
 
-            MySqlCommand cmd = new MySqlCommand();
+            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM layanans", connection);
 
             connection.Open();
 
-            
-            
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            connection.Close();
+
+            dtLayanan.DataContext = dt;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
