@@ -7,17 +7,17 @@
         mc:Ignorable="d"
         Title="TambahProduk" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" TextChanged="TextBox_TextChanged"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" TextChanged="TextBox_TextChanged_2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" TextChanged="TextBox_TextChanged_3"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
         <Label Content="Nama Produk :" HorizontalAlignment="Left" Margin="81,75,0,0" VerticalAlignment="Top"/>
         <Label Content="Harga Produk :" HorizontalAlignment="Left" Margin="81,124,0,0" VerticalAlignment="Top" Width="88"/>
         <Label Content="Stok Produk :" HorizontalAlignment="Left" Margin="81,176,0,0" VerticalAlignment="Top" Width="88"/>
         <Label Content="Minimal Stok Produk :" HorizontalAlignment="Left" Margin="81,228,0,0" VerticalAlignment="Top" Width="135"/>
-        <ComboBox HorizontalAlignment="Left" Margin="81,311,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox HorizontalAlignment="Left" Margin="81,311,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Satuan Produk :" HorizontalAlignment="Left" Margin="81,283,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tambah Produk" HorizontalAlignment="Center" Margin="314,22,303,355" VerticalAlignment="Center" FontSize="24"/>
+        <Label Content="Tambah Produk" HorizontalAlignment="Center" Margin="314,22,290,341" VerticalAlignment="Center" FontSize="24" Height="56" Width="188"/>
         <Button Content="Tambah" HorizontalAlignment="Left" Margin="366,358,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
