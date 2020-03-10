@@ -66,6 +66,7 @@ namespace KouveePetShop_Desktop
             {
                /*ComboBox.Items.Add(reader.GetString("fname"));*/
             }
+
         }
     }
 }
