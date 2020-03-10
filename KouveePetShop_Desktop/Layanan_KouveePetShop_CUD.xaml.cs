@@ -24,8 +24,14 @@ namespace KouveePetShop_Desktop
             InitializeComponent();
             String connectionString = "SERVER=localhost:8081,DATABASE=backend_p3l,UID=root,PASSWORD=;";
 
-            MySqlConnection connection = new MySqlConnection
+            MySqlConnection connection = new MySqlConnection(connectionString);
 
+            MySqlCommand cmd = new MySqlCommand();
+
+            connection.Open();
+
+            
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
