@@ -16,24 +16,30 @@ using MySql.Data.MySqlClient;
 
 namespace KouveePetShop_Desktop
 {
-    /// <summary>
-    /// Interaction logic for Layanan_KouveePetShop.xaml
-    /// </summary>
     public partial class Layanan_KouveePetShop : Window
     {
+        private string connection;
+        MySqlConnection conn;
+
+
         public Layanan_KouveePetShop()
         {
             InitializeComponent();
             try {
-                string connectionString = "SERVER=localhost;DATABASE=9160;UID=root;PASSWORD=;";
+                string connectionString = "SERVER=localhost;DATABASE=p3l_db;UID=root;PASSWORD=;";
 
                 MySqlConnection connection = new MySqlConnection(connectionString);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
 
                 MySqlCommand cmd = new MySqlCommand("SELECT `nama_layanan`, `harga_layanan`, `jenis_layanan` FROM `layanans`", connection);
 
                 connection.Open();
 
                 DataTable dt = new DataTable();
+
+                DataSet ds = new DataSet();
+
                 dt.Load(cmd.ExecuteReader());
                 connection.Close();
 
@@ -43,30 +49,88 @@ namespace KouveePetShop_Desktop
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void dbConnection()
         {
-           
+            try
+            {
+                connection = "SERVER=localhost;DATABASE=p3l_db;UID=root;PASSWORD=;"; //Database Web Server Atma
+                conn = new MySqlConnection(connection);
+                conn.Open();
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, EventArgs e)
         {
-            InitializeComponent();
+            //InitializeComponent();
 
-            MySqlConnection connection = new MySqlConnection("Datasource=localhost;username=root;password=;");
-            connection.Open();
-            string selectQuery = "SELECT * FROM 9160.jenis_layanan";
+            //MySqlConnection connection = new MySqlConnection("Datasource=localhost;username=root;password=;");
+            //connection.Open();
+            //string selectQuery = "SELECT * FROM p3l.jenis_layanan";
 
-            MySqlCommand command = new MySqlCommand(selectQuery, connection);
+            //MySqlCommand command = new MySqlCommand(selectQuery, connection);
 
-            MySqlDataReader reader = command.ExecuteReader();
+            //MySqlDataReader reader = command.ExecuteReader();
 
-            while(reader.Read())
-            {
+            //while(reader.Read())
+            //{
                /*ComboBox.Items.Add(reader.GetString("fname"));*/
-            }
+            //}
 
         }
+
+        public bool TambahLayanan(string id_pegawai_fk,string id_ukuranHewan_fk, string nama_layanan, string harga_layanan, string jenis_layanan)
+        {
+            //string connectionString = "SERVER=localhost;DATABASE=p3l_db;UID=root;PASSWORD=;";
+            //MySqlConnection dbConnection = new MySqlConnection(connectionString);
+            dbConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            cmd.CommandText = "INSERT INTO layanans(id_pegawai_fk, id_ukuranHewan_fk, nama_layanan, harga_layanan, jenis_layanan) VALUES (@id_pegawai_fk,@id_ukuranHewan_fk,@nama_layanan,@harga_layanan,@jenis_layanan)";
+
+            cmd.Parameters.AddWithValue("@id_pegawai_fk", id_pegawai_fk);
+            cmd.Parameters.AddWithValue("@id_ukuranHewan_fk", id_ukuranHewan_fk);
+            cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
+            cmd.Parameters.AddWithValue("@harga_layanan", harga_layanan);
+            cmd.Parameters.AddWithValue("@jenis_layanan", jenis_layanan);
+
+            cmd.Connection = conn;
+            MySqlDataReader add = cmd.ExecuteReader();
+
+            return add.Read() ? true : false;
+        }
+
+        private void Tambah_Click(object sender, RoutedEventArgs e)
+        {
+            string id_pegawai_fk = IDPegawaiTxt.Text;
+            string id_ukuranHewan_fk = IDUkuranHewanTxt.Text;
+            string nama_layanan = NamaLayananTxt.Text;
+            string harga_layanan = HargaLayananTxt.Text;
+            string jenis_layanan = ((ComboBoxItem)JenisLayananCB.SelectedItem).Content.ToString();
+
+            if (nama_layanan == "" || harga_layanan == "" || jenis_layanan== "" || jenis_layanan == "-- Select --")
+                MessageBox.Show("Please fill all the field", "Warning");
+            else
+            {
+                bool a = TambahLayanan(id_pegawai_fk, id_ukuranHewan_fk, nama_layanan, harga_layanan, jenis_layanan);
+                if (a)
+                {
+                    MessageBox.Show("Successful", "Successful input");
+                    conn.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed", "Failed input");
+                    conn.Close();
+                }
+            }
+        }
+
+        
     }
 }
