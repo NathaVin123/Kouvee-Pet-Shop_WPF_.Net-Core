@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Layanan_KouveePetShop_Update" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Tambah Data Layanan" HorizontalAlignment="Left" Margin="639,324,0,0" VerticalAlignment="Top" Width="125" Click="Tambah_Click"/>
+        <Button Content="Hapus Data Layanan" HorizontalAlignment="Left" Margin="639,367,0,0" VerticalAlignment="Top" Width="125" Click="Hapus_Click"/>
+        <Label Content="Ubah Data Layanan" HorizontalAlignment="Left" Margin="566,27,0,0" VerticalAlignment="Top" FontSize="24"/>
+
     </Grid>
 </Window>

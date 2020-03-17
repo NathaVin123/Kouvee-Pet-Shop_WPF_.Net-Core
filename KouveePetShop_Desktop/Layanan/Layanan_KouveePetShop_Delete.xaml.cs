@@ -23,5 +23,19 @@ namespace KouveePetShop_Desktop
         {
             InitializeComponent();
         }
+
+        private void Tambah_Click(object sender, RoutedEventArgs e)
+        {
+            var TambahLayanan = new Layanan_KouveePetShop();
+            TambahLayanan.Show();
+            this.Close();
+        }
+
+        private void Ubah_Click(object sender, RoutedEventArgs e)
+        {
+            var UpdateLayanan = new Layanan_KouveePetShop_Update();
+            UpdateLayanan.Show();
+            this.Close();
+        }
     }
 }

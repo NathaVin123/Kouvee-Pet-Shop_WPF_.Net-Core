@@ -19,6 +19,5 @@
         <Label Content="Satuan Produk :" HorizontalAlignment="Left" Margin="81,283,0,0" VerticalAlignment="Top"/>
         <Label Content="Tambah Data Produk" HorizontalAlignment="Center" Margin="538,10,10,353" VerticalAlignment="Center" FontSize="24" Height="56" Width="244"/>
         <Button Content="Tambah" HorizontalAlignment="Left" Margin="81,358,0,0" VerticalAlignment="Top" Width="75"/>
-
     </Grid>
 </Window>

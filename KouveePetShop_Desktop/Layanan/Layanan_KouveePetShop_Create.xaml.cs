@@ -140,8 +140,8 @@ namespace KouveePetShop_Desktop
 
         private void HapusData_Click(object sender, RoutedEventArgs e)
         {
-            var UpdateLayanan = new Layanan_KouveePetShop_Update();
-            UpdateLayanan.Show();
+            var DeleteLayanan = new Layanan_KouveePetShop_Delete();
+            DeleteLayanan.Show();
             this.Close();
         }
     }

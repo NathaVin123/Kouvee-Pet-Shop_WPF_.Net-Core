@@ -12,23 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace KouveePetShop_Desktop
+namespace KouveePetShop_Desktop.Menu
 {
     /// <summary>
-    /// Interaction logic for Login_KouveePetShop.xaml
+    /// Interaction logic for Menu_KouveePetShop.xaml
     /// </summary>
-    public partial class Login_KouveePetShop : Window
+    public partial class Menu_KouveePetShop : Window
     {
-        public Login_KouveePetShop()
+        public Menu_KouveePetShop()
         {
             InitializeComponent();
         }
 
-        private void BtnSubmit_Click(object sender, RoutedEventArgs e)
-        {
-            var Menu = new Menu.Menu_KouveePetShop();
-            Menu.Show();
-            this.Close();
-        }
     }
 }

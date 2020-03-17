@@ -65,6 +65,9 @@
     <Compile Include="Layanan\Layanan_KouveePetShop_Update.xaml.cs">
       <DependentUpon>Layanan_KouveePetShop_Update.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Menu_KouveePetShop.xaml.cs">
+      <DependentUpon>Menu_KouveePetShop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Produk\Produk_KouveePetShop_Create.xaml.cs">
       <DependentUpon>Produk_KouveePetShop_Create.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
     <Compile Include="Login\Login_KouveePetShop.xaml.cs">
       <DependentUpon>Login_KouveePetShop.xaml</DependentUpon>
     </Compile>
+    <Page Include="Menu\Menu_KouveePetShop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Produk\Produk_KouveePetShop_Create.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transaksi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
