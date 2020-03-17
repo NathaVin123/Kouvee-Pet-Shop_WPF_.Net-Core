@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KouveePetShop_Desktop
+namespace KouveePetShop_Desktop.Produk
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Produk_KouveePetShop_Create.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Produk_KouveePetShop_Create : Window
     {
-        public MainWindow()
+        public Produk_KouveePetShop_Create()
         {
             InitializeComponent();
         }

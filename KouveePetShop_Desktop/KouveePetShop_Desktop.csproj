@@ -56,36 +56,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Layanan_KouveePetShop_CUD.xaml.cs">
-      <DependentUpon>Layanan_KouveePetShop_CUD.xaml</DependentUpon>
+    <Compile Include="Layanan\Layanan_KouveePetShop_Create.xaml.cs">
+      <DependentUpon>Layanan_KouveePetShop_Create.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TambahProduk.xaml.cs">
-      <DependentUpon>TambahProduk.xaml</DependentUpon>
+    <Compile Include="Layanan\Layanan_KouveePetShop_Delete.xaml.cs">
+      <DependentUpon>Layanan_KouveePetShop_Delete.xaml</DependentUpon>
     </Compile>
-    <Page Include="Layanan_KouveePetShop_CUD.xaml">
+    <Compile Include="Layanan\Layanan_KouveePetShop_Update.xaml.cs">
+      <DependentUpon>Layanan_KouveePetShop_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Produk\Produk_KouveePetShop_Create.xaml.cs">
+      <DependentUpon>Produk_KouveePetShop_Create.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Layanan\Layanan_KouveePetShop_Create.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login_KouveePetShop.xaml">
+    <Page Include="Layanan\Layanan_KouveePetShop_Delete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Layanan\Layanan_KouveePetShop_Update.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login\Login_KouveePetShop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Login_KouveePetShop.xaml.cs">
+    <Compile Include="Login\Login_KouveePetShop.xaml.cs">
       <DependentUpon>Login_KouveePetShop.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="TambahProduk.xaml">
+    <Page Include="Produk\Produk_KouveePetShop_Create.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace KouveePetShop_Desktop
 {
     /// <summary>
-    /// Interaction logic for TambahProduk.xaml
+    /// Interaction logic for Layanan_KouveePetShop_Delete.xaml
     /// </summary>
-    public partial class TambahProduk : Window
+    public partial class Layanan_KouveePetShop_Delete : Window
     {
-        public TambahProduk()
+        public Layanan_KouveePetShop_Delete()
         {
             InitializeComponent();
         }

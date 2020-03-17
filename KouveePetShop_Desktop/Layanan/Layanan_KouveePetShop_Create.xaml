@@ -12,18 +12,20 @@
         <Label Content="Nama Layanan :" HorizontalAlignment="Left" Margin="81,32,0,0" VerticalAlignment="Top"/>
         <Label Content="Harga Layanan :" HorizontalAlignment="Left" Margin="81,223,0,0" VerticalAlignment="Top" Width="94"/>
         <Label Content="Jenis Layanan :" HorizontalAlignment="Left" Margin="81,282,0,0" VerticalAlignment="Top" Width="88"/>
-        <Label Content="Tambah Layanan" HorizontalAlignment="Center" Margin="576,19,28,344" VerticalAlignment="Center" FontSize="24" Height="56" Width="188"/>
-        <Button Content="Tambah" HorizontalAlignment="Left" Margin="81,340,0,0" VerticalAlignment="Top" Width="75" Click="Tambah_Click"/>
-        <ComboBox Name="JenisLayananCB" HorizontalAlignment="Left" Margin="81,313,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" SelectedValuePath="Content">
+        <Label Content="Tambah Data Layanan" HorizontalAlignment="Center" Margin="518,19,28,361" VerticalAlignment="Center" FontSize="24" Height="39" Width="246"/>
+        <Button Content="Tambah" HorizontalAlignment="Left" Margin="81,358,0,0" VerticalAlignment="Top" Width="75" Click="Tambah_Click"/>
+        <ComboBox Name="JenisLayananCB" HorizontalAlignment="Left" Margin="81,313,0,0" VerticalAlignment="Top" Width="157" SelectionChanged="ComboBox_SelectionChanged" SelectedValuePath="Content">
             <ComboBoxItem IsSelected="True">Pilih jenis Layanan Anda</ComboBoxItem>
             <ComboBoxItem>Grooming</ComboBoxItem>
             <ComboBoxItem>Penitipan</ComboBoxItem>
             <ComboBoxItem>Potong Bulu</ComboBoxItem>
         </ComboBox>
-        <DataGrid IsReadOnly="True" Name="dtLayanan" HorizontalAlignment="Left" Height="245" Margin="346,101,0,0" VerticalAlignment="Top" Width="381" ItemsSource="{Binding}"/>
+        <DataGrid IsReadOnly="True" Name="dtLayanan" HorizontalAlignment="Left" Height="245" Margin="362,86,0,0" VerticalAlignment="Top" Width="382" ItemsSource="{Binding}"/>
         <Label Content="ID Pegawai" HorizontalAlignment="Left" Margin="81,86,0,0" VerticalAlignment="Top"/>
         <TextBox Name="IDPegawaiTxt" HorizontalAlignment="Left" Height="23" Margin="81,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
         <Label Content="ID Ukuran Hewan" HorizontalAlignment="Left" Margin="81,154,0,0" VerticalAlignment="Top"/>
         <TextBox Name="IDUkuranHewanTxt" HorizontalAlignment="Left" Height="23" Margin="81,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Ubah Data Layanan" HorizontalAlignment="Left" Margin="652,351,0,0" VerticalAlignment="Top" Width="114" Click="UbahData_Click"/>
+        <Button Content="Hapus Data Layanan" HorizontalAlignment="Left" Margin="652,376,0,0" VerticalAlignment="Top" Width="114" Click="HapusData_Click"/>
     </Grid>
 </Window>
