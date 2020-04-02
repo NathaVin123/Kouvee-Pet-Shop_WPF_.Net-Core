@@ -32,7 +32,7 @@ namespace KouveePetShop_Desktop
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT `nama_layanan`, `harga_layanan`, `jenis_layanan` FROM `layanans`", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT `nama_layanan` AS 'Nama Layanan', `harga_layanan`AS 'Harga Layanan'/*, `jenis_layanan`*/ FROM `layanans`", connection);
 
                 connection.Open();
 
@@ -55,7 +55,7 @@ namespace KouveePetShop_Desktop
         {
             try
             {
-                connection = "SERVER=localhost;DATABASE=p3l_db;UID=root;PASSWORD=;"; //Database Web Server Atma
+                connection = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;"; //Database Web Server Atma
                 conn = new MySqlConnection(connection);
                 conn.Open();
             }
@@ -84,20 +84,20 @@ namespace KouveePetShop_Desktop
 
         }
 
-        public bool TambahLayanan(string id_pegawai_fk,string id_ukuranHewan_fk, string nama_layanan, string harga_layanan, string jenis_layanan)
+        public bool TambahLayanan(string id_pegawai_fk,string id_ukuranHewan_fk, string nama_layanan, string harga_layanan/*, string jenis_layanan*/)
         {
             //string connectionString = "SERVER=localhost;DATABASE=p3l_db;UID=root;PASSWORD=;";
             //MySqlConnection dbConnection = new MySqlConnection(connectionString);
             dbConnection();
             MySqlCommand cmd = new MySqlCommand();
 
-            cmd.CommandText = "INSERT INTO layanans(id_pegawai_fk, id_ukuranHewan_fk, nama_layanan, harga_layanan, jenis_layanan) VALUES (@id_pegawai_fk,@id_ukuranHewan_fk,@nama_layanan,@harga_layanan,@jenis_layanan)";
+            cmd.CommandText = "INSERT INTO layanans(id_pegawai_fk, id_ukuranHewan_fk, nama_layanan, harga_layanan/*, jenis_layanan/*) VALUES (@id_pegawai_fk,@id_ukuranHewan_fk,@nama_layanan,@harga_layanan,@jenis_layanan)";
 
             cmd.Parameters.AddWithValue("@id_pegawai_fk", id_pegawai_fk);
             cmd.Parameters.AddWithValue("@id_ukuranHewan_fk", id_ukuranHewan_fk);
             cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
             cmd.Parameters.AddWithValue("@harga_layanan", harga_layanan);
-            cmd.Parameters.AddWithValue("@jenis_layanan", jenis_layanan);
+            //cmd.Parameters.AddWithValue("@jenis_layanan", jenis_layanan);
 
             cmd.Connection = conn;
             MySqlDataReader add = cmd.ExecuteReader();
@@ -111,13 +111,13 @@ namespace KouveePetShop_Desktop
             string id_ukuranHewan_fk = IDUkuranHewanTxt.Text;
             string nama_layanan = NamaLayananTxt.Text;
             string harga_layanan = HargaLayananTxt.Text;
-            string jenis_layanan = ((ComboBoxItem)JenisLayananCB.SelectedItem).Content.ToString();
+            //string jenis_layanan = ((ComboBoxItem)JenisLayananCB.SelectedItem).Content.ToString();
 
-            if (nama_layanan == "" || harga_layanan == "" || jenis_layanan== "" || jenis_layanan == "-- Select --")
+            if (nama_layanan == "" || harga_layanan == "" /*|| jenis_layanan== "" || jenis_layanan == "-- Select --"*/)
                 MessageBox.Show("Please fill all the field", "Warning");
             else
             {
-                bool a = TambahLayanan(id_pegawai_fk, id_ukuranHewan_fk, nama_layanan, harga_layanan, jenis_layanan);
+                bool a = TambahLayanan(id_pegawai_fk, id_ukuranHewan_fk, nama_layanan, harga_layanan/*, jenis_layanan*/);
                 if (a)
                 {
                     MessageBox.Show("Successful", "Successful input");

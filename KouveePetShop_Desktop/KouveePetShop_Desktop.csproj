@@ -56,6 +56,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Jenis_Hewan\JenisHewan_KouveePetShop_Delete.xaml.cs">
+      <DependentUpon>JenisHewan_KouveePetShop_Delete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Jenis_Hewan\JenisHewan_KouveePetShop_Update.xaml.cs">
+      <DependentUpon>JenisHewan_KouveePetShop_Update.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layanan\Layanan_KouveePetShop_Create.xaml.cs">
       <DependentUpon>Layanan_KouveePetShop_Create.xaml</DependentUpon>
     </Compile>
@@ -71,6 +77,14 @@
     <Compile Include="Produk\Produk_KouveePetShop_Create.xaml.cs">
       <DependentUpon>Produk_KouveePetShop_Create.xaml</DependentUpon>
     </Compile>
+    <Page Include="Jenis_Hewan\JenisHewan_KouveePetShop_Delete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Jenis_Hewan\JenisHewan_KouveePetShop_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Layanan\Layanan_KouveePetShop_Create.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
