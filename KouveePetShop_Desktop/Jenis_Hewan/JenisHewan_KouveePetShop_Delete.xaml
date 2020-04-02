@@ -11,7 +11,7 @@
         <DataGrid Name="dtJenisHewan" IsReadOnly="True" HorizontalAlignment="Left" Height="273" Margin="392,74,0,0" VerticalAlignment="Top" Width="352" ItemsSource="{Binding}"/>
         <Label Content="Masukan ID jenis hewan yang akan di hapus : " HorizontalAlignment="Left" Margin="50,74,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="22" Margin="50,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Hapus Jenis Hewan" HorizontalAlignment="Left" Margin="188,110,0,0" VerticalAlignment="Top" Width="115"/>
+        <Button Content="Hapus Jenis Hewan" HorizontalAlignment="Left" Margin="188,110,0,0" VerticalAlignment="Top" Width="115" Click="Hapus_JenisHewan_Click"/>
 
     </Grid>
 </Window>

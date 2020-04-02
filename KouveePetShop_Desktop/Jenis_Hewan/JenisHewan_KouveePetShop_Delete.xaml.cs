@@ -68,5 +68,12 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 throw;
             }
         }
+
+        private void Hapus_JenisHewan_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedRow = dtJenisHewan.SelectedItem;
+
+           
+        }
     }
 }
