@@ -26,7 +26,7 @@ namespace KouveePetShop_Desktop
         {
             InitializeComponent();
             try {
-                string connectionString = "SERVER=localhost;DATABASE=p3l_db;UID=root;PASSWORD=;";
+                string connectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
 
                 MySqlConnection connection = new MySqlConnection(connectionString);
 

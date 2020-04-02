@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Menu_KouveePetShop" Height="450" Width="800">
     <Grid>
-        <Button Content="HEWAN" HorizontalAlignment="Left" Margin="252,134,0,0" VerticalAlignment="Top" Width="75" Height="57"/>
-        <Button Content="COSTUMER" HorizontalAlignment="Left" Margin="492,134,0,0" VerticalAlignment="Top" Width="75" Height="57"/>
-        <Button Content="LAYANAN" HorizontalAlignment="Left" Margin="252,272,0,0" VerticalAlignment="Top" Width="75" Height="55"/>
-        <Button Content="PEGAWAI" HorizontalAlignment="Left" Margin="492,272,0,0" VerticalAlignment="Top" Width="75" Height="55"/>
+        <Button Content="HEWAN" HorizontalAlignment="Left" Margin="252,134,0,0" VerticalAlignment="Top" Width="75" Height="57" Click="Hewan_Click"/>
+        <Button Content="COSTUMER" HorizontalAlignment="Left" Margin="492,134,0,0" VerticalAlignment="Top" Width="75" Height="57" Click="Costumer_Click"/>
+        <Button Content="LAYANAN" HorizontalAlignment="Left" Margin="252,272,0,0" VerticalAlignment="Top" Width="75" Height="55" Click="Layanan_Click"/>
+        <Button Content="PEGAWAI" HorizontalAlignment="Left" Margin="492,272,0,0" VerticalAlignment="Top" Width="75" Height="55" Click="Pegawai_Click"/>
         <Label Content="KOUVEE PET SHOP" HorizontalAlignment="Left" Margin="315,40,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Button Content="PEMBAYARAN" HorizontalAlignment="Left" Margin="369,202,0,0" VerticalAlignment="Top" Width="82" Height="60"/>
+        <Button Content="PEMBAYARAN" HorizontalAlignment="Left" Margin="369,202,0,0" VerticalAlignment="Top" Width="82" Height="60" Click="Pembayaran_Click"/>
 
     </Grid>
 </Window>

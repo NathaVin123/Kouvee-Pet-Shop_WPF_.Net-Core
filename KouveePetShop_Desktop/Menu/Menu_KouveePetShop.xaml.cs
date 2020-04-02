@@ -24,5 +24,32 @@ namespace KouveePetShop_Desktop.Menu
             InitializeComponent();
         }
 
+        private void Hewan_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Costumer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Pembayaran_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Layanan_Click(object sender, RoutedEventArgs e)
+        {
+            var Layanan = new Layanan_KouveePetShop();
+            Layanan.Show();
+            this.Close();
+
+        }
+
+        private void Pegawai_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
