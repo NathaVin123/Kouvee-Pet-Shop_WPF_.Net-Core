@@ -13,6 +13,8 @@
         <Button Content="PEGAWAI" HorizontalAlignment="Left" Margin="492,272,0,0" VerticalAlignment="Top" Width="75" Height="55" Click="Pegawai_Click"/>
         <Label Content="KOUVEE PET SHOP" HorizontalAlignment="Left" Margin="315,40,0,0" VerticalAlignment="Top" FontSize="22"/>
         <Button Content="PEMBAYARAN" HorizontalAlignment="Left" Margin="369,202,0,0" VerticalAlignment="Top" Width="82" Height="60" Click="Pembayaran_Click"/>
+        <Button Content="PRODUK" HorizontalAlignment="Left" Margin="637,202,0,0" VerticalAlignment="Top" Width="86" Height="60" Click="Produk_Click"/>
+        <Button Content="JENIS HEWAN" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Width="81" Height="60" Click="JenisHewan_Click"/>
 
     </Grid>
 </Window>

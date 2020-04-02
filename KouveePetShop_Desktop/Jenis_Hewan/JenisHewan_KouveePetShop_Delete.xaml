@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="JenisHewan_KouveePetShop_Delete" Height="450" Width="800">
     <Grid>
-        
+        <Calendar HorizontalAlignment="Left" Margin="1110,267,-418,0" VerticalAlignment="Top" Width="100"/>
+        <DataGrid Name="dtJenisHewan" IsReadOnly="True" HorizontalAlignment="Left" Height="273" Margin="392,74,0,0" VerticalAlignment="Top" Width="352" ItemsSource="{Binding}"/>
+        <Label Content="Masukan ID jenis hewan yang akan di hapus : " HorizontalAlignment="Left" Margin="50,74,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="50,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Hapus Jenis Hewan" HorizontalAlignment="Left" Margin="188,110,0,0" VerticalAlignment="Top" Width="115"/>
+
     </Grid>
 </Window>
