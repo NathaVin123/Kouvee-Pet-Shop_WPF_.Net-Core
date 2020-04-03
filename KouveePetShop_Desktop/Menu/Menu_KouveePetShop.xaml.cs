@@ -43,7 +43,7 @@ namespace KouveePetShop_Desktop.Menu
 
         private void Layanan_Click(object sender, RoutedEventArgs e)
         {
-            var Layanan = new Layanan_KouveePetShop();
+            var Layanan = new Layanan.Layanan();
             Layanan.Show();
             this.Close();
 

@@ -65,13 +65,16 @@
     <Compile Include="Jenis_Hewan\JenisHewan_KouveePetShop_Update.xaml.cs">
       <DependentUpon>JenisHewan_KouveePetShop_Update.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Layanan\Layanan_KouveePetShop_Create.xaml.cs">
+    <Compile Include="Layanan\Layanan.xaml.cs">
+      <DependentUpon>Layanan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sampah\Layanan_KouveePetShop_Create.xaml.cs">
       <DependentUpon>Layanan_KouveePetShop_Create.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Layanan\Layanan_KouveePetShop_Delete.xaml.cs">
+    <Compile Include="Sampah\Layanan_KouveePetShop_Delete.xaml.cs">
       <DependentUpon>Layanan_KouveePetShop_Delete.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Layanan\Layanan_KouveePetShop_Update.xaml.cs">
+    <Compile Include="Sampah\Layanan_KouveePetShop_Update.xaml.cs">
       <DependentUpon>Layanan_KouveePetShop_Update.xaml</DependentUpon>
     </Compile>
     <Compile Include="Menu\Menu_KouveePetShop.xaml.cs">
@@ -92,15 +95,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Layanan\Layanan_KouveePetShop_Create.xaml">
+    <Page Include="Layanan\Layanan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Layanan\Layanan_KouveePetShop_Delete.xaml">
+    <Page Include="Sampah\Layanan_KouveePetShop_Create.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Layanan\Layanan_KouveePetShop_Update.xaml">
+    <Page Include="Sampah\Layanan_KouveePetShop_Delete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sampah\Layanan_KouveePetShop_Update.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Transaksi\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AW419642_03.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
