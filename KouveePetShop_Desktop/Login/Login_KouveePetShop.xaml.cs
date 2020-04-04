@@ -30,5 +30,10 @@ namespace KouveePetShop_Desktop
             Menu.Show();
             this.Close();
         }
+
+        private void KlikDisini_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

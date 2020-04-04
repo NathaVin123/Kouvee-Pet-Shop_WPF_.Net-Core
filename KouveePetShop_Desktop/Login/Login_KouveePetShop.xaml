@@ -17,7 +17,9 @@
             <Label Content="Password" Foreground="White"/>
             <PasswordBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Button x:Name="btnSubmit" Content="Submit" Margin="50 10" Background="#545d6a" Foreground="White" FontSize="18" Click="BtnSubmit_Click"/>
-            
+            <Label Content="Anda Costumer ?" Foreground="White" FontSize="15" HorizontalAlignment="Center" Margin="61,0,66,0" Width="124"/>
+            <Button x:Name="klikdisiniBtn" Content="Klik disini" Margin="76,10,82,10" Background="#545d6a" Foreground="White" FontSize="18" Click="KlikDisini_Click"/>
+
         </StackPanel>
     </Border>
 </Window>
