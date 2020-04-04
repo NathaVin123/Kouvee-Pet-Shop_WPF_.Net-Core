@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Layanan"
         mc:Ignorable="d"
-        Title="Layanan" Height="450" Width="800">
+        Title="Layanan" Height="605" Width="800">
     <Grid RenderTransformOrigin="0.679,0.635">
+        <Grid.OpacityMask>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FFDE6868" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.OpacityMask>
         <Image Source="/KouveePetShop_Desktop;component/AW419642_03.gif" HorizontalAlignment="Left" Height="43" Margin="735,0,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.614,0.174"/>
         <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
         <GroupBox Header="Data Layanan" HorizontalAlignment="Left" Height="194" Margin="10,66,0,0" VerticalAlignment="Top" Width="273"/>
@@ -23,15 +29,17 @@
 
         <GroupBox Header="Tampil Data Layanan" Margin="310,149,25,10"/>
         <Label Name="LabelCount" Content="Tidak ada data layanan yang ditampilkan." HorizontalAlignment="Left" Margin="430,265,0,0" VerticalAlignment="Top"/>
-        <DataGrid AutoGenerateColumns="True" x:Name="layananDT" HorizontalAlignment="Left" Height="218" Margin="329,174,0,0" VerticalAlignment="Top" Width="420"/>
+        <DataGrid AutoGenerateColumns="True" x:Name="layananDT" HorizontalAlignment="Left" Height="374" Margin="329,174,0,0" VerticalAlignment="Top" Width="420"/>
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="144" Margin="10,265,0,0" VerticalAlignment="Top" Width="273"/>
-        <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="53,285,0,0" VerticalAlignment="Top" Width="76" Click="Tambah_Click" Height="45"/>
+        <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="53,285,0,0" VerticalAlignment="Top" Width="76" Click="Tambah_Click" Height="45" BorderBrush="White"/>
         <GroupBox Header="Pencarian Data Layanan" HorizontalAlignment="Left" Height="78" Margin="310,66,0,0" VerticalAlignment="Top" Width="457"/>
         <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="329,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="673,97,0,0" VerticalAlignment="Top" Width="76"  Click="Cari_Click"/>
-        <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="175,285,0,0" VerticalAlignment="Top" Width="76" Click="Batal_Click" Height="50"/>
-        <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="175,347,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="45"/>
-        <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="53,347,0,0" VerticalAlignment="Top" Width="76" Click="Ubah_Click" Height="50"/>
+        <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="673,97,0,0" VerticalAlignment="Top" Width="76"  Click="Cari_Click" BorderBrush="White"/>
+        <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="175,285,0,0" VerticalAlignment="Top" Width="76" Click="Batal_Click" Height="50" BorderBrush="White"/>
+        <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="175,347,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="45" BorderBrush="White"/>
+        <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="53,347,0,0" VerticalAlignment="Top" Width="76" Click="Ubah_Click" Height="50" BorderBrush="White"/>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="451,10,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
+        <DataGrid Name="nipDT" HorizontalAlignment="Left" Margin="25,439,0,0" Width="236" Height="109" VerticalAlignment="Top"/>
+        <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="149" Margin="10,415,0,0" VerticalAlignment="Top" Width="273"/>
     </Grid>
 </Window>

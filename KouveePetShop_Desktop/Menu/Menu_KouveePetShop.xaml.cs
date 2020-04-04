@@ -1,6 +1,4 @@
-﻿using KouveePetShop_Desktop.Jenis_Hewan;
-using KouveePetShop_Desktop.Produk;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,7 +61,7 @@ namespace KouveePetShop_Desktop.Menu
 
         private void JenisHewan_Click(object sender, RoutedEventArgs e)
         {
-            var JenisHewan = new JenisHewan_KouveePetShop_Delete();
+            var JenisHewan = new Jenis_Hewan.Jenis_Hewan();
             JenisHewan.Show();
             this.Close();
         }
