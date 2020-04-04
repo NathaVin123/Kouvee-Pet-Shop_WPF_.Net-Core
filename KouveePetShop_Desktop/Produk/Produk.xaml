@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Produk"
         mc:Ignorable="d"
-        Title="Produk" Height="703" Width="800">
+        Title="Produk" Height="591.667" Width="800">
     <Grid>
         <Image Source="/KouveePetShop_Desktop;component/AW419642_03.gif" HorizontalAlignment="Left" Height="43" Margin="735,0,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.614,0.174"/>
         <GroupBox Header="Data Produk" HorizontalAlignment="Left" Height="277" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
@@ -35,13 +35,24 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="317,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,63,0,0" VerticalAlignment="Top" Width="80" Height="25" BorderBrush="{x:Null}" Click="Cari_Click"/>
 
-        <GroupBox Header="Tampil Data Produk" HorizontalAlignment="Left" Height="448" Margin="307,102,0,0" VerticalAlignment="Top" Width="475"/>
-        <Label Name="LabelCount" Content="Tidak ada data Produk yang ditampilkan." HorizontalAlignment="Left" Margin="430,265,0,0" VerticalAlignment="Top"/>
-        <DataGrid AutoGenerateColumns="True" x:Name="produkDT" HorizontalAlignment="Left" Height="406" VerticalAlignment="Top" Width="440" Margin="317,130,0,0"/>
+        <GroupBox Header="Tampil Data Produk" HorizontalAlignment="Left" Height="452" Margin="307,102,0,0" VerticalAlignment="Top" Width="475"/>
+        <Label Name="LabelCount" Content="Tidak ada data Produk yang ditampilkan." HorizontalAlignment="Left" Margin="441,322,0,0" VerticalAlignment="Top"/>
+        <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="produkDT" HorizontalAlignment="Left" Height="410" VerticalAlignment="Top" Width="440" Margin="317,130,0,0">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Gambar" Width="100" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="50" Width="100" Source="{Binding Gambar}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="451,10,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-        <DataGrid Name="nipDT" HorizontalAlignment="Left" Margin="27,439,0,0" Width="249" Height="101" VerticalAlignment="Top"/>
+        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="27,439,0,0" Width="249" Height="101" VerticalAlignment="Top"/>
         <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="140" Margin="10,414,0,0" VerticalAlignment="Top" Width="281"/>
         <Button x:Name="gambarBtn" Content="Pilih gambar" HorizontalAlignment="Left" Margin="118,221,0,0" VerticalAlignment="Top" Width="81" Height="26" Background="#FFDDDDDD" BorderBrush="{x:Null}" Click="GambarBtn_Click"/>
-        <Image Name="UploadImage" HorizontalAlignment="Left" Height="100" Margin="276,555,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image Name="UploadImage" HorizontalAlignment="Left" Height="27" Margin="204,220,0,0" VerticalAlignment="Top" Width="28"/>
+        <TextBox x:Name="GambarPath" HorizontalAlignment="Left" Height="23" Margin="237,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-1.954,-2.669"/>
     </Grid>
 </Window>

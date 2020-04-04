@@ -22,7 +22,7 @@
             <TextBox x:Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="141,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <GroupBox Header="Tampil Data Jenis Hewan" Margin="310,149,25,10"/>
             <Label x:Name="LabelCount" Content="Tidak ada data jenis hewan yang ditampilkan." HorizontalAlignment="Left" Margin="418,230,0,0" VerticalAlignment="Top"/>
-            <DataGrid AutoGenerateColumns="True" x:Name="jenishewanDT" HorizontalAlignment="Left" Height="317" Margin="329,174,0,0" VerticalAlignment="Top" Width="420"/>
+            <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="jenishewanDT" HorizontalAlignment="Left" Height="317" Margin="329,174,0,0" VerticalAlignment="Top" Width="420"/>
             <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="144" Margin="10,202,0,0" VerticalAlignment="Top" Width="273"/>
             <Button x:Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="53,226,0,0" VerticalAlignment="Top" Width="76" Click="Tambah_Click" Height="50" BorderBrush="White"/>
             <GroupBox Header="Pencarian Data Jenis Hewan" HorizontalAlignment="Left" Height="78" Margin="310,66,0,0" VerticalAlignment="Top" Width="457"/>
@@ -32,7 +32,7 @@
             <Button x:Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="175,281,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="50" BorderBrush="White"/>
             <Button x:Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="53,281,0,0" VerticalAlignment="Top" Width="76" Click="Ubah_Click" Height="50" BorderBrush="White"/>
             <Button x:Name="menuUtamaBtn1" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="451,10,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-            <DataGrid Name="nipDT" HorizontalAlignment="Left" Margin="35,379,0,0" Width="226" Height="112" VerticalAlignment="Top"/>
+            <DataGrid IsReadOnly="True" Name="nipDT" HorizontalAlignment="Left" Margin="35,379,0,0" Width="226" Height="112" VerticalAlignment="Top"/>
             <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="152" Margin="10,351,0,0" VerticalAlignment="Top" Width="273"/>
         </Grid>
     </Grid>

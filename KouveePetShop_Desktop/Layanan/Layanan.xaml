@@ -29,7 +29,7 @@
 
         <GroupBox Header="Tampil Data Layanan" Margin="310,149,25,10"/>
         <Label Name="LabelCount" Content="Tidak ada data layanan yang ditampilkan." HorizontalAlignment="Left" Margin="430,265,0,0" VerticalAlignment="Top"/>
-        <DataGrid AutoGenerateColumns="True" x:Name="layananDT" HorizontalAlignment="Left" Height="374" Margin="329,174,0,0" VerticalAlignment="Top" Width="420"/>
+        <DataGrid IsReadOnly="true" AutoGenerateColumns="True" x:Name="layananDT" HorizontalAlignment="Left" Height="374" Margin="329,174,0,0" VerticalAlignment="Top" Width="420"/>
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="144" Margin="10,265,0,0" VerticalAlignment="Top" Width="273"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="53,285,0,0" VerticalAlignment="Top" Width="76" Click="Tambah_Click" Height="45" BorderBrush="White"/>
         <GroupBox Header="Pencarian Data Layanan" HorizontalAlignment="Left" Height="78" Margin="310,66,0,0" VerticalAlignment="Top" Width="457"/>
@@ -39,7 +39,7 @@
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="175,347,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="45" BorderBrush="White"/>
         <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="53,347,0,0" VerticalAlignment="Top" Width="76" Click="Ubah_Click" Height="50" BorderBrush="White"/>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="451,10,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-        <DataGrid Name="nipDT" HorizontalAlignment="Left" Margin="25,439,0,0" Width="236" Height="109" VerticalAlignment="Top"/>
+        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="25,439,0,0" Width="236" Height="109" VerticalAlignment="Top"/>
         <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="149" Margin="10,415,0,0" VerticalAlignment="Top" Width="273"/>
     </Grid>
 </Window>
