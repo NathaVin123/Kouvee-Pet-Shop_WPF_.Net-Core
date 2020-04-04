@@ -56,7 +56,7 @@ namespace KouveePetShop_Desktop.Menu
 
         private void Produk_Click(object sender, RoutedEventArgs e)
         {
-            var Produk = new Produk_KouveePetShop_Create();
+            var Produk = new Produk.Produk();
             Produk.Show();
             this.Close();
         }

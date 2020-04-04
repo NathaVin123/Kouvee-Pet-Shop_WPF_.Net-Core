@@ -5,16 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KouveePetShop_Desktop"
         mc:Ignorable="d"
-        Title="Login_KouveePetShop" Height="325" Width="300">
+        Title="Login_KouveePetShop" Height="500" Width="350">
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
-        <StackPanel Margin="20">
-            <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+        <StackPanel Margin="10">
+            <Label Content="Kouvee Petshop" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
+            <Image Source="/KouveePetShop_Desktop;component/AW419642_03.gif" Height="58" Width="75"/>
+            <Label Content="Silakan Login" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
             <Separator></Separator>
             <Label Content="Username" Foreground="White"/>
             <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Label Content="Password" Foreground="White"/>
             <PasswordBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Button x:Name="btnSubmit" Content="Submit" Margin="50 10" Background="#545d6a" Foreground="White" FontSize="18" Click="BtnSubmit_Click"/>
+            
         </StackPanel>
     </Border>
 </Window>

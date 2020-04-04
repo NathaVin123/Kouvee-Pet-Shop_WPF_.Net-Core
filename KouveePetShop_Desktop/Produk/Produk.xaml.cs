@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace KouveePetShop_Desktop.Produk
 {
     /// <summary>
-    /// Interaction logic for Produk_KouveePetShop_Create.xaml
+    /// Interaction logic for Produk.xaml
     /// </summary>
-    public partial class Produk_KouveePetShop_Create : Window
+    public partial class Produk : Window
     {
-        public Produk_KouveePetShop_Create()
+        public Produk()
         {
             InitializeComponent();
         }

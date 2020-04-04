@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -68,6 +68,9 @@
     <Compile Include="Layanan\Layanan.xaml.cs">
       <DependentUpon>Layanan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Produk\Produk.xaml.cs">
+      <DependentUpon>Produk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sampah\Layanan_KouveePetShop_Create.xaml.cs">
       <DependentUpon>Layanan_KouveePetShop_Create.xaml</DependentUpon>
     </Compile>
@@ -79,9 +82,6 @@
     </Compile>
     <Compile Include="Menu\Menu_KouveePetShop.xaml.cs">
       <DependentUpon>Menu_KouveePetShop.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Produk\Produk_KouveePetShop_Create.xaml.cs">
-      <DependentUpon>Produk_KouveePetShop_Create.xaml</DependentUpon>
     </Compile>
     <Page Include="Jenis_Hewan\JenisHewan_KouveePetShop_Create.xaml">
       <SubType>Designer</SubType>
@@ -96,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Layanan\Layanan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Produk\Produk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,10 +127,6 @@
       <DependentUpon>Login_KouveePetShop.xaml</DependentUpon>
     </Compile>
     <Page Include="Menu\Menu_KouveePetShop.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Produk\Produk_KouveePetShop_Create.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
