@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="Layanan" Height="450" Width="800">
     <Grid RenderTransformOrigin="0.679,0.635">
+        <Image Source="/KouveePetShop_Desktop;component/AW419642_03.gif" HorizontalAlignment="Left" Height="43" Margin="735,0,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.614,0.174"/>
+        <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
         <GroupBox Header="Data Layanan" HorizontalAlignment="Left" Height="194" Margin="10,66,0,0" VerticalAlignment="Top" Width="273"/>
-        <Label Content="Kouvee Pet Shop" HorizontalAlignment="Left" Margin="98,35,0,0" VerticalAlignment="Top"/>
         <Label Content="ID Layanan" HorizontalAlignment="Left" Margin="26,93,0,0" VerticalAlignment="Top"/>
         <Label Content="Nama Layanan" HorizontalAlignment="Left" Margin="26,124,0,0" VerticalAlignment="Top"/>
         <Label Content="Harga Layanan" HorizontalAlignment="Left" Margin="26,155,0,0" VerticalAlignment="Top"/>
@@ -26,12 +27,11 @@
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="144" Margin="10,265,0,0" VerticalAlignment="Top" Width="273"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="53,285,0,0" VerticalAlignment="Top" Width="76" Click="Tambah_Click" Height="45"/>
         <GroupBox Header="Pencarian Data Layanan" HorizontalAlignment="Left" Height="78" Margin="310,66,0,0" VerticalAlignment="Top" Width="457"/>
-        <Image Margin="0,-12,694,353" Source="/KouveePetShop_Desktop;component/AW419642_03.gif" Stretch="Fill"/>
         <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="329,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="673,97,0,0" VerticalAlignment="Top" Width="76"  Click="Cari_Click"/>
-        <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="169,348,0,0" VerticalAlignment="Top" Width="76" Click="Batal_Click" Height="50"/>
-        <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="169,285,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="45"/>
-        <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="53,348,0,0" VerticalAlignment="Top" Width="76" Click="Ubah_Click" Height="50"/>
-        <Button Name="menuUtamaBtn" Content="Menu Utama" HorizontalAlignment="Left" Margin="692,20,0,0" VerticalAlignment="Top" Width="76"  Click="MenuUtama_Click"/>
+        <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="175,285,0,0" VerticalAlignment="Top" Width="76" Click="Batal_Click" Height="50"/>
+        <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="175,347,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="45"/>
+        <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="53,347,0,0" VerticalAlignment="Top" Width="76" Click="Ubah_Click" Height="50"/>
+        <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="451,10,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

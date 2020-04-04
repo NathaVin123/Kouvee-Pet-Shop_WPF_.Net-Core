@@ -32,7 +32,7 @@
         <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="180,320,0,0" VerticalAlignment="Top" Width="90" Height="30" Background="#FFDDDDDD" BorderBrush="{x:Null}"/>
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="180,360,0,0" VerticalAlignment="Top" Width="90" Height="30" Background="#FFDDDDDD" BorderBrush="{x:Null}"/>
 
-        <GroupBox Header="Cari Data Produk" HorizontalAlignment="Left" Height="52" Margin="307,44,0,0" VerticalAlignment="Top" Width="475"/>
+        <GroupBox Header="Pencarian Data Produk" HorizontalAlignment="Left" Height="52" Margin="307,44,0,0" VerticalAlignment="Top" Width="475"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="317,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,63,0,0" VerticalAlignment="Top" Width="80" Height="25" BorderBrush="{x:Null}"/>
         <GroupBox Header="Tampil Data Produk" HorizontalAlignment="Left" Height="307" Margin="307,102,0,0" VerticalAlignment="Top" Width="475">
