@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Menu"
         mc:Ignorable="d"
-        Title="Menu_KouveePetShop" Height="450" Width="800">
+        Title="Kouvee Pet Shop Menu" Height="450" Width="800">
     <Grid>
         <Button Content="HEWAN" HorizontalAlignment="Left" Margin="252,134,0,0" VerticalAlignment="Top" Width="75" Height="57" Click="Hewan_Click"/>
         <Button Content="COSTUMER" HorizontalAlignment="Left" Margin="492,134,0,0" VerticalAlignment="Top" Width="75" Height="57" Click="Costumer_Click"/>
@@ -16,6 +16,7 @@
         <Button Content="PRODUK" HorizontalAlignment="Left" Margin="637,202,0,0" VerticalAlignment="Top" Width="86" Height="60" Click="Produk_Click"/>
         <Button Content="JENIS HEWAN" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Width="81" Height="60" Click="JenisHewan_Click"/>
         <Image Margin="19,10,675,331" Source="/KouveePetShop_Desktop;component/AW419642_03.gif" Stretch="Fill"/>
+        <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,75,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
