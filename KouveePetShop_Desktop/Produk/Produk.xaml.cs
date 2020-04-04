@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using MySql.Data.MySqlClient;
+using Microsoft.Win32;
 
 namespace KouveePetShop_Desktop.Produk
 {
@@ -29,6 +32,19 @@ namespace KouveePetShop_Desktop.Produk
             var Menu = new Menu.Menu_KouveePetShop();
             Menu.Show();
             this.Close();
+        }
+
+        private void GambarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Multiselect = false;
+            opf.Filter = "Choose Image(*.JPG;*.PNG;*.GIF)|*.jpg;*.png;*.gif";
+            Nullable<bool> dialogOK = opf.ShowDialog();
+
+            if(dialogOK == true)
+            {
+                UploadImage = Image.
+            }
         }
     }
 }
