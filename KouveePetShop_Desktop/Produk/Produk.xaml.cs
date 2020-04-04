@@ -23,5 +23,12 @@ namespace KouveePetShop_Desktop.Produk
         {
             InitializeComponent();
         }
+
+        private void MenuUtama_Click(object sender, RoutedEventArgs e)
+        {
+            var Menu = new Menu.Menu_KouveePetShop();
+            Menu.Show();
+            this.Close();
+        }
     }
 }

@@ -32,5 +32,6 @@
         <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="169,348,0,0" VerticalAlignment="Top" Width="76" Click="Batal_Click" Height="50"/>
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="169,285,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="45"/>
         <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="53,348,0,0" VerticalAlignment="Top" Width="76" Click="Ubah_Click" Height="50"/>
+        <Button Name="menuUtamaBtn" Content="Menu Utama" HorizontalAlignment="Left" Margin="692,20,0,0" VerticalAlignment="Top" Width="76"  Click="MenuUtama_Click"/>
     </Grid>
 </Window>

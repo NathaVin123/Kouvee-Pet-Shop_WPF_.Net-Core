@@ -183,5 +183,12 @@ namespace KouveePetShop_Desktop.Layanan
             adapter.Fill(dt);
             layananDT.ItemsSource = dt.AsDataView();
         }
+
+        private void MenuUtama_Click(object sender, RoutedEventArgs e)
+        {
+            var Menu = new Menu.Menu_KouveePetShop();
+            Menu.Show();
+            this.Close();
+        }
     }
 }
