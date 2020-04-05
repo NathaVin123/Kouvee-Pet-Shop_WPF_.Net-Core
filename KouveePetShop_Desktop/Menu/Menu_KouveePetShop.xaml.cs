@@ -65,5 +65,12 @@ namespace KouveePetShop_Desktop.Menu
             JenisHewan.Show();
             this.Close();
         }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            var Logout = new Login_KouveePetShop();
+            Logout.Show();
+            this.Close();
+        }
     }
 }
