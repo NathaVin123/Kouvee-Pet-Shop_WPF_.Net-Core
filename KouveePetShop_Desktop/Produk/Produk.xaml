@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Produk"
         mc:Ignorable="d"
-        Title="Produk" Height="632.167" Width="800">
+        xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+        Title="Produk" Height="633" Width="800">
     <Grid>
-        <Image Source="/KouveePetShop_Desktop;component/AW419642_03.gif" HorizontalAlignment="Left" Height="43" Margin="735,0,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.614,0.174"/>
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="700,0,9,550"/>
         <GroupBox Header="Data Produk" HorizontalAlignment="Left" Height="314" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
         <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
         <Label Content="ID Produk" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top"/>
