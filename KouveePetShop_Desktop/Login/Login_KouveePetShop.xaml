@@ -10,7 +10,7 @@
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
         <StackPanel Margin="10">
             <Label Content="Kouvee Petshop" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
-            <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_03.gif" Height="58" Width="75"/>
+            <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Height="58" Margin="66,0"/>
             <Label Content="Silakan Login" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
             <Separator></Separator>
             <Label Content="Username" Foreground="White"/>
