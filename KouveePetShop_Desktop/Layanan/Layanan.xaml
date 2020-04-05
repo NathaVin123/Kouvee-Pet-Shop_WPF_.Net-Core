@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Layanan"
         mc:Ignorable="d"
-        Title="Layanan" Height="605" Width="800">
+        Title="Layanan" Height="767.5" Width="800">
     <Grid RenderTransformOrigin="0.679,0.635">
         <Grid.OpacityMask>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -16,30 +16,32 @@
         <Image Source="/KouveePetShop_Desktop;component/AW419642_03.gif" HorizontalAlignment="Left" Height="43" Margin="735,0,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.614,0.174"/>
         <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
         <GroupBox Header="Data Layanan" HorizontalAlignment="Left" Height="194" Margin="10,66,0,0" VerticalAlignment="Top" Width="273"/>
-        <Label Content="ID Layanan" HorizontalAlignment="Left" Margin="26,93,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nama Layanan" HorizontalAlignment="Left" Margin="26,124,0,0" VerticalAlignment="Top"/>
-        <Label Content="Harga Layanan" HorizontalAlignment="Left" Margin="26,155,0,0" VerticalAlignment="Top"/>
-        <Label Content="ID Ukuran Hewan" HorizontalAlignment="Left" Margin="26,186,0,0" VerticalAlignment="Top"/>
-        <Label Content="NIP" HorizontalAlignment="Left" Margin="26,217,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="idlayananTxt" HorizontalAlignment="Left" Height="23" Margin="141,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="namalayananTxt" HorizontalAlignment="Left" Height="23" Margin="141,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="hargalayananTxt" HorizontalAlignment="Left" Height="23" Margin="141,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="idukuranhewanTxt" HorizontalAlignment="Left" Height="23" Margin="141,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="141,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="ID Layanan" HorizontalAlignment="Left" Margin="26,102,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nama Layanan" HorizontalAlignment="Left" Margin="26,132,0,0" VerticalAlignment="Top"/>
+        <Label Content="Harga Layanan" HorizontalAlignment="Left" Margin="26,164,0,0" VerticalAlignment="Top"/>
+        <Label Content="ID Ukuran Hewan" HorizontalAlignment="Left" Margin="25,195,0,0" VerticalAlignment="Top"/>
+        <Label Content="NIP" HorizontalAlignment="Left" Margin="26,226,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="idlayananTxt" HorizontalAlignment="Left" Height="23" Margin="141,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="namalayananTxt" HorizontalAlignment="Left" Height="23" Margin="141,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="hargalayananTxt" HorizontalAlignment="Left" Height="23" Margin="141,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="idukuranhewanTxt" HorizontalAlignment="Left" Height="23" Margin="141,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="141,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <GroupBox Header="Tampil Data Layanan" Margin="310,149,25,10"/>
         <Label Name="LabelCount" Content="Tidak ada data layanan yang ditampilkan." HorizontalAlignment="Left" Margin="430,265,0,0" VerticalAlignment="Top"/>
-        <DataGrid IsReadOnly="true" AutoGenerateColumns="True" x:Name="layananDT" HorizontalAlignment="Left" Height="374" Margin="329,174,0,0" VerticalAlignment="Top" Width="420"/>
+        <DataGrid IsReadOnly="true" AutoGenerateColumns="True" x:Name="layananDT" HorizontalAlignment="Left" Height="353" Margin="329,195,0,0" VerticalAlignment="Top" Width="420"/>
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="144" Margin="10,265,0,0" VerticalAlignment="Top" Width="273"/>
-        <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="53,285,0,0" VerticalAlignment="Top" Width="76" Click="Tambah_Click" Height="45" BorderBrush="White"/>
+        <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="43,304,0,0" VerticalAlignment="Top" Width="83" Click="Tambah_Click" Height="38" BorderBrush="White"/>
         <GroupBox Header="Pencarian Data Layanan" HorizontalAlignment="Left" Height="78" Margin="310,66,0,0" VerticalAlignment="Top" Width="457"/>
-        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="329,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="673,97,0,0" VerticalAlignment="Top" Width="76"  Click="Cari_Click" BorderBrush="White"/>
-        <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="175,285,0,0" VerticalAlignment="Top" Width="76" Click="Batal_Click" Height="50" BorderBrush="White"/>
-        <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="175,347,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="45" BorderBrush="White"/>
-        <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="53,347,0,0" VerticalAlignment="Top" Width="76" Click="Ubah_Click" Height="50" BorderBrush="White"/>
-        <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="451,10,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="25,439,0,0" Width="236" Height="109" VerticalAlignment="Top"/>
+        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="329,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
+        <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="673,105,0,0" VerticalAlignment="Top" Width="76"  Click="Cari_Click" BorderBrush="White"/>
+        <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="166,304,0,0" VerticalAlignment="Top" Width="86" Click="Batal_Click" Height="38" BorderBrush="White"/>
+        <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="166,355,0,0" VerticalAlignment="Top" Width="86" Click="Hapus_Click" Height="37" BorderBrush="White"/>
+        <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="43,355,0,0" VerticalAlignment="Top" Width="83" Click="Ubah_Click" Height="37" BorderBrush="White"/>
+        <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
+        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="25,459,0,0" Width="242" Height="89" VerticalAlignment="Top"/>
         <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="149" Margin="10,415,0,0" VerticalAlignment="Top" Width="273"/>
+        <GroupBox Header="Daftar Ukuran Hewan" HorizontalAlignment="Left" Height="149" Margin="10,578,0,0" VerticalAlignment="Top" Width="273"/>
+        <DataGrid Name="uhDT" HorizontalAlignment="Left" Height="103" Margin="25,616,0,0" VerticalAlignment="Top" Width="242"/>
     </Grid>
 </Window>

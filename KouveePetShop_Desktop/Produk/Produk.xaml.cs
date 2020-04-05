@@ -227,7 +227,7 @@ namespace KouveePetShop_Desktop.Produk
             string nama_produk = cariTxt.Text;
 
             cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
-            cmd.CommandText = "SELECT id_produk AS 'ID Produk', nama_produk AS 'Nama Produk', harga_produk AS 'Harga Produk', stok_produk AS 'Stok Produk', min_stok_produk AS 'Min Stok Produk', satuan_produk AS 'Satuan Produk', gambar AS 'Gambar', updateLog_by as 'NIP' FROM produks WHERE nama_produk == @nama_produk";
+            cmd.CommandText = "SELECT id_produk AS 'ID Produk', nama_produk AS 'Nama Produk', harga_produk AS 'Harga Produk', stok_produk AS 'Stok Produk', min_stok_produk AS 'Min Stok Produk', satuan_produk AS 'Satuan Produk', gambar AS 'Gambar', updateLog_by as 'NIP' FROM produks WHERE nama_produk = @nama_produk";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             dt = new DataTable();

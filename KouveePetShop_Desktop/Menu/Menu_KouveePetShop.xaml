@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Menu"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Kouvee Pet Shop Menu" Height="450" Width="800">
     <Grid>
-        <Button Content="HEWAN" HorizontalAlignment="Left" Margin="252,134,0,0" VerticalAlignment="Top" Width="75" Height="57" Click="Hewan_Click"/>
-        <Button Content="COSTUMER" HorizontalAlignment="Left" Margin="492,134,0,0" VerticalAlignment="Top" Width="75" Height="57" Click="Costumer_Click"/>
-        <Button Content="LAYANAN" HorizontalAlignment="Left" Margin="252,272,0,0" VerticalAlignment="Top" Width="75" Height="55" Click="Layanan_Click"/>
-        <Button Content="PEGAWAI" HorizontalAlignment="Left" Margin="492,272,0,0" VerticalAlignment="Top" Width="75" Height="55" Click="Pegawai_Click"/>
+        <Button Content="HEWAN" HorizontalAlignment="Left" Margin="252,134,0,0" VerticalAlignment="Top" Width="93" Height="57" Click="Hewan_Click"/>
+        <Button Content="COSTUMER" HorizontalAlignment="Left" Margin="478,134,0,0" VerticalAlignment="Top" Width="108" Height="57" Click="Costumer_Click"/>
+        <Button Content="LAYANAN" HorizontalAlignment="Left" Margin="252,272,0,0" VerticalAlignment="Top" Width="100" Height="55" Click="Layanan_Click"/>
+        <Button Content="PEGAWAI" HorizontalAlignment="Left" Margin="478,272,0,0" VerticalAlignment="Top" Width="108" Height="55" Click="Pegawai_Click"/>
         <Label Content="KOUVEE PET SHOP" HorizontalAlignment="Left" Margin="127,36,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Button Content="PEMBAYARAN" HorizontalAlignment="Left" Margin="369,202,0,0" VerticalAlignment="Top" Width="82" Height="60" Click="Pembayaran_Click"/>
-        <Button Content="PRODUK" HorizontalAlignment="Left" Margin="637,202,0,0" VerticalAlignment="Top" Width="86" Height="60" Click="Produk_Click"/>
-        <Button Content="JENIS HEWAN" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Width="81" Height="60" Click="JenisHewan_Click"/>
+        <Button Content="PEMBAYARAN" HorizontalAlignment="Left" Margin="354,202,0,0" VerticalAlignment="Top" Width="124" Height="60" Click="Pembayaran_Click"/>
+        <Button Content="PRODUK" HorizontalAlignment="Left" Margin="588,202,0,0" VerticalAlignment="Top" Width="92" Height="60" Click="Produk_Click"/>
+        <Button Content="JENIS HEWAN" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Width="125" Height="60" Click="JenisHewan_Click"/>
         <Image Margin="19,10,675,331" Source="/KouveePetShop_Desktop;component/AW419642_03.gif" Stretch="Fill"/>
-        <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="348,66,314,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -32,6 +32,7 @@ namespace KouveePetShop_Desktop.Layanan
             conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
             BindGrid();
             BindGridPegawai();
+            BindGridUkuranHewan();
         }
 
         private void BindGrid()
@@ -81,6 +82,31 @@ namespace KouveePetShop_Desktop.Layanan
             {
                 LabelCount.Visibility = System.Windows.Visibility.Visible;
                 nipDT.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+
+        private void BindGridUkuranHewan()
+        {
+            MySqlCommand cmd = new MySqlCommand();
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT id_ukuranHewan AS 'ID Ukuran', nama_ukuranHewan AS 'Nama Ukuran' FROM ukuranhewans";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adapter.Fill(dt);
+            uhDT.ItemsSource = dt.AsDataView();
+
+            if (dt.Rows.Count > 0)
+            {
+                LabelCount.Visibility = System.Windows.Visibility.Hidden;
+                uhDT.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                LabelCount.Visibility = System.Windows.Visibility.Visible;
+                uhDT.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
