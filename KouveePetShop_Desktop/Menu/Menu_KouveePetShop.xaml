@@ -12,6 +12,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         Title="Kouvee Pet Shop Menu" Height="450" Width="800">
     <Grid>
         <Button Content="HEWAN" HorizontalAlignment="Left" Margin="252,134,0,0" VerticalAlignment="Top" Width="93" Height="57" Click="Hewan_Click"/>
@@ -22,7 +23,7 @@
         <Button Content="PEMBAYARAN" HorizontalAlignment="Left" Margin="354,202,0,0" VerticalAlignment="Top" Width="124" Height="60" Click="Pembayaran_Click"/>
         <Button Content="PRODUK" HorizontalAlignment="Left" Margin="588,202,0,0" VerticalAlignment="Top" Width="92" Height="60" Click="Produk_Click"/>
         <Button Content="JENIS HEWAN" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Width="125" Height="60" Click="JenisHewan_Click"/>
-        <Image Margin="19,10,675,331" Source="/KouveePetShop_Desktop;component/AW419642_03.gif" Stretch="Fill"/>
+        <Image Margin="19,10,675,331" gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_03.gif" Stretch="Fill"/>
         <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="348,66,314,0" VerticalAlignment="Top"/>
 
     </Grid>

@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KouveePetShop_Desktop"
         mc:Ignorable="d"
+        xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         Title="Kouvee Pet Shop Login" Height="500" Width="350">
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
         <StackPanel Margin="10">
             <Label Content="Kouvee Petshop" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
-            <Image Source="/KouveePetShop_Desktop;component/AW419642_03.gif" Height="58" Width="75"/>
+            <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_03.gif" Height="58" Width="75"/>
             <Label Content="Silakan Login" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
             <Separator></Separator>
             <Label Content="Username" Foreground="White"/>
