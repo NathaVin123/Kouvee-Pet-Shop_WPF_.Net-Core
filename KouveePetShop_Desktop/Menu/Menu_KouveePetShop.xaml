@@ -25,6 +25,6 @@
         <Button Content="JENIS HEWAN" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Width="125" Height="60" Click="JenisHewan_Click"/>
         <Image Margin="10,10,633,331" gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Stretch="Fill"/>
         <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="348,66,314,0" VerticalAlignment="Top"/>
-        <Button Content="LogOut" HorizontalAlignment="Left" Margin="673,36,0,0" VerticalAlignment="Top" Width="86" Click="Logout_Click"/>
+        <Button Content="LogOut" HorizontalAlignment="Left" Margin="673,36,0,0" VerticalAlignment="Top" Width="86" Click="Logout_Click" Background="#FF4F4F4F" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>
