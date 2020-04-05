@@ -16,21 +16,21 @@ using System.IO;
 using MySql.Data.MySqlClient;
 using Microsoft.Win32;
 
-namespace KouveePetShop_Desktop.Produk
+namespace KouveePetShop_Desktop.Pegawai
 {
     /// <summary>
-    /// Interaction logic for Produk.xaml
+    /// Interaction logic for Pegawai.xaml
     /// </summary>
-    public partial class Produk : Window
+    public partial class Pegawai : Window
     {
         MySqlConnection conn;
         DataTable dt;
-        public Produk()
+        public Pegawai()
         {
             InitializeComponent();
 
             conn = new MySqlConnection();
-            conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
+            conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;Convert Zero Datetime=true";
             BindGrid();
             BindGridPegawai();
         }
@@ -42,21 +42,21 @@ namespace KouveePetShop_Desktop.Produk
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT id_produk AS 'ID Produk', nama_produk AS 'Nama Produk', harga_produk AS 'Harga Produk', stok_produk AS 'Stok Produk', min_stok_produk AS 'Min Stok Produk', satuan_produk AS 'Satuan Produk', gambar AS 'Gambar', updateLog_by as 'NIP' FROM produks";
+            cmd.CommandText = "SELECT nip AS 'NIP', nama_pegawai AS 'Nama Pegawai', alamat_Pegawai AS 'Alamat Pegawai', tglLahir_pegawai AS 'Tanggal Lahir', noTelp_pegawai AS 'Nomor Telepon', stat AS 'Stat', password AS 'Password', gambar as 'Gambar', updateLog_by AS 'Update Log By' FROM pegawais";
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             dt = new DataTable();
             adapter.Fill(dt);
-            produkDT.ItemsSource = dt.AsDataView();
+            pegawaiDT.ItemsSource = dt.AsDataView();
 
             if (dt.Rows.Count > 0)
             {
                 LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                produkDT.Visibility = System.Windows.Visibility.Visible;
+                pegawaiDT.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
                 LabelCount.Visibility = System.Windows.Visibility.Visible;
-                produkDT.Visibility = System.Windows.Visibility.Hidden;
+                pegawaiDT.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
@@ -87,15 +87,16 @@ namespace KouveePetShop_Desktop.Produk
 
         private void ClearAll()
         {
-            idprodukTxt.Text = "";
-            namaprodukTxt.Text = "";
-            hargaprodukTxt.Text = "";
-            stokprodukTxt.Text = "";
-            minimalstokTxt.Text = "";
-            satuanprodukTxt.Text = "";
+            nipTxt.Text = "";
+            namapegawaiTxt.Text = "";
+            alamatpegawaiTxt.Text = "";
+            tanggallahirTxt.Text = "";
+            notelpTxt.Text = "";
+            statTxt.Text = "";
+            passwordTxt.Text = "";
             updatelogbyTxt.Text = "";
             tambahBtn.Content = "Tambah";
-            idprodukTxt.IsEnabled = true;
+            nipTxt.IsEnabled = true;
         }
 
 
@@ -118,46 +119,49 @@ namespace KouveePetShop_Desktop.Produk
             BinaryReader br = new BinaryReader(fs);
             gambarBT = br.ReadBytes((int)fs.Length);
 
-            string id_produk = idprodukTxt.Text;
-            string nama_produk = namaprodukTxt.Text;
-            string harga_produk = hargaprodukTxt.Text;
-            string stok_produk = stokprodukTxt.Text;
-            string min_stok_produk = minimalstokTxt.Text;
-            string satuan_produk = satuanprodukTxt.Text;
+            string nip = nipTxt.Text;
+            string nama_pegawai = namapegawaiTxt.Text;
+            string alamat_pegawai = alamatpegawaiTxt.Text;
+            string tglLahir_pegawai = tanggallahirTxt.Text;
+            string noTelp_pegawai = notelpTxt.Text;
+            string stat = statTxt.Text;
+            string password = passwordTxt.Text;
             string updateLog_by = updatelogbyTxt.Text;
 
-            if (idprodukTxt.Text != "" && namaprodukTxt.Text != "" && hargaprodukTxt.Text != "" && stokprodukTxt.Text != "" && minimalstokTxt.Text != "" && satuanprodukTxt.Text != "" && updatelogbyTxt.Text != "")
+            if (nipTxt.Text != "" && namapegawaiTxt.Text != "" && alamatpegawaiTxt.Text != "" && tanggallahirTxt.Text != "" && notelpTxt.Text != "" && statTxt.Text != "" && passwordTxt.Text != "" && updatelogbyTxt.Text != "")
             {
-                if (idprodukTxt.IsEnabled == true)
+                if (nipTxt.IsEnabled == true)
                 {
-                    cmd.CommandText = "INSERT INTO produks(id_produk,nama_produk,harga_produk,stok_produk,min_stok_produk,satuan_produk,gambar,updateLog_by) VALUES (@id_produk,@nama_produk,@harga_produk,@stok_produk,@min_stok_produk,@satuan_produk,@gambar,@updateLog_by)";
-                    cmd.Parameters.AddWithValue("@id_produk", id_produk);
-                    cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
-                    cmd.Parameters.AddWithValue("@harga_produk", harga_produk);
-                    cmd.Parameters.AddWithValue("@stok_produk", stok_produk);
-                    cmd.Parameters.AddWithValue("@min_stok_produk", min_stok_produk);
-                    cmd.Parameters.AddWithValue("@satuan_produk", satuan_produk);
+                    cmd.CommandText = "INSERT INTO pegawais(nip,nama_pegawai,alamat_pegawai,tglLahir_pegawai,noTelp_pegawai,stat,password,gambar,updateLog_by) VALUES (@nip,@nama_pegawai,@alamat_pegawai,@tglLahir_pegawai,@noTelp_pegawai,@stat,@password,@gambar,@updateLog_by)";
+                    cmd.Parameters.AddWithValue("@nip", nip);
+                    cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
+                    cmd.Parameters.AddWithValue("@alamat_pegawai", alamat_pegawai);
+                    cmd.Parameters.AddWithValue("@tglLahir_pegawai", tglLahir_pegawai);
+                    cmd.Parameters.AddWithValue("@noTelp_pegawai", noTelp_pegawai);
+                    cmd.Parameters.AddWithValue("@stat", stat);
+                    cmd.Parameters.AddWithValue("@password", password);
                     cmd.Parameters.AddWithValue("@gambar", gambarBT);
                     cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
                     cmd.ExecuteNonQuery();
                     BindGrid();
-                    MessageBox.Show("Data Produk berhasil ditambahkan");
+                    MessageBox.Show("Data Pegawai berhasil ditambahkan");
                     ClearAll();
                 }
                 else
                 {
-                    cmd.CommandText = "UPDATE produks set id_produk = @id_produk, nama_produk = @nama_produk, harga_produk = @harga_produk, stok_produk = @stok_produk, min_stok_produk = @min_stok_produk, satuan_produk = @satuan_produk, gambar = @gambar, updateLog_By = @updateLog_by WHERE id_produk = @id_produk";
-                    cmd.Parameters.AddWithValue("@id_produk", id_produk);
-                    cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
-                    cmd.Parameters.AddWithValue("@harga_produk", harga_produk);
-                    cmd.Parameters.AddWithValue("@stok_produk", stok_produk);
-                    cmd.Parameters.AddWithValue("@min_stok_produk", min_stok_produk);
-                    cmd.Parameters.AddWithValue("@satuan_produk", satuan_produk);
+                    cmd.CommandText = "UPDATE pegawais set nip = @nip, nama_pegawai = @nama_pegawai, tglLahir_pegawai = @tglLahir_pegawai, noTelp_pegawai = @noTelp_pegawai, stat = @stat, password = @password, gambar = @gambar, updateLog_By = @updateLog_by WHERE nip = @nip";
+                    cmd.Parameters.AddWithValue("@nip", nip);
+                    cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
+                    cmd.Parameters.AddWithValue("@alamat_pegawai", alamat_pegawai);
+                    cmd.Parameters.AddWithValue("@tglLahir_pegawai", tglLahir_pegawai);
+                    cmd.Parameters.AddWithValue("@noTelp_pegawai", noTelp_pegawai);
+                    cmd.Parameters.AddWithValue("@stat", stat);
+                    cmd.Parameters.AddWithValue("@password", password);
                     cmd.Parameters.AddWithValue("@gambar", gambarBT);
                     cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
                     cmd.ExecuteNonQuery();
                     BindGrid();
-                    MessageBox.Show("Data Produk berhasil di ubah");
+                    MessageBox.Show("Data Pegawai berhasil diubah");
                     ClearAll();
                 }
             }
@@ -169,22 +173,23 @@ namespace KouveePetShop_Desktop.Produk
 
         private void Ubah_Click(object sender, RoutedEventArgs e)
         {
-            if (produkDT.SelectedItems.Count > 0)
+            if (pegawaiDT.SelectedItems.Count > 0)
             {
-                DataRowView row = (DataRowView)produkDT.SelectedItems[0];
-                idprodukTxt.Text = row["ID Produk"].ToString();
-                namaprodukTxt.Text = row["Nama Produk"].ToString();
-                hargaprodukTxt.Text = row["Harga Produk"].ToString();
-                stokprodukTxt.Text = row["Stok Produk"].ToString();
-                minimalstokTxt.Text = row["Min Stok Produk"].ToString();
-                satuanprodukTxt.Text = row["Satuan Produk"].ToString();
-                updatelogbyTxt.Text = row["NIP"].ToString();
-                idprodukTxt.IsEnabled = false;
+                DataRowView row = (DataRowView)pegawaiDT.SelectedItems[0];
+                nipTxt.Text = row["NIP"].ToString();
+                namapegawaiTxt.Text = row["Nama Pegawai"].ToString();
+                alamatpegawaiTxt.Text = row["Alamat Pegawai"].ToString();
+                tanggallahirTxt.Text = row["Tanggal Lahir"].ToString();
+                notelpTxt.Text = row["Nomor Telepon"].ToString();
+                statTxt.Text = row["Stat"].ToString();
+                passwordTxt.Text = row["Password"].ToString();
+                updatelogbyTxt.Text = row["Update Log By"].ToString();
+                nipTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
             else
             {
-                MessageBox.Show("Tolong pilih data produk yang mau diubah");
+                MessageBox.Show("Tolong pilih data pegawai yang mau diubah");
             }
         }
 
@@ -195,24 +200,24 @@ namespace KouveePetShop_Desktop.Produk
 
         private void Hapus_Click(object sender, RoutedEventArgs e)
         {
-            if (produkDT.SelectedItems.Count > 0)
+            if (pegawaiDT.SelectedItems.Count > 0)
             {
-                DataRowView row = (DataRowView)produkDT.SelectedItems[0];
+                DataRowView row = (DataRowView)pegawaiDT.SelectedItems[0];
 
                 MySqlCommand cmd = new MySqlCommand();
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
                 cmd.Connection = conn;
-                cmd.CommandText = "DELETE FROM produks where id_produk =" + row["ID Produk"].ToString();
+                cmd.CommandText = "DELETE FROM pegawais where nip =" + row["NIP"].ToString();
                 cmd.ExecuteNonQuery();
                 BindGrid();
-                MessageBox.Show("Data Produk berhasil di hapus");
+                MessageBox.Show("Data pegawai berhasil di hapus");
                 ClearAll();
 
             }
             else
             {
-                MessageBox.Show("Tolong pilih data produk yang ingin dihapus");
+                MessageBox.Show("Tolong pilih data pegawai yang ingin dihapus");
             }
         }
 
@@ -224,15 +229,15 @@ namespace KouveePetShop_Desktop.Produk
                 conn.Open();
             cmd.Connection = conn;
 
-            string nama_produk = cariTxt.Text;
+            string nama_pegawai = cariTxt.Text;
 
-            cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
-            cmd.CommandText = "SELECT id_produk AS 'ID Produk', nama_produk AS 'Nama Produk', harga_produk AS 'Harga Produk', stok_produk AS 'Stok Produk', min_stok_produk AS 'Min Stok Produk', satuan_produk AS 'Satuan Produk', gambar AS 'Gambar', updateLog_by as 'NIP' FROM produks WHERE nama_produk = @nama_produk";
+            cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
+            cmd.CommandText = "SELECT nip AS 'NIP', nama_pegawai AS 'Nama Pegawai', alamat_Pegawai AS 'Alamat Pegawai', tglLahir_pegawai AS 'Tanggal Lahir', noTelp_pegawai AS 'Nomor Telepon', stat AS 'Stat', password AS 'Password', gambar as 'Gambar', updateLog_by AS 'Update Log By' FROM pegawais WHERE nip";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             dt = new DataTable();
             adapter.Fill(dt);
-            produkDT.ItemsSource = dt.AsDataView();
+            pegawaiDT.ItemsSource = dt.AsDataView();
         }
 
         private void GambarBtn_Click(object sender, RoutedEventArgs e)

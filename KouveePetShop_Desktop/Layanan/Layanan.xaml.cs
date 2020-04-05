@@ -181,7 +181,7 @@ namespace KouveePetShop_Desktop.Layanan
                 idukuranhewanTxt.Text = row["ID Ukuran Hewan"].ToString();
                 updatelogbyTxt.Text = row["NIP"].ToString();
                 idlayananTxt.IsEnabled = false;
-                tambahBtn.Content = "Update Data";
+                tambahBtn.Content = "Update";
             }
             else
             {

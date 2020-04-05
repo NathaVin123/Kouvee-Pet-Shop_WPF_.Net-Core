@@ -49,7 +49,9 @@ namespace KouveePetShop_Desktop.Menu
 
         private void Pegawai_Click(object sender, RoutedEventArgs e)
         {
-
+            var Pegawai = new Pegawai.Pegawai();
+            Pegawai.Show();
+            this.Close();
         }
 
         private void Produk_Click(object sender, RoutedEventArgs e)

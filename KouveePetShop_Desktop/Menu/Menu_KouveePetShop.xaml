@@ -15,16 +15,16 @@
         xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         Title="Kouvee Pet Shop Menu" Height="450" Width="800">
     <Grid>
-        <Button Content="HEWAN" HorizontalAlignment="Left" Margin="252,134,0,0" VerticalAlignment="Top" Width="93" Height="57" Click="Hewan_Click"/>
+        <Button Content="HEWAN" HorizontalAlignment="Left" Margin="478,272,0,0" VerticalAlignment="Top" Width="108" Height="57" Click="Hewan_Click"/>
         <Button Content="COSTUMER" HorizontalAlignment="Left" Margin="478,134,0,0" VerticalAlignment="Top" Width="108" Height="57" Click="Costumer_Click"/>
         <Button Content="LAYANAN" HorizontalAlignment="Left" Margin="252,272,0,0" VerticalAlignment="Top" Width="100" Height="55" Click="Layanan_Click"/>
-        <Button Content="PEGAWAI" HorizontalAlignment="Left" Margin="478,272,0,0" VerticalAlignment="Top" Width="108" Height="55" Click="Pegawai_Click"/>
+        <Button Content="PEGAWAI" HorizontalAlignment="Left" Margin="252,135,0,0" VerticalAlignment="Top" Width="108" Height="55" Click="Pegawai_Click"/>
         <Label Content="KOUVEE PET SHOP" HorizontalAlignment="Left" Margin="127,36,0,0" VerticalAlignment="Top" FontSize="22"/>
         <Button Content="PEMBAYARAN" HorizontalAlignment="Left" Margin="354,202,0,0" VerticalAlignment="Top" Width="124" Height="60" Click="Pembayaran_Click"/>
         <Button Content="PRODUK" HorizontalAlignment="Left" Margin="588,202,0,0" VerticalAlignment="Top" Width="92" Height="60" Click="Produk_Click"/>
         <Button Content="JENIS HEWAN" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Width="125" Height="60" Click="JenisHewan_Click"/>
         <Image Margin="10,10,633,331" gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Stretch="Fill"/>
         <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="348,66,314,0" VerticalAlignment="Top"/>
-        <Button Content="LogOut" HorizontalAlignment="Left" Margin="673,36,0,0" VerticalAlignment="Top" Width="86" Click="Logout_Click" Background="#FF4F4F4F" BorderBrush="{x:Null}"/>
+        <Button Content="Log Out" HorizontalAlignment="Left" Margin="673,36,0,0" VerticalAlignment="Top" Width="86" Click="Logout_Click" Background="#FF4F4F4F" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

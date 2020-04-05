@@ -144,7 +144,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 namajenishewanTxt.Text = row["Nama Jenis Hewan"].ToString();
                 updatelogbyTxt.Text = row["NIP"].ToString();
                 idjenishewanTxt.IsEnabled = false;
-                tambahBtn.Content = "Update Data";
+                tambahBtn.Content = "Update";
             }
             else
             {
