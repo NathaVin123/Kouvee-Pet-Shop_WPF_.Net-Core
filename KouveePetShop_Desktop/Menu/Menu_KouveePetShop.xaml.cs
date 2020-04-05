@@ -22,6 +22,7 @@ namespace KouveePetShop_Desktop.Menu
         public Menu_KouveePetShop()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Hewan_Click(object sender, RoutedEventArgs e)

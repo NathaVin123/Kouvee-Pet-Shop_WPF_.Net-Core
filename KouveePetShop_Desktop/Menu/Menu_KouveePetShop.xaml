@@ -26,5 +26,7 @@
         <Image Margin="10,10,633,331" gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Stretch="Fill"/>
         <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="348,66,314,0" VerticalAlignment="Top"/>
         <Button Content="Log Out" HorizontalAlignment="Left" Margin="673,36,0,0" VerticalAlignment="Top" Width="86" Click="Logout_Click" Background="#FF4F4F4F" BorderBrush="{x:Null}"/>
+        <Button Content="UKURAN HEWAN" HorizontalAlignment="Left" Margin="101,327,0,0" VerticalAlignment="Top" Width="146" Height="60"/>
+        <Button Content="SUPPLIER" HorizontalAlignment="Left" Margin="597,339,0,0" VerticalAlignment="Top" Width="104" Height="60"/>
     </Grid>
 </Window>

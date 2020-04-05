@@ -22,6 +22,7 @@ namespace KouveePetShop_Desktop
         public Login_KouveePetShop()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)

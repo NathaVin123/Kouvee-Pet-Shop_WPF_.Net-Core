@@ -28,6 +28,7 @@ namespace KouveePetShop_Desktop.Produk
         public Produk()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             conn = new MySqlConnection();
             conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
@@ -163,7 +164,7 @@ namespace KouveePetShop_Desktop.Produk
             }
             else
             {
-                MessageBox.Show("ID Produk harap diisi");
+                MessageBox.Show("Data Produk harap dilengkapi");
             }
         }
 

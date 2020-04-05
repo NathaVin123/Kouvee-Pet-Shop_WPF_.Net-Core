@@ -27,6 +27,7 @@ namespace KouveePetShop_Desktop.Layanan
         public Layanan()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             conn = new MySqlConnection();
             conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
@@ -134,7 +135,7 @@ namespace KouveePetShop_Desktop.Layanan
             string id_ukuranHewan = idukuranhewanTxt.Text;
             string updateLog_by = updatelogbyTxt.Text;
 
-            if (idlayananTxt.Text != "")
+            if (idlayananTxt.Text != "" && namalayananTxt.Text != "" && hargalayananTxt.Text != "" && idukuranhewanTxt.Text != "" && updatelogbyTxt.Text != "")
             {
                 if (idlayananTxt.IsEnabled == true)
                 {

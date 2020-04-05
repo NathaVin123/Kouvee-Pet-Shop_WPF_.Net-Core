@@ -26,6 +26,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
         public Jenis_Hewan()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             conn = new MySqlConnection();
             conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";

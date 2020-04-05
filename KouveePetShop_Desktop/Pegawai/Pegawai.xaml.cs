@@ -28,9 +28,10 @@ namespace KouveePetShop_Desktop.Pegawai
         public Pegawai()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             conn = new MySqlConnection();
-            conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;Convert Zero Datetime=true";
+            conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;Convert Zero Datetime=True";
             BindGrid();
             BindGridPegawai();
         }
@@ -167,7 +168,7 @@ namespace KouveePetShop_Desktop.Pegawai
             }
             else
             {
-                MessageBox.Show("ID Produk harap diisi");
+                MessageBox.Show("Data Pegawai mohon dilengkapi");
             }
         }
 
