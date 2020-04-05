@@ -232,7 +232,7 @@ namespace KouveePetShop_Desktop.Pegawai
             string nama_pegawai = cariTxt.Text;
 
             cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
-            cmd.CommandText = "SELECT nip AS 'NIP', nama_pegawai AS 'Nama Pegawai', alamat_Pegawai AS 'Alamat Pegawai', tglLahir_pegawai AS 'Tanggal Lahir', noTelp_pegawai AS 'Nomor Telepon', stat AS 'Stat', password AS 'Password', gambar as 'Gambar', updateLog_by AS 'Update Log By' FROM pegawais WHERE nip";
+            cmd.CommandText = "SELECT nip AS 'NIP', nama_pegawai AS 'Nama Pegawai', alamat_Pegawai AS 'Alamat Pegawai', tglLahir_pegawai AS 'Tanggal Lahir', noTelp_pegawai AS 'Nomor Telepon', stat AS 'Stat', password AS 'Password', gambar as 'Gambar', updateLog_by AS 'Update Log By' FROM pegawais WHERE nama_pegawai = @nama_pegawai";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             dt = new DataTable();
