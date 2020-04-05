@@ -53,7 +53,7 @@
         <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="140" Margin="10,451,0,0" VerticalAlignment="Top" Width="281"/>
         <Button x:Name="gambarBtn" Content="Pilih Gambar" HorizontalAlignment="Left" Margin="112,221,0,0" VerticalAlignment="Top" Width="122" Height="30" BorderBrush="{x:Null}" Click="GambarBtn_Click"/>
         <Image Name="UploadImage" HorizontalAlignment="Left" Height="30" Margin="244,221,0,0" VerticalAlignment="Top" Width="32"/>
-        <TextBox x:Name="GambarPath" HorizontalAlignment="Left" Height="21" Margin="118,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox x:Name="GambarPath" HorizontalAlignment="Left" Height="27" Margin="118,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <Label Content="Lokasi Gambar" HorizontalAlignment="Left" Margin="24,256,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
