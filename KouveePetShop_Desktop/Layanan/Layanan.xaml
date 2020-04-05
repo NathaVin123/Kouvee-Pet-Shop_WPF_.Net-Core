@@ -29,7 +29,7 @@
 
         <GroupBox Header="Tampil Data Layanan" Margin="310,149,25,10"/>
         <Label Name="LabelCount" Content="Tidak ada data layanan yang ditampilkan." HorizontalAlignment="Left" Margin="430,265,0,0" VerticalAlignment="Top"/>
-        <DataGrid IsReadOnly="true" AutoGenerateColumns="True" x:Name="layananDT" HorizontalAlignment="Left" Height="353" Margin="329,195,0,0" VerticalAlignment="Top" Width="420"/>
+        <DataGrid IsReadOnly="true" AutoGenerateColumns="True" x:Name="layananDT" HorizontalAlignment="Left" Height="515" Margin="329,195,0,0" VerticalAlignment="Top" Width="420"/>
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="144" Margin="10,265,0,0" VerticalAlignment="Top" Width="273"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="43,304,0,0" VerticalAlignment="Top" Width="83" Click="Tambah_Click" Height="38" BorderBrush="White"/>
         <GroupBox Header="Pencarian Data Layanan" HorizontalAlignment="Left" Height="78" Margin="310,66,0,0" VerticalAlignment="Top" Width="457"/>
