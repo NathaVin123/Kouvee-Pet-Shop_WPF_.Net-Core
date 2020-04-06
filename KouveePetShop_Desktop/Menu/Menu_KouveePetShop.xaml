@@ -17,7 +17,7 @@
 
     <StackPanel>
         <Grid Height="92">
-            <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Margin="0,0,635,0"/>
+            <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Margin="-40,0,676,0"/>
             <Label Content="KOUVEE PET SHOP" Margin="132,46,434,10" FontSize="22"/>
             <Button Content="Log Out" Margin="0,25,42,35" Click="Logout_Click" Background="#FF4F4F4F" BorderBrush="{x:Null}" Height="Auto" HorizontalAlignment="Right" Width="130"/>
         </Grid>
