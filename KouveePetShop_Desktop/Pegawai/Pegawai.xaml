@@ -26,7 +26,7 @@
         <TextBox Name="nipTxt" HorizontalAlignment="Left" Height="23" Margin="118,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="namapegawaiTxt" HorizontalAlignment="Left" Height="23" Margin="118,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="alamatpegawaiTxt" HorizontalAlignment="Left" Height="23" Margin="118,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <DatePicker Name="tanggallahirTxt" Margin="118,133,516,202" Height="25"/>
+        <DatePicker Name="tanggallahirDp" Margin="118,133,516,202" Height="25"/>
         <TextBox Name="notelpTxt" HorizontalAlignment="Left" Height="23" Margin="118,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="statTxt" HorizontalAlignment="Left" Height="23" Margin="118,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="passwordTxt" HorizontalAlignment="Left" Height="23" Margin="118,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>

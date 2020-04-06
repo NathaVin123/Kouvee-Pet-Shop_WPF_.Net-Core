@@ -13,20 +13,31 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-        Title="Kouvee Pet Shop Menu" Height="450" Width="800">
-    <Grid>
-        <Button Content="HEWAN" HorizontalAlignment="Left" Margin="478,272,0,0" VerticalAlignment="Top" Width="108" Height="57" Click="Hewan_Click"/>
-        <Button Content="COSTUMER" HorizontalAlignment="Left" Margin="478,134,0,0" VerticalAlignment="Top" Width="108" Height="57" Click="Costumer_Click"/>
-        <Button Content="LAYANAN" HorizontalAlignment="Left" Margin="252,272,0,0" VerticalAlignment="Top" Width="100" Height="55" Click="Layanan_Click"/>
-        <Button Content="PEGAWAI" HorizontalAlignment="Left" Margin="252,135,0,0" VerticalAlignment="Top" Width="108" Height="55" Click="Pegawai_Click"/>
-        <Label Content="KOUVEE PET SHOP" HorizontalAlignment="Left" Margin="127,36,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Button Content="PEMBAYARAN" HorizontalAlignment="Left" Margin="354,202,0,0" VerticalAlignment="Top" Width="124" Height="60" Click="Pembayaran_Click"/>
-        <Button Content="PRODUK" HorizontalAlignment="Left" Margin="588,202,0,0" VerticalAlignment="Top" Width="92" Height="60" Click="Produk_Click"/>
-        <Button Content="JENIS HEWAN" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Width="125" Height="60" Click="JenisHewan_Click"/>
-        <Image Margin="10,10,633,331" gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Stretch="Fill"/>
-        <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="348,66,314,0" VerticalAlignment="Top"/>
-        <Button Content="Log Out" HorizontalAlignment="Left" Margin="673,36,0,0" VerticalAlignment="Top" Width="86" Click="Logout_Click" Background="#FF4F4F4F" BorderBrush="{x:Null}"/>
-        <Button Content="UKURAN HEWAN" HorizontalAlignment="Left" Margin="101,327,0,0" VerticalAlignment="Top" Width="146" Height="60"/>
-        <Button Content="SUPPLIER" HorizontalAlignment="Left" Margin="597,339,0,0" VerticalAlignment="Top" Width="104" Height="60"/>
-    </Grid>
+        Title="Kouvee Pet Shop Menu" Height="639" Width="870.5">
+
+    <StackPanel>
+        <Grid Height="92">
+            <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Margin="0,0,635,0"/>
+            <Label Content="KOUVEE PET SHOP" Margin="132,46,434,10" FontSize="22"/>
+            <Button Content="Log Out" Margin="0,25,42,35" Click="Logout_Click" Background="#FF4F4F4F" BorderBrush="{x:Null}" Height="Auto" HorizontalAlignment="Right" Width="130"/>
+        </Grid>
+        <Label Content="Menu Utama" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+        <Grid Height="484" RenderTransformOrigin="0.5,1.009">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="231*"/>
+                <RowDefinition Height="254*"/>
+            </Grid.RowDefinitions>
+            
+            <Button Content="COSTUMER" Width="164" Height="57" Click="Costumer_Click" Margin="0,124,0,50" HorizontalAlignment="Left"/>
+            <Button Content="HEWAN" Height="57" Click="Hewan_Click" Margin="0,41,0,133" HorizontalAlignment="Right" Width="163"/>
+            <Button Content="LAYANAN" Width="164" Height="55" Click="Layanan_Click" Margin="0,209,0,220" Grid.RowSpan="2" HorizontalAlignment="Left"/>
+            <Button Content="PEGAWAI" Margin="0,42,0,0" VerticalAlignment="Top" Height="56" Click="Pegawai_Click" HorizontalAlignment="Left" Width="164"/>
+            <Button Content="PEMBAYARAN" Height="Auto" Click="Pembayaran_Click" Margin="336,174,324,250" Grid.RowSpan="2"/>
+            <Button Content="PRODUK" Margin="0,63,0,130" Height="Auto" Click="Produk_Click" Grid.Row="1" HorizontalAlignment="Right" Width="163"/>
+            <Button Content="JENIS HEWAN" Margin="0,121,0,0" VerticalAlignment="Top" Height="60" Click="JenisHewan_Click" HorizontalAlignment="Right" Width="163"/>
+            <Button Content="UKURAN HEWAN" Margin="0,209,0,215" Height="Auto" Grid.RowSpan="2" HorizontalAlignment="Right" Width="163"/>
+            <Button Content="SUPPLIER" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Width="164" Height="60" Grid.Row="1"/>
+        </Grid>
+
+    </StackPanel>
 </Window>

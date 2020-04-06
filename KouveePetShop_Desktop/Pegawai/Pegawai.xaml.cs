@@ -31,7 +31,7 @@ namespace KouveePetShop_Desktop.Pegawai
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             conn = new MySqlConnection();
-            conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;Convert Zero Datetime=True";
+            conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;Allow Zero Datetime=True";
             BindGrid();
             BindGridPegawai();
         }
@@ -91,7 +91,7 @@ namespace KouveePetShop_Desktop.Pegawai
             nipTxt.Text = "";
             namapegawaiTxt.Text = "";
             alamatpegawaiTxt.Text = "";
-            tanggallahirTxt.Text = "";
+            tanggallahirDp.Text = "";
             notelpTxt.Text = "";
             statTxt.Text = "";
             passwordTxt.Text = "";
@@ -123,13 +123,13 @@ namespace KouveePetShop_Desktop.Pegawai
             string nip = nipTxt.Text;
             string nama_pegawai = namapegawaiTxt.Text;
             string alamat_pegawai = alamatpegawaiTxt.Text;
-            string tglLahir_pegawai = tanggallahirTxt.Text;
+            string tglLahir_pegawai = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
             string noTelp_pegawai = notelpTxt.Text;
             string stat = statTxt.Text;
             string password = passwordTxt.Text;
             string updateLog_by = updatelogbyTxt.Text;
 
-            if (nipTxt.Text != "" && namapegawaiTxt.Text != "" && alamatpegawaiTxt.Text != "" && tanggallahirTxt.Text != "" && notelpTxt.Text != "" && statTxt.Text != "" && passwordTxt.Text != "" && updatelogbyTxt.Text != "")
+            if (nipTxt.Text != "" && namapegawaiTxt.Text != "" && alamatpegawaiTxt.Text != "" && tanggallahirDp.Text != "" && notelpTxt.Text != "" && statTxt.Text != "" && passwordTxt.Text != "" && updatelogbyTxt.Text != "")
             {
                 if (nipTxt.IsEnabled == true)
                 {
@@ -180,7 +180,7 @@ namespace KouveePetShop_Desktop.Pegawai
                 nipTxt.Text = row["NIP"].ToString();
                 namapegawaiTxt.Text = row["Nama Pegawai"].ToString();
                 alamatpegawaiTxt.Text = row["Alamat Pegawai"].ToString();
-                tanggallahirTxt.Text = row["Tanggal Lahir"].ToString();
+                tanggallahirDp.Text = row["Tanggal Lahir"].ToString();
                 notelpTxt.Text = row["Nomor Telepon"].ToString();
                 statTxt.Text = row["Stat"].ToString();
                 passwordTxt.Text = row["Password"].ToString();
