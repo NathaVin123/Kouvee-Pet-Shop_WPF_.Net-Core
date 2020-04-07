@@ -77,5 +77,12 @@ namespace KouveePetShop_Desktop.Menu
             Logout.Show();
             this.Close();
         }
+
+        private void Supplier_Click(object sender, RoutedEventArgs e)
+        {
+            var Supplier = new Supplier.Supplier();
+            Supplier.Show();
+            this.Close();
+        }
     }
 }

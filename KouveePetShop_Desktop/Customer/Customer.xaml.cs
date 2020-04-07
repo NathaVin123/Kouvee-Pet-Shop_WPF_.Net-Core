@@ -133,7 +133,7 @@ namespace KouveePetShop_Desktop.Customer
             }
             else
             {
-                MessageBox.Show("Mohon data Jenis Hewan harap diisi");
+                MessageBox.Show("Mohon data Customer harap diisi");
             }
         }
 
