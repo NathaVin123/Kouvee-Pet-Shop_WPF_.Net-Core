@@ -27,7 +27,9 @@ namespace KouveePetShop_Desktop.Menu
 
         private void Hewan_Click(object sender, RoutedEventArgs e)
         {
-
+            var Hewan = new Hewan.Hewan();
+            Hewan.Show();
+            this.Close();
         }
 
         private void Costumer_Click(object sender, RoutedEventArgs e)

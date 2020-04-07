@@ -10,7 +10,7 @@
     <Grid>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="307,9,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
         <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
-        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="700,0,9,550"/>
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="700,0,9,545"/>
 
         <GroupBox Header="Data Supplier" HorizontalAlignment="Left" Height="244" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
         <Label Content="ID Supplier" HorizontalAlignment="Left" Margin="15,46,0,0" VerticalAlignment="Top"/>
@@ -32,9 +32,9 @@
         <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="175,305,0,0" VerticalAlignment="Top" Width="90" Height="34" BorderBrush="{x:Null}" Click="Batal_Click" Grid.Row="1"/>
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="175,345,0,0" VerticalAlignment="Top" Width="90" Height="30" BorderBrush="{x:Null}" Click="Hapus_Click" Grid.Row="1"/>
 
-        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="24,435,0,0" Width="249" Height="116" VerticalAlignment="Top" Grid.Row="1"/>
         <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="176" Margin="11,390,0,0" VerticalAlignment="Top" Width="281" Grid.Row="1"/>
-
+        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="24,435,0,35" Width="249"/>
+        
         <GroupBox Header="Pencarian Data Supplier" HorizontalAlignment="Left" Height="80" Margin="307,44,0,0" VerticalAlignment="Top" Width="475"/>
         <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,89,0,0" VerticalAlignment="Top" Width="80" Height="29" BorderBrush="{x:Null}"/>
