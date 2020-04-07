@@ -32,7 +32,9 @@ namespace KouveePetShop_Desktop.Menu
 
         private void Costumer_Click(object sender, RoutedEventArgs e)
         {
-
+            var Customer = new Customer.Customer();
+            Customer.Show();
+            this.Close();
         }
 
         private void Pembayaran_Click(object sender, RoutedEventArgs e)

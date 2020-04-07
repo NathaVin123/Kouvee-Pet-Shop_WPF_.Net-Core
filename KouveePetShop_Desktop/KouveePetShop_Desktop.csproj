@@ -43,7 +43,7 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.0.1244, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.3.1.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -67,6 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Customer\Customer.xaml.cs">
+      <DependentUpon>Customer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Hewan\Hewan.xaml.cs">
+      <DependentUpon>Hewan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Jenis_Hewan\Jenis_Hewan.xaml.cs">
       <DependentUpon>Jenis_Hewan.xaml</DependentUpon>
     </Compile>
@@ -82,6 +88,20 @@
     <Compile Include="Menu\Menu_KouveePetShop.xaml.cs">
       <DependentUpon>Menu_KouveePetShop.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Supplier\Supplier.xaml.cs">
+      <DependentUpon>Supplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ukuran_Hewan\Ukuran_Hewan.xaml.cs">
+      <DependentUpon>Ukuran_Hewan.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Customer\Customer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Hewan\Hewan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Jenis_Hewan\Jenis_Hewan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +130,14 @@
       <DependentUpon>Login_KouveePetShop.xaml</DependentUpon>
     </Compile>
     <Page Include="Menu\Menu_KouveePetShop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Supplier\Supplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ukuran_Hewan\Ukuran_Hewan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,11 +170,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Customer\" />
-    <Folder Include="Hewan\" />
-    <Folder Include="Supplier\" />
     <Folder Include="Transaksi\" />
-    <Folder Include="Ukuran_Hewan\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AW419642_03.gif" />

@@ -43,7 +43,7 @@ namespace KouveePetShop_Desktop.Pegawai
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT nip AS 'NIP', nama_pegawai AS 'Nama Pegawai', alamat_Pegawai AS 'Alamat Pegawai', tglLahir_pegawai AS 'Tanggal Lahir', noTelp_pegawai AS 'Nomor Telepon', stat AS 'Stat', password AS 'Password', gambar as 'Gambar', updateLog_by AS 'Update Log By' FROM pegawais";
+            cmd.CommandText = "SELECT nip AS 'NIP', nama_pegawai AS 'Nama Pegawai', alamat_Pegawai AS 'Alamat Pegawai', tglLahir_pegawai AS 'Tanggal Lahir', noTelp_pegawai AS 'Nomor Telepon', stat AS 'Role', password AS 'Password', gambar AS 'Gambar', updateLog_by AS 'Update Log By' FROM pegawais";
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             dt = new DataTable();
             adapter.Fill(dt);
@@ -182,7 +182,7 @@ namespace KouveePetShop_Desktop.Pegawai
                 alamatpegawaiTxt.Text = row["Alamat Pegawai"].ToString();
                 tanggallahirDp.Text = row["Tanggal Lahir"].ToString();
                 notelpTxt.Text = row["Nomor Telepon"].ToString();
-                statTxt.Text = row["Stat"].ToString();
+                statTxt.Text = row["Role"].ToString();
                 passwordTxt.Text = row["Password"].ToString();
                 updatelogbyTxt.Text = row["Update Log By"].ToString();
                 nipTxt.IsEnabled = false;
