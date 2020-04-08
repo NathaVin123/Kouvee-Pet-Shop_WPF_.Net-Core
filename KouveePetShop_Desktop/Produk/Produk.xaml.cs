@@ -29,11 +29,18 @@ namespace KouveePetShop_Desktop.Produk
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            conn = new MySqlConnection();
-            conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
-            BindGrid();
-            BindGridPegawai();
+            try
+            {
+                conn = new MySqlConnection();
+                conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
+                BindGrid();
+                BindGridPegawai();
+            }
+            catch
+            {
+                MessageBox.Show("Tidak ada database...");
+            }
+            
         }
 
         private void BindGrid()
@@ -43,22 +50,30 @@ namespace KouveePetShop_Desktop.Produk
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT id_produk AS 'ID Produk', nama_produk AS 'Nama Produk', harga_produk AS 'Harga Produk', stok_produk AS 'Stok Produk', min_stok_produk AS 'Min Stok Produk', satuan_produk AS 'Satuan Produk', gambar AS 'Gambar', updateLog_by as 'NIP' FROM produks";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            produkDT.ItemsSource = dt.AsDataView();
+            try
+            {
+                cmd.CommandText = "SELECT id_produk AS 'ID Produk', nama_produk AS 'Nama Produk', harga_produk AS 'Harga Produk', stok_produk AS 'Stok Produk', min_stok_produk AS 'Min Stok Produk', satuan_produk AS 'Satuan Produk', gambar AS 'Gambar', updateLog_by as 'NIP' FROM produks";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                produkDT.ItemsSource = dt.AsDataView();
 
-            if (dt.Rows.Count > 0)
-            {
-                LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                produkDT.Visibility = System.Windows.Visibility.Visible;
+                if (dt.Rows.Count > 0)
+                {
+                    LabelCount.Visibility = System.Windows.Visibility.Hidden;
+                    produkDT.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    LabelCount.Visibility = System.Windows.Visibility.Visible;
+                    produkDT.Visibility = System.Windows.Visibility.Hidden;
+                }
             }
-            else
+            catch
             {
-                LabelCount.Visibility = System.Windows.Visibility.Visible;
-                produkDT.Visibility = System.Windows.Visibility.Hidden;
+                MessageBox.Show("Terjadi kesalahan dalam menampilkan data produk...");
             }
+            
         }
 
         private void BindGridPegawai()
@@ -67,23 +82,31 @@ namespace KouveePetShop_Desktop.Produk
 
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-            cmd.Connection = conn;
-            cmd.CommandText = "SELECT NIP AS 'NIP', nama_pegawai AS 'Nama Pegawai' FROM pegawais";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            nipDT.ItemsSource = dt.AsDataView();
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT NIP AS 'NIP', nama_pegawai AS 'Nama Pegawai' FROM pegawais";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                nipDT.ItemsSource = dt.AsDataView();
 
-            if (dt.Rows.Count > 0)
-            {
-                LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                nipDT.Visibility = System.Windows.Visibility.Visible;
+                if (dt.Rows.Count > 0)
+                {
+                    LabelCount.Visibility = System.Windows.Visibility.Hidden;
+                    nipDT.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    LabelCount.Visibility = System.Windows.Visibility.Visible;
+                    nipDT.Visibility = System.Windows.Visibility.Hidden;
+                }
             }
-            else
+            catch
             {
-                LabelCount.Visibility = System.Windows.Visibility.Visible;
-                nipDT.Visibility = System.Windows.Visibility.Hidden;
+                MessageBox.Show("Terjadi kesalahan dalam menampilkan data pegawai");
             }
+            
         }
 
         private void ClearAll()
@@ -98,7 +121,6 @@ namespace KouveePetShop_Desktop.Produk
             tambahBtn.Content = "Tambah";
             idprodukTxt.IsEnabled = true;
         }
-
 
         private void MenuUtama_Click(object sender, RoutedEventArgs e)
         {
@@ -131,34 +153,48 @@ namespace KouveePetShop_Desktop.Produk
             {
                 if (idprodukTxt.IsEnabled == true)
                 {
-                    cmd.CommandText = "INSERT INTO produks(id_produk,nama_produk,harga_produk,stok_produk,min_stok_produk,satuan_produk,gambar,updateLog_by) VALUES (@id_produk,@nama_produk,@harga_produk,@stok_produk,@min_stok_produk,@satuan_produk,@gambar,@updateLog_by)";
-                    cmd.Parameters.AddWithValue("@id_produk", id_produk);
-                    cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
-                    cmd.Parameters.AddWithValue("@harga_produk", harga_produk);
-                    cmd.Parameters.AddWithValue("@stok_produk", stok_produk);
-                    cmd.Parameters.AddWithValue("@min_stok_produk", min_stok_produk);
-                    cmd.Parameters.AddWithValue("@satuan_produk", satuan_produk);
-                    cmd.Parameters.AddWithValue("@gambar", gambarBT);
-                    cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                    cmd.ExecuteNonQuery();
-                    BindGrid();
-                    MessageBox.Show("Data Produk berhasil ditambahkan");
+                    try
+                    {
+                        cmd.CommandText = "INSERT INTO produks(id_produk,nama_produk,harga_produk,stok_produk,min_stok_produk,satuan_produk,gambar,updateLog_by) VALUES (@id_produk,@nama_produk,@harga_produk,@stok_produk,@min_stok_produk,@satuan_produk,@gambar,@updateLog_by)";
+                        cmd.Parameters.AddWithValue("@id_produk", id_produk);
+                        cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
+                        cmd.Parameters.AddWithValue("@harga_produk", harga_produk);
+                        cmd.Parameters.AddWithValue("@stok_produk", stok_produk);
+                        cmd.Parameters.AddWithValue("@min_stok_produk", min_stok_produk);
+                        cmd.Parameters.AddWithValue("@satuan_produk", satuan_produk);
+                        cmd.Parameters.AddWithValue("@gambar", gambarBT);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.ExecuteNonQuery();
+                        BindGrid();
+                        MessageBox.Show("Data Produk berhasil ditambahkan");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Terjadi kesalahan dalam menambahkan data produk");
+                    }
                     ClearAll();
                 }
                 else
                 {
-                    cmd.CommandText = "UPDATE produks set id_produk = @id_produk, nama_produk = @nama_produk, harga_produk = @harga_produk, stok_produk = @stok_produk, min_stok_produk = @min_stok_produk, satuan_produk = @satuan_produk, gambar = @gambar, updateLog_By = @updateLog_by WHERE id_produk = @id_produk";
-                    cmd.Parameters.AddWithValue("@id_produk", id_produk);
-                    cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
-                    cmd.Parameters.AddWithValue("@harga_produk", harga_produk);
-                    cmd.Parameters.AddWithValue("@stok_produk", stok_produk);
-                    cmd.Parameters.AddWithValue("@min_stok_produk", min_stok_produk);
-                    cmd.Parameters.AddWithValue("@satuan_produk", satuan_produk);
-                    cmd.Parameters.AddWithValue("@gambar", gambarBT);
-                    cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                    cmd.ExecuteNonQuery();
-                    BindGrid();
-                    MessageBox.Show("Data Produk berhasil di ubah");
+                    try
+                    {
+                        cmd.CommandText = "UPDATE produks set id_produk = @id_produk, nama_produk = @nama_produk, harga_produk = @harga_produk, stok_produk = @stok_produk, min_stok_produk = @min_stok_produk, satuan_produk = @satuan_produk, gambar = @gambar, updateLog_By = @updateLog_by WHERE id_produk = @id_produk";
+                        cmd.Parameters.AddWithValue("@id_produk", id_produk);
+                        cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
+                        cmd.Parameters.AddWithValue("@harga_produk", harga_produk);
+                        cmd.Parameters.AddWithValue("@stok_produk", stok_produk);
+                        cmd.Parameters.AddWithValue("@min_stok_produk", min_stok_produk);
+                        cmd.Parameters.AddWithValue("@satuan_produk", satuan_produk);
+                        cmd.Parameters.AddWithValue("@gambar", gambarBT);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.ExecuteNonQuery();
+                        BindGrid();
+                        MessageBox.Show("Data Produk berhasil di ubah");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Terjadi kesalahan dalam mengubah data produk");
+                    }
                     ClearAll();
                 }
             }
@@ -204,10 +240,17 @@ namespace KouveePetShop_Desktop.Produk
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
                 cmd.Connection = conn;
-                cmd.CommandText = "DELETE FROM produks where id_produk =" + row["ID Produk"].ToString();
-                cmd.ExecuteNonQuery();
-                BindGrid();
-                MessageBox.Show("Data Produk berhasil di hapus");
+                try
+                {
+                    cmd.CommandText = "DELETE FROM produks where id_produk =" + row["ID Produk"].ToString();
+                    cmd.ExecuteNonQuery();
+                    BindGrid();
+                    MessageBox.Show("Data Produk berhasil di hapus");
+                }
+                catch
+                {
+                    MessageBox.Show("Terjadi kesalahan dalam menghapus data produk");
+                }
                 ClearAll();
 
             }
@@ -226,14 +269,20 @@ namespace KouveePetShop_Desktop.Produk
             cmd.Connection = conn;
 
             string nama_produk = cariTxt.Text;
+            try
+            {
+                cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
+                cmd.CommandText = "SELECT id_produk AS 'ID Produk', nama_produk AS 'Nama Produk', harga_produk AS 'Harga Produk', stok_produk AS 'Stok Produk', min_stok_produk AS 'Min Stok Produk', satuan_produk AS 'Satuan Produk', gambar AS 'Gambar', updateLog_by as 'NIP' FROM produks WHERE nama_produk = @nama_produk";
 
-            cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
-            cmd.CommandText = "SELECT id_produk AS 'ID Produk', nama_produk AS 'Nama Produk', harga_produk AS 'Harga Produk', stok_produk AS 'Stok Produk', min_stok_produk AS 'Min Stok Produk', satuan_produk AS 'Satuan Produk', gambar AS 'Gambar', updateLog_by as 'NIP' FROM produks WHERE nama_produk = @nama_produk";
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            produkDT.ItemsSource = dt.AsDataView();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                produkDT.ItemsSource = dt.AsDataView();
+            }
+            catch
+            {
+                MessageBox.Show("Terjadi kesalahan dalam mencari data produk");
+            }   
         }
 
         private void GambarBtn_Click(object sender, RoutedEventArgs e)

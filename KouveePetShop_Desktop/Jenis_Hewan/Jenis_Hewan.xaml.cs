@@ -27,11 +27,18 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            conn = new MySqlConnection();
-            conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
-            BindGrid();
-            BindGridPegawai();
+            try
+            {
+                conn = new MySqlConnection();
+                conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
+                BindGrid();
+                BindGridPegawai();
+            }
+            catch
+            {
+                MessageBox.Show("Tidak ada database...");
+            }
+            
         }
 
         private void BindGrid()
@@ -41,22 +48,30 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT id_jenisHewan AS 'ID Jenis Hewan', nama_jenisHewan AS 'Nama Jenis Hewan', updateLog_by AS 'NIP' FROM jenishewans";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            jenishewanDT.ItemsSource = dt.AsDataView();
+            try
+            {
+                cmd.CommandText = "SELECT id_jenisHewan AS 'ID Jenis Hewan', nama_jenisHewan AS 'Nama Jenis Hewan', updateLog_by AS 'NIP' FROM jenishewans";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                jenishewanDT.ItemsSource = dt.AsDataView();
 
-            if (dt.Rows.Count > 0)
-            {
-                LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                jenishewanDT.Visibility = System.Windows.Visibility.Visible;
+                if (dt.Rows.Count > 0)
+                {
+                    LabelCount.Visibility = System.Windows.Visibility.Hidden;
+                    jenishewanDT.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    LabelCount.Visibility = System.Windows.Visibility.Visible;
+                    jenishewanDT.Visibility = System.Windows.Visibility.Hidden;
+                }
             }
-            else
+            catch
             {
-                LabelCount.Visibility = System.Windows.Visibility.Visible;
-                jenishewanDT.Visibility = System.Windows.Visibility.Hidden;
+                MessageBox.Show("Terjadi kesalahan dalam menampilkan data jenis hewan...");
             }
+            
         }
 
         private void BindGridPegawai()
@@ -65,22 +80,29 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
 
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-            cmd.Connection = conn;
-            cmd.CommandText = "SELECT NIP AS 'NIP', nama_pegawai AS 'Nama Pegawai' FROM pegawais";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            nipDT.ItemsSource = dt.AsDataView();
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT NIP AS 'NIP', nama_pegawai AS 'Nama Pegawai' FROM pegawais";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                nipDT.ItemsSource = dt.AsDataView();
 
-            if (dt.Rows.Count > 0)
-            {
-                LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                nipDT.Visibility = System.Windows.Visibility.Visible;
+                if (dt.Rows.Count > 0)
+                {
+                    LabelCount.Visibility = System.Windows.Visibility.Hidden;
+                    nipDT.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    LabelCount.Visibility = System.Windows.Visibility.Visible;
+                    nipDT.Visibility = System.Windows.Visibility.Hidden;
+                }
             }
-            else
+            catch
             {
-                LabelCount.Visibility = System.Windows.Visibility.Visible;
-                nipDT.Visibility = System.Windows.Visibility.Hidden;
+                MessageBox.Show("Terjadi kesalahan dalam menampilkan data pegawai");
             }
         }
 
@@ -108,24 +130,38 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             {
                 if (idjenishewanTxt.IsEnabled == true)
                 {
-                    cmd.CommandText = "INSERT INTO jenishewans(id_jenisHewan,nama_jenisHewan,updateLog_by) VALUES (@id_jenisHewan,@nama_jenisHewan,@updateLog_by)";
-                    cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
-                    cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
-                    cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                    cmd.ExecuteNonQuery();
-                    BindGrid();
-                    MessageBox.Show("Data Jenis Hewan berhasil ditambahkan");
+                    try
+                    {
+                        cmd.CommandText = "INSERT INTO jenishewans(id_jenisHewan,nama_jenisHewan,updateLog_by) VALUES (@id_jenisHewan,@nama_jenisHewan,@updateLog_by)";
+                        cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
+                        cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.ExecuteNonQuery();
+                        BindGrid();
+                        MessageBox.Show("Data Jenis Hewan berhasil ditambahkan");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Terjadi kesalahan dalam menambahkan data jenis hewan");
+                    }
                     ClearAll();
                 }
                 else
                 {
-                    cmd.CommandText = "UPDATE jenishewans set id_jenisHewan = @id_jenisHewan,nama_jenisHewan = @nama_jenisHewan,updateLog_By = @updateLog_by WHERE id_jenisHewan = @id_jenisHewan";
-                    cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
-                    cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
-                    cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                    cmd.ExecuteNonQuery();
-                    BindGrid();
-                    MessageBox.Show("Data Jenis Hewan berhasil di ubah");
+                    try
+                    {
+                        cmd.CommandText = "UPDATE jenishewans set id_jenisHewan = @id_jenisHewan,nama_jenisHewan = @nama_jenisHewan,updateLog_By = @updateLog_by WHERE id_jenisHewan = @id_jenisHewan";
+                        cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
+                        cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.ExecuteNonQuery();
+                        BindGrid();
+                        MessageBox.Show("Data Jenis Hewan berhasil di ubah");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Terjadi kesalahan dalam mengubah data jenis hewan");
+                    }
                     ClearAll();
                 }
             }
@@ -163,12 +199,18 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
                 cmd.Connection = conn;
-                cmd.CommandText = "DELETE FROM jenishewans where id_jenisHewan =" + row["ID Jenis Hewan"].ToString();
-                cmd.ExecuteNonQuery();
-                BindGrid();
-                MessageBox.Show("Data Jenis Hewan berhasil di hapus");
+                try
+                {
+                    cmd.CommandText = "DELETE FROM jenishewans where id_jenisHewan =" + row["ID Jenis Hewan"].ToString();
+                    cmd.ExecuteNonQuery();
+                    BindGrid();
+                    MessageBox.Show("Data Jenis Hewan berhasil di hapus");
+                }
+                catch
+                {
+                    MessageBox.Show("Terjadi kesalahan dalam menghapus data jenis hewan");
+                }
                 ClearAll();
-
             }
             else
             {
@@ -190,14 +232,20 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             cmd.Connection = conn;
 
             string nama_jenisHewan = cariTxt.Text;
+            try
+            {
+                cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
+                cmd.CommandText = "SELECT id_jenisHewan AS 'ID Jenis Hewan', nama_jenisHewan AS 'Nama Jenis Hewan', updateLog_by AS 'NIP' FROM jenishewans WHERE nama_jenisHewan = @nama_jenisHewan";
 
-            cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
-            cmd.CommandText = "SELECT id_jenisHewan AS 'ID Jenis Hewan', nama_jenisHewan AS 'Nama Jenis Hewan', updateLog_by AS 'NIP' FROM jenishewans WHERE nama_jenisHewan = @nama_jenisHewan";
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            jenishewanDT.ItemsSource = dt.AsDataView();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                jenishewanDT.ItemsSource = dt.AsDataView();
+            }
+            catch
+            {
+                MessageBox.Show("Terjadi kesalahan dalam mencari data jenis hewan");
+            }
         }
 
         private void MenuUtama_Click(object sender, RoutedEventArgs e)
