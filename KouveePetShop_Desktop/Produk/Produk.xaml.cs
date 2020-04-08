@@ -137,9 +137,18 @@ namespace KouveePetShop_Desktop.Produk
             cmd.Connection = conn;
 
             byte[] gambarBT = null;
+            try
+            {
+
+            
             FileStream fs = new FileStream(this.GambarPath.Text, FileMode.Open, FileAccess.Read);
             BinaryReader br = new BinaryReader(fs);
             gambarBT = br.ReadBytes((int)fs.Length);
+            }
+            catch
+            {
+                MessageBox.Show("Mohon masukan gambar terlebih dahulu");
+            }
 
             string id_produk = idprodukTxt.Text;
             string nama_produk = namaprodukTxt.Text;

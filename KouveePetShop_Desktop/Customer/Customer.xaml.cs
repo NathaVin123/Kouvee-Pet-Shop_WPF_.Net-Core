@@ -115,7 +115,10 @@ namespace KouveePetShop_Desktop.Customer
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
+            try
+            {
 
+            
             string id_customer = idcustomerTxt.Text;
             string nama_customer = namacustomerTxt.Text;
             string alamat_customer = alamatcustomerTxt.Text;
@@ -169,6 +172,11 @@ namespace KouveePetShop_Desktop.Customer
                 }
             }
             else
+            {
+                    MessageBox.Show("Mohon data Customer harap dilengkapi");
+                }
+            }
+            catch
             {
                 MessageBox.Show("Mohon data Customer harap diisi");
             }

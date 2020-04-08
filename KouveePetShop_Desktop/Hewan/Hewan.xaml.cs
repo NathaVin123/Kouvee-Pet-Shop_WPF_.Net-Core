@@ -181,63 +181,69 @@ namespace KouveePetShop_Desktop.Hewan
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-
-            string id_hewan = idhewanTxt.Text;
-            string nama_hewan = namahewanTxt.Text;
-            string tglLahir_hewan = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
-            string id_customer = idcustomerTxt.Text;
-            string id_jenisHewan = idjenishewanTxt.Text;
-            string updateLog_by = updatelogbyTxt.Text;
-
-            if (idhewanTxt.Text != "" && namahewanTxt.Text != "" && updatelogbyTxt.Text != "")
+            try
             {
-                if (idcustomerTxt.IsEnabled == true)
+                string id_hewan = idhewanTxt.Text;
+                string nama_hewan = namahewanTxt.Text;
+                string tglLahir_hewan = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
+                string id_customer = idcustomerTxt.Text;
+                string id_jenisHewan = idjenishewanTxt.Text;
+                string updateLog_by = updatelogbyTxt.Text;
+
+                if (idhewanTxt.Text != "" && namahewanTxt.Text != "" && updatelogbyTxt.Text != "")
                 {
-                    try
+                    if (idcustomerTxt.IsEnabled == true)
                     {
-                        cmd.CommandText = "INSERT INTO hewans(id_hewan,nama_hewan,tglLahir_hewan,id_customer,id_jenisHewan,updateLog_by) VALUES (@id_hewan,@nama_hewan,@tglLahir_hewan,@id_customer,@id_jenisHewan,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_hewan", id_hewan);
-                        cmd.Parameters.AddWithValue("@nama_hewan", nama_hewan);
-                        cmd.Parameters.AddWithValue("@tglLahir_hewan", tglLahir_hewan);
-                        cmd.Parameters.AddWithValue("@id_customer", id_customer);
-                        cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                        cmd.ExecuteNonQuery();
-                        BindGrid();
-                        MessageBox.Show("Data Hewan berhasil ditambahkan");
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO hewans(id_hewan,nama_hewan,tglLahir_hewan,id_customer,id_jenisHewan,updateLog_by) VALUES (@id_hewan,@nama_hewan,@tglLahir_hewan,@id_customer,@id_jenisHewan,@updateLog_by)";
+                            cmd.Parameters.AddWithValue("@id_hewan", id_hewan);
+                            cmd.Parameters.AddWithValue("@nama_hewan", nama_hewan);
+                            cmd.Parameters.AddWithValue("@tglLahir_hewan", tglLahir_hewan);
+                            cmd.Parameters.AddWithValue("@id_customer", id_customer);
+                            cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
+                            cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                            cmd.ExecuteNonQuery();
+                            BindGrid();
+                            MessageBox.Show("Data Hewan berhasil ditambahkan");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Terjadi kesalahan dalam menambahkan data hewan");
+                        }
+                        ClearAll();
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Terjadi kesalahan dalam menambahkan data hewan");
+                        try
+                        {
+                            cmd.CommandText = "UPDATE hewans set id_hewan = @id_hewan, nama_hewan = @nama_hewan, tglLahir_hewan = @tglLahir_hewan, id_customer = @id_customer, id_jenisHewan = @id_jenisHewan, updateLog_By = @updateLog_by WHERE id_hewan = @id_hewan";
+                            cmd.Parameters.AddWithValue("@id_hewan", id_hewan);
+                            cmd.Parameters.AddWithValue("@nama_hewan", nama_hewan);
+                            cmd.Parameters.AddWithValue("@tglLahir_hewan", tglLahir_hewan);
+                            cmd.Parameters.AddWithValue("@id_customer", id_customer);
+                            cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
+                            cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                            cmd.ExecuteNonQuery();
+                            BindGrid();
+                            MessageBox.Show("Data Hewan berhasil di ubah");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Terjadi kesalahan dalam mengubah data hewan");
+                        }
+                        ClearAll();
                     }
-                    ClearAll();
                 }
-                else
-                {
-                    try
-                    {
-                        cmd.CommandText = "UPDATE hewans set id_hewan = @id_hewan, nama_hewan = @nama_hewan, tglLahir_hewan = @tglLahir_hewan, id_customer = @id_customer, id_jenisHewan = @id_jenisHewan, updateLog_By = @updateLog_by WHERE id_hewan = @id_hewan";
-                        cmd.Parameters.AddWithValue("@id_hewan", id_hewan);
-                        cmd.Parameters.AddWithValue("@nama_hewan", nama_hewan);
-                        cmd.Parameters.AddWithValue("@tglLahir_hewan", tglLahir_hewan);
-                        cmd.Parameters.AddWithValue("@id_customer", id_customer);
-                        cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                        cmd.ExecuteNonQuery();
-                        BindGrid();
-                        MessageBox.Show("Data Hewan berhasil di ubah");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Terjadi kesalahan dalam mengubah data hewan");
-                    }
-                    ClearAll();
-                }
-            }
             else
             {
-                MessageBox.Show("Mohon data Hewan harap diisi");
+                MessageBox.Show("Mohon data hewan harap dilengkapi");
             }
+        }
+        catch
+        {
+                MessageBox.Show("Mohon data Hewan harap diisi");
+        }
         }
 
         private void ClearAll()

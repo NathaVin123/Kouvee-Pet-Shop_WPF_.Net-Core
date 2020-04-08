@@ -138,11 +138,23 @@ namespace KouveePetShop_Desktop.Pegawai
                 conn.Open();
             cmd.Connection = conn;
 
+            
             byte[] gambarBT = null;
-            FileStream fs = new FileStream(this.GambarPath.Text, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fs);
-            gambarBT = br.ReadBytes((int)fs.Length);
+            try
+            {
+                FileStream fs = new FileStream(this.GambarPath.Text, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                gambarBT = br.ReadBytes((int)fs.Length);
+            }
+            catch
+            {
+                MessageBox.Show("Harap masukan gambar terlebih dahulu");
+            }
 
+            try
+            {
+
+            
             string nip = nipTxt.Text;
             string nama_pegawai = namapegawaiTxt.Text;
             string alamat_pegawai = alamatpegawaiTxt.Text;
@@ -206,6 +218,11 @@ namespace KouveePetShop_Desktop.Pegawai
             else
             {
                 MessageBox.Show("Data Pegawai mohon dilengkapi");
+            }
+            }
+            catch
+            {
+                MessageBox.Show("Data Pegawai mohon diisi");
             }
         }
 

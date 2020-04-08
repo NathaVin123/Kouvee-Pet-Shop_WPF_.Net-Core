@@ -38,7 +38,7 @@
         <GroupBox Header="Daftar Customer" HorizontalAlignment="Left" Margin="10,540,0,10" Width="280"/>
         <DataGrid Name="customerDT" HorizontalAlignment="Left" Margin="28,578,0,18" Width="242"/>
 
-        <GroupBox Header="Pencarian Data Layanan" Margin="310,50,25,570"/>
+        <GroupBox Header="Pencarian Data Hewan" Margin="310,50,25,570"/>
         <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="320,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="670,85,0,0" VerticalAlignment="Top" Width="76" BorderBrush="White"/>
 
