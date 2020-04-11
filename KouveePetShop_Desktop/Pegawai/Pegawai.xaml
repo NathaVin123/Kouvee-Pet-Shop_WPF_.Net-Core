@@ -53,8 +53,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="307,9,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="24,190,0,0" Width="249" Height="116" VerticalAlignment="Top" Grid.Row="1"/>
+
         <GroupBox Header="Daftar NIP" HorizontalAlignment="Left" Height="176" Margin="11,143,0,0" VerticalAlignment="Top" Width="281" Grid.Row="1"/>
+        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="27,185,0,18" Width="249" Grid.Row="1"/>
+
         <Button x:Name="gambarBtn" Content="Pilih Gambar" HorizontalAlignment="Left" Margin="108,254,0,0" VerticalAlignment="Top" Width="122" Height="30" BorderBrush="{x:Null}" Click="GambarBtn_Click"/>
         <Image Name="UploadImage" HorizontalAlignment="Left" Height="30" Margin="244,254,0,0" VerticalAlignment="Top" Width="32"/>
         <TextBox x:Name="GambarPath" HorizontalAlignment="Left" Height="27" Margin="118,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>

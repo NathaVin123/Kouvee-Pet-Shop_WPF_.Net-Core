@@ -40,8 +40,10 @@
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="173,308,0,0" VerticalAlignment="Top" Width="86" Click="Hapus_Click" Height="37" BorderBrush="White"/>
         <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="50,308,0,0" VerticalAlignment="Top" Width="83" Click="Ubah_Click" Height="37" BorderBrush="White"/>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="310,17,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="32,421,0,0" Width="242" Height="89" VerticalAlignment="Top"/>
+        
         <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="149" Margin="17,377,0,0" VerticalAlignment="Top" Width="273"/>
+        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="32,421,0,185" Width="242"/>
+        
         <GroupBox Header="Daftar Ukuran Hewan" HorizontalAlignment="Left" Margin="17,540,0,10" Width="273"/>
         <DataGrid Name="uhDT" HorizontalAlignment="Left" Margin="32,578,0,18" Width="242"/>
     </Grid>

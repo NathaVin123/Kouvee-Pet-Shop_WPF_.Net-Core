@@ -30,8 +30,9 @@
             <Button x:Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="174,253,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="41" BorderBrush="White"/>
             <Button x:Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="52,253,0,0" VerticalAlignment="Top" Width="81" Click="Ubah_Click" Height="41" BorderBrush="White"/>
             <Button x:Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="310,17,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-            <DataGrid IsReadOnly="True" Name="nipDT" HorizontalAlignment="Left" Margin="25,363,0,0" Width="241" Height="99" VerticalAlignment="Top"/>
+            
             <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="152" Margin="9,322,0,0" VerticalAlignment="Top" Width="273"/>
+            <DataGrid IsReadOnly="True" Name="nipDT" HorizontalAlignment="Left" Margin="25,363,0,50" Width="241"/>
         </Grid>
     </Grid>
 </Window>
