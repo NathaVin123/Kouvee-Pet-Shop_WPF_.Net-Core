@@ -52,7 +52,7 @@ namespace KouveePetShop_Desktop.Pegawai
             cmd.Connection = conn;
             try
             {
-                cmd.CommandText = "SELECT nip AS 'NIP', nama_pegawai AS 'Nama Pegawai', alamat_Pegawai AS 'Alamat Pegawai', tglLahir_pegawai AS 'Tanggal Lahir', noTelp_pegawai AS 'Nomor Telepon', stat AS 'Role', password AS 'Password', gambar AS 'Gambar', updateLog_by AS 'Update Log By' FROM pegawais";
+                cmd.CommandText = "SELECT NIP AS 'NIP', nama_pegawai AS 'Nama Pegawai', alamat_Pegawai AS 'Alamat Pegawai', tglLahir_pegawai AS 'Tanggal Lahir', noTelp_pegawai AS 'Nomor Telepon', stat AS 'Role', password AS 'Password', gambar AS 'Gambar', updateLog_by AS 'Update Log By' FROM pegawais";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
@@ -154,7 +154,6 @@ namespace KouveePetShop_Desktop.Pegawai
             try
             {
 
-            
             string nip = nipTxt.Text;
             string nama_pegawai = namapegawaiTxt.Text;
             string alamat_pegawai = alamatpegawaiTxt.Text;
@@ -265,7 +264,7 @@ namespace KouveePetShop_Desktop.Pegawai
                 cmd.Connection = conn;
                 try
                 {
-                    cmd.CommandText = "DELETE FROM pegawais where nip =" + row["NIP"].ToString();
+                    cmd.CommandText = "DELETE FROM pegawais where NIP =" + row["NIP"].ToString();
                     cmd.ExecuteNonQuery();
                     BindGrid();
                     MessageBox.Show("Data pegawai berhasil di hapus");

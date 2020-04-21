@@ -86,5 +86,12 @@ namespace KouveePetShop_Desktop.Menu
             Supplier.Show();
             this.Close();
         }
+
+        private void UkuranHewan_Click(object sender, RoutedEventArgs e)
+        {
+            var UkuranHewan = new Ukuran_Hewan.Ukuran_Hewan();
+            UkuranHewan.Show();
+            this.Close();
+        }
     }
 }
