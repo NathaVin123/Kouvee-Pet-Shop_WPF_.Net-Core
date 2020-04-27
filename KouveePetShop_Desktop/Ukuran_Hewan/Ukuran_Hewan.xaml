@@ -15,9 +15,9 @@
         <Label Content="ID Ukuran" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top"/>
         <Label Content="Nama Ukuran" HorizontalAlignment="Left" Margin="20,90,0,0" VerticalAlignment="Top"/>
         <Label Content="NIP" HorizontalAlignment="Left" Margin="20,120,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="idprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <TextBox Name="namaprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <TextBox Name="hargaprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox Name="idukuranTxt" HorizontalAlignment="Left" Height="23" Margin="118,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox Name="namaukuranTxt" HorizontalAlignment="Left" Height="23" Margin="118,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="118,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
 
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="117" Margin="10,224,0,0" VerticalAlignment="Top" Width="280"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Width="90" Height="32" BorderBrush="{x:Null}" Click="Tambah_Click"/>
