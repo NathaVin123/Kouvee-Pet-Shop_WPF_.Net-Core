@@ -213,7 +213,7 @@ namespace KouveePetShop_Desktop.Customer
             noteleponTxt.Text = "";
             updatelogbyTxt.Text = "";
             tambahBtn.Content = "Tambah";
-            idcustomerTxt.IsEnabled = true;
+            idcustomerTxt.IsEnabled = false;
         }
 
         private void Batal_Click(object sender, RoutedEventArgs e)
