@@ -35,6 +35,7 @@ namespace KouveePetShop_Desktop.Customer
                 conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;Allow Zero Datetime=True";
                 BindGrid();
                 BindGridPegawai();
+                //AutoGenerate();
             }
             catch
             {
@@ -109,6 +110,28 @@ namespace KouveePetShop_Desktop.Customer
             
         }
 
+        //public void AutoGenerate()
+        //{
+        //    string num = "0123456789";
+        //    int len = num.Length;
+        //    string otp = string.Empty;
+        //    int otpdigit = 6;
+        //    string finaldigit;
+
+        //    int getIndex;
+
+        //    for(int i=0; i < otpdigit; i++)
+        //    {
+        //        do
+        //        {
+        //            getIndex = new Random().Next(0, len);
+        //            finaldigit = num.ToCharArray()[getIndex].ToString();
+        //        } while (otp.IndexOf(finaldigit) != -1);
+        //        otp += finaldigit;
+        //    }
+        //    idcustomerTxt.Text = (otp);
+        //}
+        public int id_customer_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
@@ -117,16 +140,15 @@ namespace KouveePetShop_Desktop.Customer
             cmd.Connection = conn;
             try
             {
-
-            
-            string id_customer = idcustomerTxt.Text;
+            id_customer_ai++;
+            string id_customer = id_customer_ai.ToString("CT00");
             string nama_customer = namacustomerTxt.Text;
             string alamat_customer = alamatcustomerTxt.Text;
             string tglLahir_customer = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
             string noTelp_customer = noteleponTxt.Text;
             string updateLog_by = updatelogbyTxt.Text;
             
-            if (idcustomerTxt.Text != "" && namacustomerTxt.Text != "" && updatelogbyTxt.Text != "")
+            if (/*idcustomerTxt.Text != "" && */namacustomerTxt.Text != "" && updatelogbyTxt.Text != "")
             {
                 if (idcustomerTxt.IsEnabled == true)
                 {
