@@ -33,6 +33,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
                 BindGrid();
                 BindGridPegawai();
+                FillComboBoxNIP();
             }
             catch
             {
@@ -110,23 +111,50 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
         {
             idjenishewanTxt.Text = "";
             namajenishewanTxt.Text = "";
-            updatelogbyTxt.Text = "";
+            updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
             idjenishewanTxt.IsEnabled = true;
         }
 
+        public void FillComboBoxNIP()
+        {
+            string query = "SELECT NIP FROM petshop.pegawais;";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
+            MySqlDataReader mySqlDataReader;
+
+            try
+            {
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                while (mySqlDataReader.Read())
+                {
+                    string NIP = mySqlDataReader.GetString("NIP");
+                    updatelogbyCb.Items.Add(NIP);
+                }
+                mySqlDataReader.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        public int id_jenishewan_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-
+            try
+            {
+                id_jenishewan_ai++;
             string id_jenisHewan = idjenishewanTxt.Text;
             string nama_jenisHewan = namajenishewanTxt.Text;
-            string updateLog_by = updatelogbyTxt.Text;
+            string updateLog_by = updatelogbyCb.Text;
 
-            if (idjenishewanTxt.Text != "" && namajenishewanTxt.Text != "" && updatelogbyTxt.Text != "")
+            if (/*idjenishewanTxt.Text != "" && */namajenishewanTxt.Text != "" && updatelogbyCb.Text != "")
             {
                 if (idjenishewanTxt.IsEnabled == true)
                 {
@@ -135,7 +163,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                         cmd.CommandText = "INSERT INTO jenishewans(id_jenisHewan,nama_jenisHewan,updateLog_by) VALUES (@id_jenisHewan,@nama_jenisHewan,@updateLog_by)";
                         cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
                         cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Jenis Hewan berhasil ditambahkan");
@@ -153,7 +181,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                         cmd.CommandText = "UPDATE jenishewans set id_jenisHewan = @id_jenisHewan,nama_jenisHewan = @nama_jenisHewan,updateLog_By = @updateLog_by WHERE id_jenisHewan = @id_jenisHewan";
                         cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
                         cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Jenis Hewan berhasil di ubah");
@@ -169,7 +197,11 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             {
                 MessageBox.Show("Mohon data Jenis Hewan harap diisi");
             }
-
+            }
+            catch
+            {
+                MessageBox.Show("Mohon data Jenis Hewan harap diisi");
+            }
         }
 
         private void Ubah_Click(object sender, RoutedEventArgs e)
@@ -179,7 +211,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 DataRowView row = (DataRowView)jenishewanDT.SelectedItems[0];
                 idjenishewanTxt.Text = row["ID Jenis Hewan"].ToString();
                 namajenishewanTxt.Text = row["Nama Jenis Hewan"].ToString();
-                updatelogbyTxt.Text = row["NIP"].ToString();
+                updatelogbyCb.Text = row["NIP"].ToString();
                 idjenishewanTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }

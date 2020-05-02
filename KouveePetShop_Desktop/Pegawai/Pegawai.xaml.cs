@@ -35,6 +35,7 @@ namespace KouveePetShop_Desktop.Pegawai
                 conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;Allow Zero Datetime=True";
                 BindGrid();
                 BindGridPegawai();
+                FillComboBoxNIP();
             }
             catch
             {
@@ -118,7 +119,7 @@ namespace KouveePetShop_Desktop.Pegawai
             notelpTxt.Text = "";
             statTxt.Text = "";
             passwordTxt.Text = "";
-            updatelogbyTxt.Text = "";
+            updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
             nipTxt.IsEnabled = true;
         }
@@ -131,97 +132,127 @@ namespace KouveePetShop_Desktop.Pegawai
             this.Close();
         }
 
+        public void FillComboBoxNIP()
+        {
+            string query = "SELECT NIP FROM petshop.pegawais;";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
+            MySqlDataReader mySqlDataReader;
+
+            try
+            {
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                while (mySqlDataReader.Read())
+                {
+                    string NIP = mySqlDataReader.GetString("NIP");
+                    updatelogbyCb.Items.Add(NIP);
+                }
+                mySqlDataReader.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        public int id_Pegawai_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-
-            
-            byte[] gambarBT = null;
             try
             {
-                FileStream fs = new FileStream(this.GambarPath.Text, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                gambarBT = br.ReadBytes((int)fs.Length);
+                byte[] gambarBT = null;
+                try
+                {
+                    FileStream fs = new FileStream(this.GambarPath.Text, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    gambarBT = br.ReadBytes((int)fs.Length);
+                }
+                catch
+                {
+                    MessageBox.Show("Harap masukan gambar terlebih dahulu");
+                }
+
+                try
+                {
+                    id_Pegawai_ai++;
+                    string nip = id_Pegawai_ai.ToString("PEG0000");
+                    string nama_pegawai = namapegawaiTxt.Text;
+                    string alamat_pegawai = alamatpegawaiTxt.Text;
+                    string tglLahir_pegawai = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
+                    string noTelp_pegawai = notelpTxt.Text;
+                    string stat = statTxt.Text;
+                    string password = passwordTxt.Text;
+                    string updateLog_by = updatelogbyCb.Text;
+
+                    if (/*nipTxt.Text != "" && */namapegawaiTxt.Text != "" && alamatpegawaiTxt.Text != "" && tanggallahirDp.Text != "" && notelpTxt.Text != "" && statTxt.Text != "" && passwordTxt.Text != "" && updatelogbyCb.Text != "")
+                    {
+                        if (nipTxt.IsEnabled == true)
+                        {
+                            try
+                            {
+                                cmd.CommandText = "INSERT INTO pegawais(nip,nama_pegawai,alamat_pegawai,tglLahir_pegawai,noTelp_pegawai,stat,password,gambar,updateLog_by) VALUES (@nip,@nama_pegawai,@alamat_pegawai,@tglLahir_pegawai,@noTelp_pegawai,@stat,@password,@gambar,@updateLog_by)";
+                                cmd.Parameters.AddWithValue("@nip", nip);
+                                cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
+                                cmd.Parameters.AddWithValue("@alamat_pegawai", alamat_pegawai);
+                                cmd.Parameters.AddWithValue("@tglLahir_pegawai", tglLahir_pegawai);
+                                cmd.Parameters.AddWithValue("@noTelp_pegawai", noTelp_pegawai);
+                                cmd.Parameters.AddWithValue("@stat", stat);
+                                cmd.Parameters.AddWithValue("@password", password);
+                                cmd.Parameters.AddWithValue("@gambar", gambarBT);
+                                cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                                cmd.ExecuteNonQuery();
+                                BindGrid();
+                                MessageBox.Show("Data Pegawai berhasil ditambahkan");
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Terjadi kesalahan dalam menambahkan data pegawai");
+                            }
+                            ClearAll();
+                        }
+                        else
+                        {
+                            try
+                            {
+                                cmd.CommandText = "UPDATE pegawais set nip = @nip, nama_pegawai = @nama_pegawai, tglLahir_pegawai = @tglLahir_pegawai, noTelp_pegawai = @noTelp_pegawai, stat = @stat, password = @password, gambar = @gambar, updateLog_By = @updateLog_by WHERE nip = @nip";
+                                cmd.Parameters.AddWithValue("@nip", nip);
+                                cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
+                                cmd.Parameters.AddWithValue("@alamat_pegawai", alamat_pegawai);
+                                cmd.Parameters.AddWithValue("@tglLahir_pegawai", tglLahir_pegawai);
+                                cmd.Parameters.AddWithValue("@noTelp_pegawai", noTelp_pegawai);
+                                cmd.Parameters.AddWithValue("@stat", stat);
+                                cmd.Parameters.AddWithValue("@password", password);
+                                cmd.Parameters.AddWithValue("@gambar", gambarBT);
+                                cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                                cmd.ExecuteNonQuery();
+                                BindGrid();
+                                MessageBox.Show("Data Pegawai berhasil diubah");
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Terjadi kesalahan dalam mengubah data pegawai");
+                            }
+                            ClearAll();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data Pegawai mohon dilengkapi");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Data Pegawai mohon diisi");
+                }
             }
             catch
             {
-                MessageBox.Show("Harap masukan gambar terlebih dahulu");
-            }
-
-            try
-            {
-
-            string nip = nipTxt.Text;
-            string nama_pegawai = namapegawaiTxt.Text;
-            string alamat_pegawai = alamatpegawaiTxt.Text;
-            string tglLahir_pegawai = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
-            string noTelp_pegawai = notelpTxt.Text;
-            string stat = statTxt.Text;
-            string password = passwordTxt.Text;
-            string updateLog_by = updatelogbyTxt.Text;
-
-            if (nipTxt.Text != "" && namapegawaiTxt.Text != "" && alamatpegawaiTxt.Text != "" && tanggallahirDp.Text != "" && notelpTxt.Text != "" && statTxt.Text != "" && passwordTxt.Text != "" && updatelogbyTxt.Text != "")
-            {
-                if (nipTxt.IsEnabled == true)
-                {
-                    try
-                    {
-                        cmd.CommandText = "INSERT INTO pegawais(nip,nama_pegawai,alamat_pegawai,tglLahir_pegawai,noTelp_pegawai,stat,password,gambar,updateLog_by) VALUES (@nip,@nama_pegawai,@alamat_pegawai,@tglLahir_pegawai,@noTelp_pegawai,@stat,@password,@gambar,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@nip", nip);
-                        cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
-                        cmd.Parameters.AddWithValue("@alamat_pegawai", alamat_pegawai);
-                        cmd.Parameters.AddWithValue("@tglLahir_pegawai", tglLahir_pegawai);
-                        cmd.Parameters.AddWithValue("@noTelp_pegawai", noTelp_pegawai);
-                        cmd.Parameters.AddWithValue("@stat", stat);
-                        cmd.Parameters.AddWithValue("@password", password);
-                        cmd.Parameters.AddWithValue("@gambar", gambarBT);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                        cmd.ExecuteNonQuery();
-                        BindGrid();
-                        MessageBox.Show("Data Pegawai berhasil ditambahkan");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Terjadi kesalahan dalam menambahkan data pegawai");
-                    }
-                    ClearAll();
-                }
-                else
-                {
-                    try
-                    {
-                        cmd.CommandText = "UPDATE pegawais set nip = @nip, nama_pegawai = @nama_pegawai, tglLahir_pegawai = @tglLahir_pegawai, noTelp_pegawai = @noTelp_pegawai, stat = @stat, password = @password, gambar = @gambar, updateLog_By = @updateLog_by WHERE nip = @nip";
-                        cmd.Parameters.AddWithValue("@nip", nip);
-                        cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
-                        cmd.Parameters.AddWithValue("@alamat_pegawai", alamat_pegawai);
-                        cmd.Parameters.AddWithValue("@tglLahir_pegawai", tglLahir_pegawai);
-                        cmd.Parameters.AddWithValue("@noTelp_pegawai", noTelp_pegawai);
-                        cmd.Parameters.AddWithValue("@stat", stat);
-                        cmd.Parameters.AddWithValue("@password", password);
-                        cmd.Parameters.AddWithValue("@gambar", gambarBT);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                        cmd.ExecuteNonQuery();
-                        BindGrid();
-                        MessageBox.Show("Data Pegawai berhasil diubah");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Terjadi kesalahan dalam mengubah data pegawai");
-                    }
-                    ClearAll();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Data Pegawai mohon dilengkapi");
-            }
-            }
-            catch
-            {
-                MessageBox.Show("Data Pegawai mohon diisi");
+                MessageBox.Show("Mohon data Pegawai harap diisi");
             }
         }
 
@@ -237,7 +268,7 @@ namespace KouveePetShop_Desktop.Pegawai
                 notelpTxt.Text = row["Nomor Telepon"].ToString();
                 statTxt.Text = row["Role"].ToString();
                 passwordTxt.Text = row["Password"].ToString();
-                updatelogbyTxt.Text = row["Update Log By"].ToString();
+                updatelogbyCb.Text = row["Update Log By"].ToString();
                 nipTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }

@@ -35,6 +35,7 @@ namespace KouveePetShop_Desktop.Produk
                 conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
                 BindGrid();
                 BindGridPegawai();
+                FillComboBoxNIP();
             }
             catch
             {
@@ -117,7 +118,7 @@ namespace KouveePetShop_Desktop.Produk
             stokprodukTxt.Text = "";
             minimalstokTxt.Text = "";
             satuanprodukTxt.Text = "";
-            updatelogbyTxt.Text = "";
+            updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
             idprodukTxt.IsEnabled = true;
         }
@@ -129,6 +130,31 @@ namespace KouveePetShop_Desktop.Produk
             this.Close();
         }
 
+        public void FillComboBoxNIP()
+        {
+            string query = "SELECT NIP FROM petshop.pegawais;";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
+            MySqlDataReader mySqlDataReader;
+
+            try
+            {
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                while (mySqlDataReader.Read())
+                {
+                    string NIP = mySqlDataReader.GetString("NIP");
+                    updatelogbyCb.Items.Add(NIP);
+                }
+                mySqlDataReader.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        public int id_ukuranhewan_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
@@ -150,15 +176,15 @@ namespace KouveePetShop_Desktop.Produk
                 MessageBox.Show("Mohon masukan gambar terlebih dahulu");
             }
 
-            string id_produk = idprodukTxt.Text;
+            string id_produk = id_ukuranhewan_ai.ToString("PRDK0000");
             string nama_produk = namaprodukTxt.Text;
             string harga_produk = hargaprodukTxt.Text;
             string stok_produk = stokprodukTxt.Text;
             string min_stok_produk = minimalstokTxt.Text;
             string satuan_produk = satuanprodukTxt.Text;
-            string updateLog_by = updatelogbyTxt.Text;
+            string updateLog_by = updatelogbyCb.Text;
 
-            if (idprodukTxt.Text != "" && namaprodukTxt.Text != "" && hargaprodukTxt.Text != "" && stokprodukTxt.Text != "" && minimalstokTxt.Text != "" && satuanprodukTxt.Text != "" && updatelogbyTxt.Text != "")
+            if (/*idprodukTxt.Text != "" && */namaprodukTxt.Text != "" && hargaprodukTxt.Text != "" && stokprodukTxt.Text != "" && minimalstokTxt.Text != "" && satuanprodukTxt.Text != "" && updatelogbyCb.Text != "")
             {
                 if (idprodukTxt.IsEnabled == true)
                 {
@@ -172,7 +198,7 @@ namespace KouveePetShop_Desktop.Produk
                         cmd.Parameters.AddWithValue("@min_stok_produk", min_stok_produk);
                         cmd.Parameters.AddWithValue("@satuan_produk", satuan_produk);
                         cmd.Parameters.AddWithValue("@gambar", gambarBT);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Produk berhasil ditambahkan");
@@ -195,7 +221,7 @@ namespace KouveePetShop_Desktop.Produk
                         cmd.Parameters.AddWithValue("@min_stok_produk", min_stok_produk);
                         cmd.Parameters.AddWithValue("@satuan_produk", satuan_produk);
                         cmd.Parameters.AddWithValue("@gambar", gambarBT);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Produk berhasil di ubah");
@@ -224,7 +250,7 @@ namespace KouveePetShop_Desktop.Produk
                 stokprodukTxt.Text = row["Stok Produk"].ToString();
                 minimalstokTxt.Text = row["Min Stok Produk"].ToString();
                 satuanprodukTxt.Text = row["Satuan Produk"].ToString();
-                updatelogbyTxt.Text = row["NIP"].ToString();
+                updatelogbyCb.Text = row["NIP"].ToString();
                 idprodukTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }

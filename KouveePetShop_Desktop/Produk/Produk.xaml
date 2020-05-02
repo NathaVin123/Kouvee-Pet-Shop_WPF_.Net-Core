@@ -25,7 +25,6 @@
         <TextBox Name="stokprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="minimalstokTxt" HorizontalAlignment="Left" Height="23" Margin="118,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="satuanprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <TextBox Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="118,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
 
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="117" Margin="11,329,0,0" VerticalAlignment="Top" Width="280"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="42,369,0,0" VerticalAlignment="Top" Width="90" Height="32" BorderBrush="{x:Null}" Click="Tambah_Click"/>
@@ -57,5 +56,6 @@
         <Image Name="UploadImage" HorizontalAlignment="Left" Height="30" Margin="244,221,0,0" VerticalAlignment="Top" Width="32"/>
         <TextBox x:Name="GambarPath" HorizontalAlignment="Left" Height="27" Margin="118,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <Label Content="Lokasi Gambar" HorizontalAlignment="Left" Margin="24,256,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="updatelogbyCb" HorizontalAlignment="Left" Margin="118,288,0,0" VerticalAlignment="Top" Width="158"/>
     </Grid>
 </Window>

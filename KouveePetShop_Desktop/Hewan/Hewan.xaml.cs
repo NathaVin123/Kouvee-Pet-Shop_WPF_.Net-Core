@@ -266,9 +266,9 @@ namespace KouveePetShop_Desktop.Hewan
                 string id_jenisHewan = idjenishewanCb.Text;
                 string updateLog_by = updatelogbyCb.Text;
 
-                if (/*idhewanTxt.Text != "" && */namahewanTxt.Text != "" && updatelogbyTxt.Text != "")
+                if (/*idhewanTxt.Text != "" && */namahewanTxt.Text != "" && updatelogbyCb.Text != "")
                 {
-                    if (idcustomerTxt.IsEnabled == true)
+                    if (idhewanTxt.IsEnabled == true)
                     {
                         try
                         {
@@ -331,7 +331,7 @@ namespace KouveePetShop_Desktop.Hewan
             idjenishewanCb.Text = "";
             updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
-            idcustomerTxt.IsEnabled = true;
+            idhewanTxt.IsEnabled = true;
         }
 
         private void Batal_Click(object sender, RoutedEventArgs e)
@@ -350,7 +350,7 @@ namespace KouveePetShop_Desktop.Hewan
                 idcustomerCb.SelectedValue = row["ID Customer"].ToString();
                 idjenishewanCb.SelectedValue = row["ID Jenis Hewan"].ToString();
                 updatelogbyCb.SelectedValue = row["NIP"].ToString();
-                idcustomerTxt.IsEnabled = false;
+                idhewanTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
             else
@@ -408,16 +408,16 @@ namespace KouveePetShop_Desktop.Hewan
                 conn.Open();
             cmd.Connection = conn;
 
-            string nama_jenisHewan = cariTxt.Text;
+            string nama_Hewan = cariTxt.Text;
             try
             {
-                cmd.Parameters.AddWithValue("@nama_hewan", nama_jenisHewan);
+                cmd.Parameters.AddWithValue("@nama_hewan", nama_Hewan);
                 cmd.CommandText = "SELECT id_hewan AS 'ID Hewan', nama_hewan AS 'Nama Hewan', tglLahir_hewan AS 'Tanggal Lahir', id_customer AS 'ID Customer', id_jenisHewan AS 'ID Jenis Hewan', updateLog_by AS 'NIP' FROM hewans WHERE nama_hewan = @nama_hewan";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
-                jenishewanDT.ItemsSource = dt.AsDataView();
+                hewanDT.ItemsSource = dt.AsDataView();
             }
             catch
             {

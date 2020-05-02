@@ -35,6 +35,7 @@ namespace KouveePetShop_Desktop.Supplier
                 conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;Allow Zero Datetime=True";
                 BindGrid();
                 BindGridPegawai();
+                FillComboBoxNIP();
             }
             catch
             {
@@ -106,71 +107,101 @@ namespace KouveePetShop_Desktop.Supplier
             {
                 MessageBox.Show("Terjadi kesalahan dalam menampilkan data pegawai");
             }
-           
         }
 
+        public void FillComboBoxNIP()
+        {
+            string query = "SELECT NIP FROM petshop.pegawais;";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
+            MySqlDataReader mySqlDataReader;
+
+            try
+            {
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                while (mySqlDataReader.Read())
+                {
+                    string NIP = mySqlDataReader.GetString("NIP");
+                    updatelogbyCb.Items.Add(NIP);
+                }
+                mySqlDataReader.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        public int id_supplier_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-
-            string id_supplier = idsupplierTxt.Text;
-            string nama_supplier = namasupplierTxt.Text;
-            string alamat_supplier = alamatsupplierTxt.Text;
-            string telepon_supplier = noteleponTxt.Text;
-            string stok_supplier = stokTxt.Text;
-            string updateLog_by = updatelogbyTxt.Text;
-
-            if (idsupplierTxt.Text != "" && namasupplierTxt.Text != "" && updatelogbyTxt.Text != "")
+            try
             {
-                if (idsupplierTxt.IsEnabled == true)
+                string id_supplier = id_supplier_ai.ToString("CT00");
+                string nama_supplier = namasupplierTxt.Text;
+                string alamat_supplier = alamatsupplierTxt.Text;
+                string telepon_supplier = noteleponTxt.Text;
+                string stok_supplier = stokTxt.Text;
+                string updateLog_by = updatelogbyCb.Text;
+
+                if (/*idsupplierTxt.Text != "" && */namasupplierTxt.Text != "" && updatelogbyCb.Text != "")
                 {
-                    try
+                    if (idsupplierTxt.IsEnabled == true)
                     {
-                        cmd.CommandText = "INSERT INTO suppliers(id_supplier,nama_supplier,alamat_supplier,telepon_supplier,stok_supplier,updateLog_by) VALUES (@id_supplier,@nama_supplier,@alamat_supplier,@telepon_supplier,@stok_supplier,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_supplier", id_supplier);
-                        cmd.Parameters.AddWithValue("@nama_supplier", nama_supplier);
-                        cmd.Parameters.AddWithValue("@alamat_supplier", alamat_supplier);
-                        cmd.Parameters.AddWithValue("@telepon_supplier", telepon_supplier);
-                        cmd.Parameters.AddWithValue("@stok_supplier", stok_supplier);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                        cmd.ExecuteNonQuery();
-                        BindGrid();
-                        MessageBox.Show("Data Supplier berhasil ditambahkan");
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO suppliers(id_supplier,nama_supplier,alamat_supplier,telepon_supplier,stok_supplier,updateLog_by) VALUES (@id_supplier,@nama_supplier,@alamat_supplier,@telepon_supplier,@stok_supplier,@updateLog_by)";
+                            cmd.Parameters.AddWithValue("@id_supplier", id_supplier);
+                            cmd.Parameters.AddWithValue("@nama_supplier", nama_supplier);
+                            cmd.Parameters.AddWithValue("@alamat_supplier", alamat_supplier);
+                            cmd.Parameters.AddWithValue("@telepon_supplier", telepon_supplier);
+                            cmd.Parameters.AddWithValue("@stok_supplier", stok_supplier);
+                            cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                            cmd.ExecuteNonQuery();
+                            BindGrid();
+                            MessageBox.Show("Data Supplier berhasil ditambahkan");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Terjadi kesalahan dalam menambahkan data supplier");
+                        }
+                        ClearAll();
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Terjadi kesalahan dalam menambahkan data supplier");
+                        try
+                        {
+                            cmd.CommandText = "UPDATE suppliers set id_supplier = @id_supplier, nama_supplier = @nama_supplier, alamat_supplier = @alamat_supplier, telepon_supplier = @telepon_supplier, stok_supplier = @stok_supplier, updateLog_By = @updateLog_by WHERE id_supplier = @id_supplier";
+                            cmd.Parameters.AddWithValue("@id_supplier", id_supplier);
+                            cmd.Parameters.AddWithValue("@nama_supplier", nama_supplier);
+                            cmd.Parameters.AddWithValue("@alamat_supplier", alamat_supplier);
+                            cmd.Parameters.AddWithValue("@telepon_supplier", telepon_supplier);
+                            cmd.Parameters.AddWithValue("@stok_supplier", stok_supplier);
+                            cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                            cmd.ExecuteNonQuery();
+                            BindGrid();
+                            MessageBox.Show("Data Supplier berhasil di ubah");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Terjadi kesalahan dalam mengubah data layanan");
+                        }
+                        ClearAll();
                     }
-                    ClearAll();
                 }
                 else
                 {
-                    try
-                    {
-                        cmd.CommandText = "UPDATE suppliers set id_supplier = @id_supplier, nama_supplier = @nama_supplier, alamat_supplier = @alamat_supplier, telepon_supplier = @telepon_supplier, stok_supplier = @stok_supplier, updateLog_By = @updateLog_by WHERE id_supplier = @id_supplier";
-                        cmd.Parameters.AddWithValue("@id_supplier", id_supplier);
-                        cmd.Parameters.AddWithValue("@nama_supplier", nama_supplier);
-                        cmd.Parameters.AddWithValue("@alamat_supplier", alamat_supplier);
-                        cmd.Parameters.AddWithValue("@telepon_supplier", telepon_supplier);
-                        cmd.Parameters.AddWithValue("@stok_supplier", stok_supplier);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                        cmd.ExecuteNonQuery();
-                        BindGrid();
-                        MessageBox.Show("Data Supplier berhasil di ubah");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Terjadi kesalahan dalam mengubah data layanan");
-                    }
-                    ClearAll();
+                    MessageBox.Show("Mohon data Supplier harap diisi");
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Mohon data Supplier harap diisi");
+                MessageBox.Show("Mohon data supplier harap diisi");
             }
         }
 
@@ -181,7 +212,7 @@ namespace KouveePetShop_Desktop.Supplier
             alamatsupplierTxt.Text = "";
             noteleponTxt.Text = "";
             stokTxt.Text = "";
-            updatelogbyTxt.Text = "";
+            updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
             idsupplierTxt.IsEnabled = true;
         }
@@ -201,7 +232,7 @@ namespace KouveePetShop_Desktop.Supplier
                 alamatsupplierTxt.Text = row["Alamat Supplier"].ToString();
                 noteleponTxt.Text = row["No Telepon"].ToString();
                 stokTxt.Text = row["Stok Supplier"].ToString();
-                updatelogbyTxt.Text = row["NIP"].ToString();
+                updatelogbyCb.Text = row["NIP"].ToString();
                 idsupplierTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
@@ -261,10 +292,10 @@ namespace KouveePetShop_Desktop.Supplier
                 conn.Open();
             cmd.Connection = conn;
 
-            string nama_layanan = cariTxt.Text;
+            string nama_supplier = cariTxt.Text;
             try
             {
-                cmd.Parameters.AddWithValue("@nama_supplier", nama_layanan);
+                cmd.Parameters.AddWithValue("@nama_supplier", nama_supplier);
                 cmd.CommandText = "SELECT id_supplier AS 'ID Supplier', nama_supplier AS 'Nama Supplier', alamat_supplier AS 'Alamat Supplier', telepon_supplier AS 'No Telepon', stok_supplier AS 'Stok Supplier', updateLog_by AS 'NIP' FROM suppliers WHERE nama_supplier = @nama_supplier";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

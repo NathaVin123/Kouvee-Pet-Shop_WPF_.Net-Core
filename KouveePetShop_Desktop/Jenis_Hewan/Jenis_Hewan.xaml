@@ -17,7 +17,6 @@
             <Label Content="NIP" HorizontalAlignment="Left" Margin="25,115,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="idjenishewanTxt" HorizontalAlignment="Left" Height="23" Margin="140,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="namajenishewanTxt" HorizontalAlignment="Left" Height="23" Margin="140,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="140,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <GroupBox Header="Tampil Data Jenis Hewan" Margin="310,149,25,39"/>
             <Label x:Name="LabelCount" Content="Tidak ada data jenis hewan yang ditampilkan." HorizontalAlignment="Left" Margin="418,230,0,0" VerticalAlignment="Top"/>
             <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="jenishewanDT" HorizontalAlignment="Left" Height="269" Margin="329,193,0,0" VerticalAlignment="Top" Width="420"/>
@@ -33,6 +32,7 @@
             
             <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="152" Margin="9,322,0,0" VerticalAlignment="Top" Width="273"/>
             <DataGrid IsReadOnly="True" Name="nipDT" HorizontalAlignment="Left" Margin="25,363,0,50" Width="241"/>
+            <ComboBox Name="updatelogbyCb" HorizontalAlignment="Left" Margin="140,115,0,0" VerticalAlignment="Top" Width="120"/>
         </Grid>
     </Grid>
 </Window>

@@ -24,7 +24,6 @@
         <TextBox Name="alamatsupplierTxt" HorizontalAlignment="Left" Height="23" Margin="118,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="noteleponTxt" HorizontalAlignment="Left" Height="23" Margin="118,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="stokTxt" HorizontalAlignment="Left" Height="23" Margin="118,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <TextBox Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="118,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
 
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="117" Margin="11,265,0,0" VerticalAlignment="Top" Width="280" Grid.Row="1"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="35,305,0,0" VerticalAlignment="Top" Width="90" Height="32" BorderBrush="{x:Null}" Click="Tambah_Click" Grid.Row="1"/>
@@ -42,6 +41,7 @@
         <GroupBox Header="Tampil Data Supplier" Margin="310,130,11,22"/>
         <Label Name="LabelCount" Content="Tidak ada data Supplier yang ditampilkan." HorizontalAlignment="Left" Margin="430,265,0,0" VerticalAlignment="Top"/>
         <DataGrid IsReadOnly="true" AutoGenerateColumns="True" x:Name="supplierDT" Margin="325,180,30,35"/>
+        <ComboBox Name="updatelogbyCb" HorizontalAlignment="Left" Margin="118,191,0,0" VerticalAlignment="Top" Width="155"/>
 
     </Grid>
 </Window>

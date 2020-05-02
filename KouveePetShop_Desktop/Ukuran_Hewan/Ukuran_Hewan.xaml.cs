@@ -33,6 +33,7 @@ namespace KouveePetShop_Desktop.Ukuran_Hewan
                 conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
                 BindGrid();
                 BindGridPegawai();
+                FillComboBoxNIP();
             }
             catch
             {
@@ -108,68 +109,99 @@ namespace KouveePetShop_Desktop.Ukuran_Hewan
         {
             idukuranTxt.Text = "";
             namaukuranTxt.Text = "";
-            updatelogbyTxt.Text = "";
+            updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
             idukuranTxt.IsEnabled = true;
         }
 
+        public void FillComboBoxNIP()
+        {
+            string query = "SELECT NIP FROM petshop.pegawais;";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
+            MySqlDataReader mySqlDataReader;
+
+            try
+            {
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                while (mySqlDataReader.Read())
+                {
+                    string NIP = mySqlDataReader.GetString("NIP");
+                    updatelogbyCb.Items.Add(NIP);
+                }
+                mySqlDataReader.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+
+        public int id_ukuranhewan_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
             if (conn.State != ConnectionState.Open)
                 conn.Open();
             cmd.Connection = conn;
-
-            string id_ukuranHewan = idukuranTxt.Text;
-            string nama_ukuranHewan = namaukuranTxt.Text;
-            string updateLog_by = updatelogbyTxt.Text;
-
-            if (idukuranTxt.Text != "" && namaukuranTxt.Text != "" && updatelogbyTxt.Text != "")
+            try
             {
-                if (idukuranTxt.IsEnabled == true)
-                {
-                    try
-                    {
-                        cmd.CommandText = "INSERT INTO ukuranhewans(id_ukuranHewan,nama_ukuranHewan,updateLog_by) VALUES (@id_ukuranHewan,@nama_ukuranHewan,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_ukuranHewan", id_ukuranHewan);
-                        cmd.Parameters.AddWithValue("@nama_ukuranHewan", nama_ukuranHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                        cmd.ExecuteNonQuery();
-                        BindGrid();
-                        MessageBox.Show("Data Ukuran Hewan berhasil ditambahkan");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Terjadi kesalahan dalam menambahkan data ukuran hewan");
-                    }
+                string id_ukuranHewan = id_ukuranhewan_ai.ToString("CT00");
+                string nama_ukuranHewan = namaukuranTxt.Text;
+                string updateLog_by = updatelogbyCb.Text;
 
-                    ClearAll();
+                if (/*idukuranTxt.Text != "" && */namaukuranTxt.Text != "" && updatelogbyCb.Text != "")
+                {
+                    if (idukuranTxt.IsEnabled == true)
+                    {
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO ukuranhewans(id_ukuranHewan,nama_ukuranHewan,updateLog_by) VALUES (@id_ukuranHewan,@nama_ukuranHewan,@updateLog_by)";
+                            cmd.Parameters.AddWithValue("@id_ukuranHewan", id_ukuranHewan);
+                            cmd.Parameters.AddWithValue("@nama_ukuranHewan", nama_ukuranHewan);
+                            cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                            cmd.ExecuteNonQuery();
+                            BindGrid();
+                            MessageBox.Show("Data Ukuran Hewan berhasil ditambahkan");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Terjadi kesalahan dalam menambahkan data ukuran hewan");
+                        }
+
+                        ClearAll();
+                    }
+                    else
+                    {
+                        try
+                        {
+                            cmd.CommandText = "UPDATE ukuranhewans set id_ukuranHewan = @id_ukuranHewan, nama_ukuranHewan = @nama_ukuranHewan, updateLog_By = @updateLog_by WHERE id_ukuranHewan = @id_ukuranHewan";
+                            cmd.Parameters.AddWithValue("@id_ukuranHewan", id_ukuranHewan);
+                            cmd.Parameters.AddWithValue("@nama_ukuranHewan", nama_ukuranHewan);
+                            cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                            cmd.ExecuteNonQuery();
+                            BindGrid();
+                            MessageBox.Show("Data Ukuran Hewan berhasil di ubah");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Terjadi kesalahan dalam mengubah data ukuran hewan");
+                        }
+                        ClearAll();
+                    }
                 }
                 else
                 {
-                    try
-                    {
-                        cmd.CommandText = "UPDATE ukuranhewans set id_ukuranHewan = @id_ukuranHewan, nama_ukuranHewan = @nama_ukuranHewan, updateLog_By = @updateLog_by WHERE id_ukuranHewan = @id_ukuranHewan";
-                        cmd.Parameters.AddWithValue("@id_ukuranHewan", id_ukuranHewan);
-                        cmd.Parameters.AddWithValue("@nama_ukuranHewan", nama_ukuranHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
-                        cmd.ExecuteNonQuery();
-                        BindGrid();
-                        MessageBox.Show("Data Ukuran Hewan berhasil di ubah");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Terjadi kesalahan dalam mengubah data ukuran hewan");
-                    }
-                    ClearAll();
+                    MessageBox.Show("Data ukuran hewan harap diisi dengan lengkap");
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Data ukuran hewan harap diisi dengan lengkap");
+                MessageBox.Show("Mohon data Ukuran Hewan harap diisi");
             }
         }
-
         private void Batal_Click(object sender, RoutedEventArgs e)
         {
             ClearAll();
@@ -182,7 +214,7 @@ namespace KouveePetShop_Desktop.Ukuran_Hewan
                 DataRowView row = (DataRowView)ukuranHewanDT.SelectedItems[0];
                 idukuranTxt.Text = row["ID Ukuran Hewan"].ToString();
                 namaukuranTxt.Text = row["Nama Ukuran Hewan"].ToString();
-                updatelogbyTxt.Text = row["NIP"].ToString();
+                updatelogbyCb.Text = row["NIP"].ToString();
                 idukuranTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
@@ -243,11 +275,11 @@ namespace KouveePetShop_Desktop.Ukuran_Hewan
                 conn.Open();
             cmd.Connection = conn;
 
-            string nama_layanan = cariTxt.Text;
+            string nama_ukuranHewan = cariTxt.Text;
             try
             {
-                cmd.Parameters.AddWithValue("@nama_ukuranHewan", nama_layanan);
-                cmd.CommandText = "SELECT id_ukuranHewan AS 'ID Ukuran Hewan', nama_ukuranHewan AS 'Nama Ukuran Hewan', updateLog_by AS 'NIP' FROM ukuranhewansWHERE nama_ukuranHewan = @nama_ukuranHewan";
+                cmd.Parameters.AddWithValue("@nama_ukuranHewan", nama_ukuranHewan);
+                cmd.CommandText = "SELECT id_ukuranHewan AS 'ID Ukuran Hewan', nama_ukuranHewan AS 'Nama Ukuran Hewan', updateLog_by AS 'NIP' FROM ukuranhewans WHERE nama_ukuranHewan = @nama_ukuranHewan";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
