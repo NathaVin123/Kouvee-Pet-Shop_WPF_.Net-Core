@@ -252,5 +252,30 @@ namespace KouveePetShop_Desktop.Supplier
         {
             BindGrid();
         }
+
+        private void Cari_Click(object sender, RoutedEventArgs e)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            cmd.Connection = conn;
+
+            string nama_layanan = cariTxt.Text;
+            try
+            {
+                cmd.Parameters.AddWithValue("@nama_supplier", nama_layanan);
+                cmd.CommandText = "SELECT id_supplier AS 'ID Supplier', nama_supplier AS 'Nama Supplier', alamat_supplier AS 'Alamat Supplier', telepon_supplier AS 'No Telepon', stok_supplier AS 'Stok Supplier', updateLog_by AS 'NIP' FROM suppliers WHERE nama_supplier = @nama_supplier";
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                supplierDT.ItemsSource = dt.AsDataView();
+            }
+            catch
+            {
+                MessageBox.Show("Terjadi kesalahan dalam mencari data supplier");
+            }
+        }
     }
 }

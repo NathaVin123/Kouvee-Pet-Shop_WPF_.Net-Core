@@ -234,5 +234,30 @@ namespace KouveePetShop_Desktop.Ukuran_Hewan
         {
             BindGrid();
         }
+
+        private void Cari_Click(object sender, RoutedEventArgs e)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            cmd.Connection = conn;
+
+            string nama_layanan = cariTxt.Text;
+            try
+            {
+                cmd.Parameters.AddWithValue("@nama_ukuranHewan", nama_layanan);
+                cmd.CommandText = "SELECT id_ukuranHewan AS 'ID Ukuran Hewan', nama_ukuranHewan AS 'Nama Ukuran Hewan', updateLog_by AS 'NIP' FROM ukuranhewansWHERE nama_ukuranHewan = @nama_ukuranHewan";
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                ukuranHewanDT.ItemsSource = dt.AsDataView();
+            }
+            catch
+            {
+                MessageBox.Show("Terjadi kesalahan dalam mencari data ukuran hewan");
+            }
+        }
     }
 }

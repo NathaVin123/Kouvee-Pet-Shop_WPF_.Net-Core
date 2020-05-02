@@ -399,5 +399,30 @@ namespace KouveePetShop_Desktop.Hewan
         {
             BindGrid();
         }
+
+        private void Cari_Click(object sender, RoutedEventArgs e)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            cmd.Connection = conn;
+
+            string nama_jenisHewan = cariTxt.Text;
+            try
+            {
+                cmd.Parameters.AddWithValue("@nama_hewan", nama_jenisHewan);
+                cmd.CommandText = "SELECT id_hewan AS 'ID Hewan', nama_hewan AS 'Nama Hewan', tglLahir_hewan AS 'Tanggal Lahir', id_customer AS 'ID Customer', id_jenisHewan AS 'ID Jenis Hewan', updateLog_by AS 'NIP' FROM hewans WHERE nama_hewan = @nama_hewan";
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                jenishewanDT.ItemsSource = dt.AsDataView();
+            }
+            catch
+            {
+                MessageBox.Show("Terjadi kesalahan dalam mencari data hewan");
+            }
+        }
     }
 }
