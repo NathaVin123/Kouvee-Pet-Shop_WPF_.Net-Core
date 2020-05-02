@@ -323,5 +323,10 @@ namespace KouveePetShop_Desktop.Pegawai
                 GambarPath.Text = gambarpath;
             }
         }
+
+        private void CariTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BindGrid();
+        }
     }
 }

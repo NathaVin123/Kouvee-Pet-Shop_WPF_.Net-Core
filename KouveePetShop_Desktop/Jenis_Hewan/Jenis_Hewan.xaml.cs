@@ -254,5 +254,10 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             Menu.Show();
             this.Close();
         }
+
+        private void CariTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BindGrid();
+        }
     }
 }

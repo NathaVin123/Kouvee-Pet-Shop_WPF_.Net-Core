@@ -34,7 +34,7 @@
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="163,408,0,0" VerticalAlignment="Top" Width="90" Height="30" BorderBrush="{x:Null}" Click="Hapus_Click"/>
         
         <GroupBox Header="Pencarian Data Produk" HorizontalAlignment="Left" Height="80" Margin="307,44,0,0" VerticalAlignment="Top" Width="475"/>
-        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
+        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" TextChanged="CariTxt_TextChanged"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,89,0,0" VerticalAlignment="Top" Width="80" Height="29" BorderBrush="{x:Null}" Click="Cari_Click"/>
 
         <GroupBox Header="Tampil Data Produk" HorizontalAlignment="Left" Height="461" Margin="307,130,0,0" VerticalAlignment="Top" Width="475"/>

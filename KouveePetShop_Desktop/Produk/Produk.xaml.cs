@@ -309,5 +309,10 @@ namespace KouveePetShop_Desktop.Produk
                 GambarPath.Text = gambarpath;
             }
         }
+
+        private void CariTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BindGrid();
+        }
     }
 }

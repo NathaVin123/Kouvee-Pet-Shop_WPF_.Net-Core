@@ -36,6 +36,7 @@ namespace KouveePetShop_Desktop.Customer
                 BindGrid();
                 BindGridPegawai();
                 //AutoGenerate();
+                FillComboBoxNIP();
             }
             catch
             {
@@ -131,6 +132,32 @@ namespace KouveePetShop_Desktop.Customer
         //    }
         //    idcustomerTxt.Text = (otp);
         //}
+
+
+        public void FillComboBoxNIP()
+        {
+            string query = "SELECT NIP FROM petshop.pegawais;";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
+            MySqlDataReader mySqlDataReader;
+
+            try
+            {
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                while (mySqlDataReader.Read())
+                {
+                    string NIP = mySqlDataReader.GetString("NIP");
+                    updatelogbyCb.Items.Add(NIP);
+                }
+                mySqlDataReader.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
         public int id_customer_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
@@ -146,9 +173,9 @@ namespace KouveePetShop_Desktop.Customer
             string alamat_customer = alamatcustomerTxt.Text;
             string tglLahir_customer = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
             string noTelp_customer = noteleponTxt.Text;
-            string updateLog_by = updatelogbyTxt.Text;
+            string updateLog_by = updatelogbyCb.Text;
             
-            if (/*idcustomerTxt.Text != "" && */namacustomerTxt.Text != "" && updatelogbyTxt.Text != "")
+            if (/*idcustomerTxt.Text != "" && */namacustomerTxt.Text != "" && updatelogbyCb.Text != "")
             {
                 if (idcustomerTxt.IsEnabled == true)
                 {
@@ -160,7 +187,7 @@ namespace KouveePetShop_Desktop.Customer
                         cmd.Parameters.AddWithValue("@alamat_customer", alamat_customer);
                         cmd.Parameters.AddWithValue("@tglLahir_customer", tglLahir_customer);
                         cmd.Parameters.AddWithValue("@noTelp_customer", noTelp_customer);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Customer berhasil ditambahkan");
@@ -211,7 +238,7 @@ namespace KouveePetShop_Desktop.Customer
             alamatcustomerTxt.Text = "";
             tanggallahirDp.Text = "";
             noteleponTxt.Text = "";
-            updatelogbyTxt.Text = "";
+            updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
             idcustomerTxt.IsEnabled = false;
         }
@@ -231,7 +258,7 @@ namespace KouveePetShop_Desktop.Customer
                 alamatcustomerTxt.Text = row["Alamat Customer"].ToString();
                 tanggallahirDp.Text = row["Tanggal Lahir"].ToString();
                 noteleponTxt.Text = row["No Telepon"].ToString();
-                updatelogbyTxt.Text = row["NIP"].ToString();
+                updatelogbyCb.Text = row["NIP"].ToString();
                 idcustomerTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
@@ -279,5 +306,9 @@ namespace KouveePetShop_Desktop.Customer
             this.Close();
         }
 
+        private void CariTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BindGrid();
+        }
     }
 }

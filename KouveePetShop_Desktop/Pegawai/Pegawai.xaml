@@ -36,7 +36,7 @@
         <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="169,62,0,0" VerticalAlignment="Top" Width="90" Height="34" BorderBrush="{x:Null}" Click="Batal_Click" Grid.Row="1"/>
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="169,100,0,0" VerticalAlignment="Top" Width="90" Height="30" BorderBrush="{x:Null}" Click="Hapus_Click" Grid.Row="1"/>
         <GroupBox Header="Pencarian Data Pegawai" HorizontalAlignment="Left" Height="80" Margin="307,44,0,0" VerticalAlignment="Top" Width="475"/>
-        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
+        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" TextChanged="CariTxt_TextChanged"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,89,0,0" VerticalAlignment="Top" Width="80" Height="29" BorderBrush="{x:Null}" Click="Cari_Click"/>
 
         <GroupBox Header="Tampil Data Pegawai" HorizontalAlignment="Left" Height="549" Margin="307,130,0,0" VerticalAlignment="Top" Width="475" Grid.RowSpan="2"/>

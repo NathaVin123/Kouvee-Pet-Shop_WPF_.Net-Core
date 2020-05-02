@@ -22,9 +22,9 @@
         <TextBox Name="idhewanTxt" HorizontalAlignment="Left" Height="23" Margin="118,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="namahewanTxt" HorizontalAlignment="Left" Height="23" Margin="118,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <DatePicker Name="tanggallahirDp" Margin="118,0,515,465" Height="25"/>
-        <TextBox Name="idcustomerTxt" HorizontalAlignment="Left" Height="23" Margin="118,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>        
-        <TextBox Name="idjenishewanTxt" HorizontalAlignment="Left" Height="23" Margin="118,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <TextBox Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="118,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox Name="idcustomerTxt" HorizontalAlignment="Left" Height="23" Margin="118,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox Name="idjenishewanTxt" HorizontalAlignment="Left" Height="23" Margin="118,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox Name="updatelogbyTxt" HorizontalAlignment="Left" Height="23" Margin="118,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65" RenderTransformOrigin="-1.954,-2.669"/>
 
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="117" Margin="10,260,0,0" VerticalAlignment="Top" Width="280" Grid.Row="1"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="35,300,0,0" VerticalAlignment="Top" Width="90" Height="32" BorderBrush="{x:Null}" Click="Tambah_Click" Grid.Row="1"/>
@@ -34,12 +34,12 @@
 
         <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="149" Margin="10,383,0,0" VerticalAlignment="Top" Width="280"/>
         <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="25,423,0,175" Width="245"/>
-        
+
         <GroupBox Header="Daftar Customer" HorizontalAlignment="Left" Margin="10,540,0,10" Width="280"/>
         <DataGrid Name="customerDT" HorizontalAlignment="Left" Margin="28,578,0,18" Width="242"/>
 
         <GroupBox Header="Pencarian Data Hewan" Margin="310,50,25,570"/>
-        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="320,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
+        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="320,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" TextChanged="CariTxt_TextChanged"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="670,85,0,0" VerticalAlignment="Top" Width="76" BorderBrush="White"/>
 
         <GroupBox Header="Tampil Data Hewan" Margin="310,135,25,168"/>
@@ -48,6 +48,9 @@
 
         <GroupBox Header="Daftar Jenis Hewan" HorizontalAlignment="Left" Margin="310,540,0,10" Width="280"/>
         <DataGrid Name="jenishewanDT" HorizontalAlignment="Left" Margin="330,578,0,18" Width="242"/>
+        <ComboBox Name="idcustomerCb" HorizontalAlignment="Left" Margin="188,191,0,0" VerticalAlignment="Top" Width="89"/>
+        <ComboBox Name="idjenishewanCb" HorizontalAlignment="Left" Margin="188,162,0,0" VerticalAlignment="Top" Width="89"/>
+        <ComboBox Name="updatelogbyCb" HorizontalAlignment="Left" Margin="188,135,0,0" VerticalAlignment="Top" Width="89"/>
 
     </Grid>
 </Window>

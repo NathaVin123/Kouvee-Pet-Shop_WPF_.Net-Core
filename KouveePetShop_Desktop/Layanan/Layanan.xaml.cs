@@ -148,7 +148,7 @@ namespace KouveePetShop_Desktop.Layanan
             namalayananTxt.Text = "";
             hargalayananTxt.Text = "";
             idukuranhewanCb.Text = "";
-            updatelogbyTxt.Text = "";
+            updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
             idlayananTxt.IsEnabled = true;
         }
@@ -202,6 +202,7 @@ namespace KouveePetShop_Desktop.Layanan
             }
         }
 
+        public int id_layanan_ai = 10;
 
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
@@ -210,13 +211,14 @@ namespace KouveePetShop_Desktop.Layanan
                 conn.Open();
             cmd.Connection = conn;
 
-            string id_layanan = idlayananTxt.Text;
+            id_layanan_ai++;
+            string id_layanan = id_layanan_ai.ToString("LYNN0000");
             string nama_layanan = namalayananTxt.Text;
             string harga_layanan = hargalayananTxt.Text;
             string id_ukuranHewan = idukuranhewanCb.Text;
             string updateLog_by = updatelogbyCb.Text;
 
-            if (idlayananTxt.Text != "" && namalayananTxt.Text != "" && hargalayananTxt.Text != "" && idukuranhewanCb.Text != "" && updatelogbyCb.Text != "")
+            if (/*idlayananTxt.Text != "" && */namalayananTxt.Text != "" && hargalayananTxt.Text != "" && idukuranhewanCb.Text != "" && updatelogbyCb.Text != "")
             {
                 if (idlayananTxt.IsEnabled == true)
                 {
@@ -227,7 +229,7 @@ namespace KouveePetShop_Desktop.Layanan
                         cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
                         cmd.Parameters.AddWithValue("@harga_layanan", harga_layanan);
                         cmd.Parameters.AddWithValue("@id_ukuranHewan", idukuranhewanCb.SelectedValue);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.Text);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Layanan berhasil ditambahkan");
@@ -354,5 +356,9 @@ namespace KouveePetShop_Desktop.Layanan
             this.Close();
         }
 
+        private void CariTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BindGrid();
+        }
     }
 }

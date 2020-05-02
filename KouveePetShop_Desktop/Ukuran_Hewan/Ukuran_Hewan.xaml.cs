@@ -229,5 +229,10 @@ namespace KouveePetShop_Desktop.Ukuran_Hewan
             Menu.Show();
             this.Close();
         }
+
+        private void CariTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BindGrid();
+        }
     }
 }

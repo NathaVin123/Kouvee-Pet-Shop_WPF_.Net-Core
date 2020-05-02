@@ -247,5 +247,10 @@ namespace KouveePetShop_Desktop.Supplier
             Menu.Show();
             this.Close();
         }
+
+        private void CariTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BindGrid();
+        }
     }
 }

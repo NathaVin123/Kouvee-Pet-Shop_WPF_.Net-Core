@@ -36,7 +36,7 @@
         <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="24,435,0,35" Width="249"/>
         
         <GroupBox Header="Pencarian Data Supplier" HorizontalAlignment="Left" Height="80" Margin="307,44,0,0" VerticalAlignment="Top" Width="475"/>
-        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
+        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" TextChanged="CariTxt_TextChanged"/>
         <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,89,0,0" VerticalAlignment="Top" Width="80" Height="29" BorderBrush="{x:Null}"/>
 
         <GroupBox Header="Tampil Data Supplier" Margin="310,130,11,22"/>
