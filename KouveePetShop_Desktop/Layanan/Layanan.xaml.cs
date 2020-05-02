@@ -35,6 +35,8 @@ namespace KouveePetShop_Desktop.Layanan
                 BindGrid();
                 BindGridPegawai();
                 BindGridUkuranHewan();
+                FillComboBoxUkuranHewan();
+                FillComboBoxNIP();
             }
             catch
             {
@@ -145,11 +147,61 @@ namespace KouveePetShop_Desktop.Layanan
             idlayananTxt.Text = "";
             namalayananTxt.Text = "";
             hargalayananTxt.Text = "";
-            idukuranhewanTxt.Text = "";
+            idukuranhewanCb.Text = "";
             updatelogbyTxt.Text = "";
             tambahBtn.Content = "Tambah";
             idlayananTxt.IsEnabled = true;
         }
+
+        public void FillComboBoxUkuranHewan()
+        {
+            string query = "SELECT id_ukuranHewan, nama_ukuranHewan FROM petshop.ukuranhewans;";
+    
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
+            MySqlDataReader mySqlDataReader;
+
+            try
+            {
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                while (mySqlDataReader.Read())
+                {
+                    string idUkuran = mySqlDataReader.GetString("id_ukuranHewan");
+                    string namaUkuran = mySqlDataReader.GetString("nama_ukuranHewan");
+                    idukuranhewanCb.Items.Add(idUkuran + " - " + namaUkuran);
+                }
+                mySqlDataReader.Close();
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        public void FillComboBoxNIP()
+        {
+            string query = "SELECT NIP FROM petshop.pegawais;";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
+            MySqlDataReader mySqlDataReader;
+
+            try
+            {
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                while (mySqlDataReader.Read())
+                {
+                    string NIP = mySqlDataReader.GetString("NIP");
+                    updatelogbyCb.Items.Add(NIP);
+                }
+                mySqlDataReader.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
 
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
@@ -161,10 +213,10 @@ namespace KouveePetShop_Desktop.Layanan
             string id_layanan = idlayananTxt.Text;
             string nama_layanan = namalayananTxt.Text;
             string harga_layanan = hargalayananTxt.Text;
-            string id_ukuranHewan = idukuranhewanTxt.Text;
-            string updateLog_by = updatelogbyTxt.Text;
+            string id_ukuranHewan = idukuranhewanCb.Text;
+            string updateLog_by = updatelogbyCb.Text;
 
-            if (idlayananTxt.Text != "" && namalayananTxt.Text != "" && hargalayananTxt.Text != "" && idukuranhewanTxt.Text != "" && updatelogbyTxt.Text != "")
+            if (idlayananTxt.Text != "" && namalayananTxt.Text != "" && hargalayananTxt.Text != "" && idukuranhewanCb.Text != "" && updatelogbyCb.Text != "")
             {
                 if (idlayananTxt.IsEnabled == true)
                 {
@@ -174,8 +226,8 @@ namespace KouveePetShop_Desktop.Layanan
                         cmd.Parameters.AddWithValue("@id_layanan", id_layanan);
                         cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
                         cmd.Parameters.AddWithValue("@harga_layanan", harga_layanan);
-                        cmd.Parameters.AddWithValue("@id_ukuranHewan", id_ukuranHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@id_ukuranHewan", idukuranhewanCb.SelectedValue);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.Text);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Layanan berhasil ditambahkan");
@@ -195,8 +247,8 @@ namespace KouveePetShop_Desktop.Layanan
                         cmd.Parameters.AddWithValue("@id_layanan", id_layanan);
                         cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
                         cmd.Parameters.AddWithValue("@harga_layanan", harga_layanan);
-                        cmd.Parameters.AddWithValue("@id_ukuranHewan", id_ukuranHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@id_ukuranHewan", idukuranhewanCb.SelectedValue);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Layanan berhasil di ubah");
@@ -223,8 +275,8 @@ namespace KouveePetShop_Desktop.Layanan
                 idlayananTxt.Text = row["ID Layanan"].ToString();
                 namalayananTxt.Text = row["Nama Layanan"].ToString();
                 hargalayananTxt.Text = row["Harga Layanan"].ToString();
-                idukuranhewanTxt.Text = row["ID Ukuran Hewan"].ToString();
-                updatelogbyTxt.Text = row["NIP"].ToString();
+                idukuranhewanCb.SelectedValue = row["ID Ukuran Hewan"].ToString();
+                updatelogbyCb.SelectedValue = row["NIP"].ToString();
                 idlayananTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
