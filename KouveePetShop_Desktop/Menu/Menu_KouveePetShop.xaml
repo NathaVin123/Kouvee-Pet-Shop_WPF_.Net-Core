@@ -32,11 +32,12 @@
             <Button Content="HEWAN" Height="57" Click="Hewan_Click" Margin="0,41,0,133" HorizontalAlignment="Right" Width="163"/>
             <Button Content="LAYANAN" Width="164" Height="55" Click="Layanan_Click" Margin="0,209,0,220" Grid.RowSpan="2" HorizontalAlignment="Left"/>
             <Button Content="PEGAWAI" Margin="0,42,0,0" VerticalAlignment="Top" Height="56" Click="Pegawai_Click" HorizontalAlignment="Left" Width="164"/>
-            <Button Content="PEMBAYARAN" Height="Auto" Click="Pembayaran_Click" Margin="336,174,324,250" Grid.RowSpan="2"/>
+            <Button Content="PEMBAYARAN PRODUK" Height="Auto" Click="Pembayaran_Click" Margin="336,121,324,50"/>
             <Button Content="PRODUK" Margin="0,63,0,130" Height="Auto" Click="Produk_Click" Grid.Row="1" HorizontalAlignment="Right" Width="163"/>
             <Button Content="JENIS HEWAN" Margin="0,121,0,0" VerticalAlignment="Top" Height="60" Click="JenisHewan_Click" HorizontalAlignment="Right" Width="163"/>
             <Button Content="UKURAN HEWAN" Margin="0,209,0,215" Height="Auto" Grid.RowSpan="2" HorizontalAlignment="Right" Width="163" Click="UkuranHewan_Click"/>
             <Button Content="SUPPLIER" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Width="164" Height="60" Grid.Row="1" Click="Supplier_Click"/>
+            <Button Content="PEMBAYARAN JASA LAYANAN" Height="Auto" Click="Pembayaran1_Click" Margin="322,209,314,215" Grid.RowSpan="2"/>
         </Grid>
 
     </StackPanel>

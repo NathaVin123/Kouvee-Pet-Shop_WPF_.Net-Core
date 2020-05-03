@@ -91,6 +91,12 @@
     <Compile Include="Supplier\Supplier.xaml.cs">
       <DependentUpon>Supplier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Transaksi\Pembayaran_Jasa_Layanan.xaml.cs">
+      <DependentUpon>Pembayaran_Jasa_Layanan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\Pembayaran_Produk.xaml.cs">
+      <DependentUpon>Pembayaran_Produk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ukuran_Hewan\Ukuran_Hewan.xaml.cs">
       <DependentUpon>Ukuran_Hewan.xaml</DependentUpon>
     </Compile>
@@ -137,6 +143,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Transaksi\Pembayaran_Jasa_Layanan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaksi\Pembayaran_Produk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ukuran_Hewan\Ukuran_Hewan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,9 +183,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Transaksi\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="AW419642_03.gif" />
   </ItemGroup>

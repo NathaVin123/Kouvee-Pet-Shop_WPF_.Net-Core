@@ -41,7 +41,9 @@ namespace KouveePetShop_Desktop.Menu
 
         private void Pembayaran_Click(object sender, RoutedEventArgs e)
         {
-
+            var PembayaranProduk = new Transaksi.Pembayaran_Produk();
+            PembayaranProduk.Show();
+            this.Close();
         }
 
         private void Layanan_Click(object sender, RoutedEventArgs e)
@@ -91,6 +93,13 @@ namespace KouveePetShop_Desktop.Menu
         {
             var UkuranHewan = new Ukuran_Hewan.Ukuran_Hewan();
             UkuranHewan.Show();
+            this.Close();
+        }
+
+        private void Pembayaran1_Click(object sender, RoutedEventArgs e)
+        {
+            var PembayaranLayanan = new Transaksi.Pembayaran_Jasa_Layanan();
+            PembayaranLayanan.Show();
             this.Close();
         }
     }

@@ -1,0 +1,25 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KouveePetShop_Desktop.Transaksi"
+        xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif" x:Class="KouveePetShop_Desktop.Transaksi.Pembayaran_Produk"
+        mc:Ignorable="d"
+        Title="Pembayaran_Produk" Height="608.59" Width="800">
+    <Grid Margin="0,0,0,-2">
+
+        <Button x:Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="704.5,-21,-12.5,340"/>
+        <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
+
+        <GroupBox Header="Pencarian Data Pembayaran Produk" Margin="10,45,10,290"/>
+        <TextBox x:Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="23,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="644" TextChanged="CariTxt_TextChanged"/>
+        <Button x:Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,89,0,0" VerticalAlignment="Top" Width="80" Height="29" BorderBrush="{x:Null}" Click="Cari_Click"/>
+
+        <GroupBox Header="Tampil Data Pembayaran Produk" Margin="10,135,10,25"/>
+        <Label x:Name="LabelCount" Content="Tidak ada data Ukuran Hewan yang ditampilkan." HorizontalAlignment="Left" Margin="430,265,0,0" VerticalAlignment="Top"/>
+        <DataGrid IsReadOnly="true" AutoGenerateColumns="True" x:Name="PembayaranProdukDT" Margin="23,180,30,42"/>
+
+    </Grid>
+</Window>
