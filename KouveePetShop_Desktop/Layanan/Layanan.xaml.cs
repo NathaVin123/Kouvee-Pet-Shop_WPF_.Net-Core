@@ -212,11 +212,12 @@ namespace KouveePetShop_Desktop.Layanan
             cmd.Connection = conn;
 
             id_layanan_ai++;
-            string id_layanan = id_layanan_ai.ToString("LYNN0000");
+            string id_layanan_ai_2 = id_layanan_ai.ToString("LYNN0000");
             string nama_layanan = namalayananTxt.Text;
             string harga_layanan = hargalayananTxt.Text;
             string id_ukuranHewan = idukuranhewanCb.Text;
             string updateLog_by = updatelogbyCb.Text;
+            string id_layanan = idlayananTxt.Text;
 
             if (/*idlayananTxt.Text != "" && */namalayananTxt.Text != "" && hargalayananTxt.Text != "" && idukuranhewanCb.Text != "" && updatelogbyCb.Text != "")
             {
@@ -225,7 +226,7 @@ namespace KouveePetShop_Desktop.Layanan
                     try
                     {
                         cmd.CommandText = "INSERT INTO layanans(id_layanan,nama_layanan,harga_layanan,id_ukuranHewan,updateLog_by) VALUES (@id_layanan,@nama_layanan,@harga_layanan,@id_ukuranHewan,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_layanan", id_layanan);
+                        cmd.Parameters.AddWithValue("@id_layanan", id_layanan_ai_2);
                         cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
                         cmd.Parameters.AddWithValue("@harga_layanan", harga_layanan);
                         cmd.Parameters.AddWithValue("@id_ukuranHewan", idukuranhewanCb.SelectedValue);

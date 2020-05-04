@@ -142,13 +142,13 @@ namespace KouveePetShop_Desktop.Supplier
             cmd.Connection = conn;
             try
             {
-                string id_supplier = id_supplier_ai.ToString("CT00");
+                string id_supplier = idsupplierTxt.Text;
                 string nama_supplier = namasupplierTxt.Text;
                 string alamat_supplier = alamatsupplierTxt.Text;
                 string telepon_supplier = noteleponTxt.Text;
                 string stok_supplier = stokTxt.Text;
                 string updateLog_by = updatelogbyCb.Text;
-
+                string id_supplier_ai_2 = id_supplier_ai.ToString("CT00");
                 if (/*idsupplierTxt.Text != "" && */namasupplierTxt.Text != "" && updatelogbyCb.Text != "")
                 {
                     if (idsupplierTxt.IsEnabled == true)
@@ -156,7 +156,7 @@ namespace KouveePetShop_Desktop.Supplier
                         try
                         {
                             cmd.CommandText = "INSERT INTO suppliers(id_supplier,nama_supplier,alamat_supplier,telepon_supplier,stok_supplier,updateLog_by) VALUES (@id_supplier,@nama_supplier,@alamat_supplier,@telepon_supplier,@stok_supplier,@updateLog_by)";
-                            cmd.Parameters.AddWithValue("@id_supplier", id_supplier);
+                            cmd.Parameters.AddWithValue("@id_supplier", id_supplier_ai_2);
                             cmd.Parameters.AddWithValue("@nama_supplier", nama_supplier);
                             cmd.Parameters.AddWithValue("@alamat_supplier", alamat_supplier);
                             cmd.Parameters.AddWithValue("@telepon_supplier", telepon_supplier);

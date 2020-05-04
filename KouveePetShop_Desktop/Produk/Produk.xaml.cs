@@ -154,7 +154,7 @@ namespace KouveePetShop_Desktop.Produk
             }
         }
 
-        public int id_ukuranhewan_ai = 10;
+        public int id_produk_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
@@ -175,14 +175,15 @@ namespace KouveePetShop_Desktop.Produk
             {
                 MessageBox.Show("Mohon masukan gambar terlebih dahulu");
             }
-
-            string id_produk = id_ukuranhewan_ai.ToString("PRDK0000");
+            id_produk_ai++;
+            string id_produk_ai_2 = id_produk_ai.ToString("PRDK0000");
             string nama_produk = namaprodukTxt.Text;
             string harga_produk = hargaprodukTxt.Text;
             string stok_produk = stokprodukTxt.Text;
             string min_stok_produk = minimalstokTxt.Text;
             string satuan_produk = satuanprodukTxt.Text;
             string updateLog_by = updatelogbyCb.Text;
+            string id_produk = idprodukTxt.Text;
 
             if (/*idprodukTxt.Text != "" && */namaprodukTxt.Text != "" && hargaprodukTxt.Text != "" && stokprodukTxt.Text != "" && minimalstokTxt.Text != "" && satuanprodukTxt.Text != "" && updatelogbyCb.Text != "")
             {
@@ -191,7 +192,7 @@ namespace KouveePetShop_Desktop.Produk
                     try
                     {
                         cmd.CommandText = "INSERT INTO produks(id_produk,nama_produk,harga_produk,stok_produk,min_stok_produk,satuan_produk,gambar,updateLog_by) VALUES (@id_produk,@nama_produk,@harga_produk,@stok_produk,@min_stok_produk,@satuan_produk,@gambar,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_produk", id_produk);
+                        cmd.Parameters.AddWithValue("@id_produk", id_produk_ai_2);
                         cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
                         cmd.Parameters.AddWithValue("@harga_produk", harga_produk);
                         cmd.Parameters.AddWithValue("@stok_produk", stok_produk);

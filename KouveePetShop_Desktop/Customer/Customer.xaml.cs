@@ -168,13 +168,14 @@ namespace KouveePetShop_Desktop.Customer
             try
             {
             id_customer_ai++;
-            string id_customer = id_customer_ai.ToString("CT00");
+            string id_customer_ai_2 = id_customer_ai.ToString("CT00");
             string nama_customer = namacustomerTxt.Text;
             string alamat_customer = alamatcustomerTxt.Text;
             string tglLahir_customer = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
             string noTelp_customer = noteleponTxt.Text;
             string updateLog_by = updatelogbyCb.Text;
-            
+            string id_customer = idcustomerTxt.Text;
+
             if (/*idcustomerTxt.Text != "" && */namacustomerTxt.Text != "" && updatelogbyCb.Text != "")
             {
                 if (idcustomerTxt.IsEnabled == true)
@@ -182,7 +183,7 @@ namespace KouveePetShop_Desktop.Customer
                     try
                     {
                         cmd.CommandText = "INSERT INTO customers(id_customer,nama_customer,alamat_customer,tglLahir_customer,noTelp_customer,updateLog_by) VALUES (@id_customer,@nama_customer,@alamat_customer,@tglLahir_customer,@noTelp_customer,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_customer", id_customer);
+                        cmd.Parameters.AddWithValue("@id_customer", id_customer_ai_2);
                         cmd.Parameters.AddWithValue("@nama_customer", nama_customer);
                         cmd.Parameters.AddWithValue("@alamat_customer", alamat_customer);
                         cmd.Parameters.AddWithValue("@tglLahir_customer", tglLahir_customer);

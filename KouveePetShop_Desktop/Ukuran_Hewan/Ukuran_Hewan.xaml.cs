@@ -148,9 +148,10 @@ namespace KouveePetShop_Desktop.Ukuran_Hewan
             cmd.Connection = conn;
             try
             {
-                string id_ukuranHewan = id_ukuranhewan_ai.ToString("CT00");
+                string id_ukuranHewan_ai_2 = id_ukuranhewan_ai.ToString("CT00");
                 string nama_ukuranHewan = namaukuranTxt.Text;
                 string updateLog_by = updatelogbyCb.Text;
+                string id_ukuranHewan = idukuranTxt.Text;
 
                 if (/*idukuranTxt.Text != "" && */namaukuranTxt.Text != "" && updatelogbyCb.Text != "")
                 {
@@ -159,7 +160,7 @@ namespace KouveePetShop_Desktop.Ukuran_Hewan
                         try
                         {
                             cmd.CommandText = "INSERT INTO ukuranhewans(id_ukuranHewan,nama_ukuranHewan,updateLog_by) VALUES (@id_ukuranHewan,@nama_ukuranHewan,@updateLog_by)";
-                            cmd.Parameters.AddWithValue("@id_ukuranHewan", id_ukuranHewan);
+                            cmd.Parameters.AddWithValue("@id_ukuranHewan", id_ukuranHewan_ai_2);
                             cmd.Parameters.AddWithValue("@nama_ukuranHewan", nama_ukuranHewan);
                             cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                             cmd.ExecuteNonQuery();

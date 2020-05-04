@@ -259,12 +259,13 @@ namespace KouveePetShop_Desktop.Hewan
             try
             {
                 id_hewan_ai++;
-                string id_hewan = id_hewan_ai.ToString("HWNN0000");
+                string id_hewan_ai_2 = id_hewan_ai.ToString("HWNN0000");
                 string nama_hewan = namahewanTxt.Text;
                 string tglLahir_hewan = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
                 string id_customer = idcustomerCb.Text;
                 string id_jenisHewan = idjenishewanCb.Text;
                 string updateLog_by = updatelogbyCb.Text;
+                string id_hewan = idhewanTxt.Text;
 
                 if (/*idhewanTxt.Text != "" && */namahewanTxt.Text != "" && updatelogbyCb.Text != "")
                 {
@@ -273,7 +274,7 @@ namespace KouveePetShop_Desktop.Hewan
                         try
                         {
                             cmd.CommandText = "INSERT INTO hewans(id_hewan,nama_hewan,tglLahir_hewan,id_customer,id_jenisHewan,updateLog_by) VALUES (@id_hewan,@nama_hewan,@tglLahir_hewan,@id_customer,@id_jenisHewan,@updateLog_by)";
-                            cmd.Parameters.AddWithValue("@id_hewan", id_hewan);
+                            cmd.Parameters.AddWithValue("@id_hewan", id_hewan_ai_2);
                             cmd.Parameters.AddWithValue("@nama_hewan", nama_hewan);
                             cmd.Parameters.AddWithValue("@tglLahir_hewan", tglLahir_hewan);
                             cmd.Parameters.AddWithValue("@id_customer", idcustomerCb.SelectedValue);

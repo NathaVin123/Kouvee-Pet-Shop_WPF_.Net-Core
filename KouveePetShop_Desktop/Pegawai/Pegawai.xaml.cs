@@ -180,7 +180,7 @@ namespace KouveePetShop_Desktop.Pegawai
                 try
                 {
                     id_Pegawai_ai++;
-                    string nip = id_Pegawai_ai.ToString("PEG0000");
+                    string nip_ai_2 = id_Pegawai_ai.ToString("PEG0000");
                     string nama_pegawai = namapegawaiTxt.Text;
                     string alamat_pegawai = alamatpegawaiTxt.Text;
                     string tglLahir_pegawai = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
@@ -188,6 +188,7 @@ namespace KouveePetShop_Desktop.Pegawai
                     string stat = statTxt.Text;
                     string password = passwordTxt.Text;
                     string updateLog_by = updatelogbyCb.Text;
+                    string nip = nipTxt.Text;
 
                     if (/*nipTxt.Text != "" && */namapegawaiTxt.Text != "" && alamatpegawaiTxt.Text != "" && tanggallahirDp.Text != "" && notelpTxt.Text != "" && statTxt.Text != "" && passwordTxt.Text != "" && updatelogbyCb.Text != "")
                     {
@@ -196,7 +197,7 @@ namespace KouveePetShop_Desktop.Pegawai
                             try
                             {
                                 cmd.CommandText = "INSERT INTO pegawais(nip,nama_pegawai,alamat_pegawai,tglLahir_pegawai,noTelp_pegawai,stat,password,gambar,updateLog_by) VALUES (@nip,@nama_pegawai,@alamat_pegawai,@tglLahir_pegawai,@noTelp_pegawai,@stat,@password,@gambar,@updateLog_by)";
-                                cmd.Parameters.AddWithValue("@nip", nip);
+                                cmd.Parameters.AddWithValue("@nip", nip_ai_2);
                                 cmd.Parameters.AddWithValue("@nama_pegawai", nama_pegawai);
                                 cmd.Parameters.AddWithValue("@alamat_pegawai", alamat_pegawai);
                                 cmd.Parameters.AddWithValue("@tglLahir_pegawai", tglLahir_pegawai);

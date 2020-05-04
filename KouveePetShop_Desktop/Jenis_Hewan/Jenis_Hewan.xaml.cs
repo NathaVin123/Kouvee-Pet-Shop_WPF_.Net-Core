@@ -150,10 +150,10 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             try
             {
                 id_jenishewan_ai++;
-            string id_jenisHewan = idjenishewanTxt.Text;
+            string id_jenisHewan_ai_2 = id_jenishewan_ai.ToString("JH0000");
             string nama_jenisHewan = namajenishewanTxt.Text;
             string updateLog_by = updatelogbyCb.Text;
-
+            string id_jenisHewan = idjenishewanTxt.Text;
             if (/*idjenishewanTxt.Text != "" && */namajenishewanTxt.Text != "" && updatelogbyCb.Text != "")
             {
                 if (idjenishewanTxt.IsEnabled == true)
@@ -161,7 +161,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                     try
                     {
                         cmd.CommandText = "INSERT INTO jenishewans(id_jenisHewan,nama_jenisHewan,updateLog_by) VALUES (@id_jenisHewan,@nama_jenisHewan,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
+                        cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan_ai_2);
                         cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
                         cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
                         cmd.ExecuteNonQuery();
