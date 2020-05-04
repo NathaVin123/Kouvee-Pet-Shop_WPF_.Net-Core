@@ -48,7 +48,7 @@ namespace KouveePetShop_Desktop.Transaksi
             cmd.Connection = conn;
             try
             {
-                cmd.CommandText = "SELECT dp.kode_penjualan AS 'Kode Penjualan', dp.id_produk AS 'ID Produk',dp.tgl_transaksi_produk AS 'Tanggal Transaksi Produk', tp.tgl_transaksi_penjualan AS 'Tanggal Transaksi Penjualan',dp.jml_transaksi_produk AS 'Jumlah Transaksi Produk', tp.nama_kasir AS 'Nama Kasir', dp.subtotal AS Subtotal, tp.status_transaksi AS 'Status Transaksi', tp.status_pembayaran AS 'Status Pembayaran', tp.id_customer AS 'ID Costumer', tp.id_CS AS 'ID CS', tp.id_Kasir AS 'ID Kasir', tp.total AS 'Total' FROM detailproduks dp JOIN transaksipenjualans tp ON dp.kode_penjualan = tp.kode_penjualan";
+                cmd.CommandText = "SELECT dl.kode_penjualan AS 'Kode Penjualan', tp.tgl_transaksi_penjualan AS 'Tanggal Transaksi Penjualan', dl.id_produk AS 'ID Produk', l.nama_produk AS 'Nama Produk', tp.id_customer AS 'ID Costumer', c.nama_customer AS 'Nama Customer', tp.id_Kasir AS 'ID Kasir', tp.nama_kasir AS 'Nama Kasir', tp.status_transaksi AS 'Status Transaksi', tp.status_pembayaran AS 'Status Pembayaran', dl.tgl_transaksi_produk AS 'Tanggal Transaksi Produk', dl.jml_transaksi_produk AS 'Jumlah Transaksi Produk', dl.subtotal AS Subtotal, tp.total AS 'Total' FROM detailproduks dl JOIN transaksipenjualans tp ON dl.kode_penjualan = tp.kode_penjualan JOIN produks l ON dl.id_produk = l.id_produk JOIN customers c ON tp.id_customer = c.id_customer";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
@@ -95,7 +95,7 @@ namespace KouveePetShop_Desktop.Transaksi
             try
             {
                 cmd.Parameters.AddWithValue("@nama_kasir", nama_kasir);
-                cmd.CommandText = "SELECT dp.kode_penjualan AS 'Kode Penjualan', dp.id_produk AS 'ID Produk',dp.tgl_transaksi_produk AS 'Tanggal Transaksi Produk', tp.tgl_transaksi_penjualan AS 'Tanggal Transaksi Penjualan',dp.jml_transaksi_produk AS 'Jumlah Transaksi Produk', tp.nama_kasir AS 'Nama Kasir', dp.subtotal AS Subtotal, tp.status_transaksi AS 'Status Transaksi', tp.status_pembayaran AS 'Status Pembayaran', tp.id_customer AS 'ID Costumer', tp.id_CS AS 'ID CS', tp.id_Kasir AS 'ID Kasir', tp.total AS 'Total' FROM detailproduks dp JOIN transaksipenjualans tp ON dp.kode_penjualan = tp.kode_penjualan WHERE nama_kasir = @nama_kasir";
+                cmd.CommandText = "SELECT dl.kode_penjualan AS 'Kode Penjualan', tp.tgl_transaksi_penjualan AS 'Tanggal Transaksi Penjualan', dl.id_produk AS 'ID Produk', l.nama_produk AS 'Nama Produk', tp.id_customer AS 'ID Costumer', c.nama_customer AS 'Nama Customer', tp.id_Kasir AS 'ID Kasir', tp.nama_kasir AS 'Nama Kasir', tp.status_transaksi AS 'Status Transaksi', tp.status_pembayaran AS 'Status Pembayaran', dl.tgl_transaksi_produk AS 'Tanggal Transaksi Produk', dl.jml_transaksi_produk AS 'Jumlah Transaksi Produk', dl.subtotal AS Subtotal, tp.total AS 'Total' FROM detailproduks dl JOIN transaksipenjualans tp ON dl.kode_penjualan = tp.kode_penjualan JOIN produks l ON dl.id_produk = l.id_produk JOIN customers c ON tp.id_customer = c.id_customer WHERE nama_kasir = @nama_kasir";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
