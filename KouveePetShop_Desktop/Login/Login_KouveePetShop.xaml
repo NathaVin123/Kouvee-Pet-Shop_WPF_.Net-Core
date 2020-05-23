@@ -13,8 +13,8 @@
             <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Height="58" Margin="66,0"/>
             <Label Content="Silakan Login" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
             <Separator></Separator>
-            <Label Content="Username" Foreground="White"/>
-            <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <Label Content="NIP" Foreground="White"/>
+            <TextBox Name="txtNIP" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Label Content="Password" Foreground="White"/>
             <PasswordBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Button x:Name="btnSubmit" Content="Submit" Margin="50 10" Foreground="White" FontSize="18" Click="BtnSubmit_Click"/>
