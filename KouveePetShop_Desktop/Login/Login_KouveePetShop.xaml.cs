@@ -58,9 +58,13 @@ namespace KouveePetShop_Desktop
                     Menu.Show();
                     this.Close();
                 }
+                else if(txtNIP.Text=="" && txtPassword.Password=="")
+                {
+                    MessageBox.Show("NIP dan Password harus diisi");
+                }
                 else
                 {
-                    MessageBox.Show("NIP dan Password anda belum sesuai");
+                    MessageBox.Show("NIP dan Password tidak sesuai");
                 }
             }
             catch
