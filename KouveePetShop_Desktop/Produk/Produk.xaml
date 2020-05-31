@@ -12,9 +12,9 @@
         xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         Title="Produk" Height="748.2" Width="945.2">
     <Grid>
-        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="700,-26,-9.6,548.4"/>
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="832,-30,4,667.6"/>
         <GroupBox Header="Data Produk" HorizontalAlignment="Left" Height="314" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
-        <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
+        <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="701,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
         <Label Content="ID Produk" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top"/>
         <Label Content="Nama Produk" HorizontalAlignment="Left" Margin="24,75,0,0" VerticalAlignment="Top"/>
         <Label Content="Harga Produk" HorizontalAlignment="Left" Margin="24,104,0,0" VerticalAlignment="Top"/>

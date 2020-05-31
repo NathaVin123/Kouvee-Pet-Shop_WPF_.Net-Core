@@ -89,7 +89,7 @@ namespace KouveePetShop_Desktop.Pegawai
             try
             {
                 cmd.Connection = conn;
-                cmd.CommandText = "SELECT nama_pegawai AS 'Nama_Pegawai', createLog_at AS 'Di Buat', updateLog_at AS 'Di Ubah', deleteLog_at AS 'Di Hapus' FROM pegawais";
+                cmd.CommandText = "SELECT nama_pegawai AS 'Nama Pegawai', createLog_at AS 'Di Buat', updateLog_at AS 'Di Ubah', deleteLog_at AS 'Di Hapus' FROM pegawais";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);

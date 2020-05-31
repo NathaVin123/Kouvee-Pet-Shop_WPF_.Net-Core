@@ -18,7 +18,7 @@
                 <GradientStop Color="#FFDE6868" Offset="1"/>
             </LinearGradientBrush>
         </Grid.OpacityMask>
-        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Height="100" Margin="0,-17,10.4,0" HorizontalAlignment="Right" Width="100" VerticalAlignment="Top"/>
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Height="100" Margin="0,0,10.4,0" HorizontalAlignment="Right" Width="100" VerticalAlignment="Top"/>
         <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,19,100.4,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
         <GroupBox Header="Data Layanan" HorizontalAlignment="Left" Height="137" Margin="17,19,0,0" VerticalAlignment="Top" Width="273"/>
         <Label Content="ID Layanan" HorizontalAlignment="Left" Margin="33,59,0,0" VerticalAlignment="Top"/>

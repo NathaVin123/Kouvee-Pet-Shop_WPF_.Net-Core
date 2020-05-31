@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="307,9,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
         <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="732,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063" Height="29" Width="126"/>
-        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Margin="858,-35,0,655" HorizontalAlignment="Left" Width="106"/>
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Margin="858,-29,0,649" HorizontalAlignment="Left" Width="106"/>
 
         <GroupBox Header="Data Hewan" HorizontalAlignment="Left" Height="244" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
         <Label Content="ID Hewan" HorizontalAlignment="Left" Margin="15,53,0,0" VerticalAlignment="Top" Height="24" Width="59"/>
