@@ -10,9 +10,9 @@
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Produk"
         mc:Ignorable="d"
         xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-        Title="Produk" Height="633" Width="800">
+        Title="Produk" Height="748.2" Width="945.2">
     <Grid>
-        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="700,0,9,550"/>
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="700,-26,-9.6,548.4"/>
         <GroupBox Header="Data Produk" HorizontalAlignment="Left" Height="314" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
         <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
         <Label Content="ID Produk" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top"/>
@@ -23,26 +23,26 @@
         <Label Content="Satuan Produk" HorizontalAlignment="Left" Margin="24,191,0,0" VerticalAlignment="Top"/>
         <Label Content="Gambar" HorizontalAlignment="Left" Margin="24,222,0,0" VerticalAlignment="Top"/>
         <Label Content="NIP" HorizontalAlignment="Left" Margin="24,288,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="idprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox Name="idprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669" IsReadOnly="True"/>
         <TextBox Name="namaprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="hargaprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="stokprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="minimalstokTxt" HorizontalAlignment="Left" Height="23" Margin="118,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <TextBox Name="satuanprodukTxt" HorizontalAlignment="Left" Height="23" Margin="118,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <ComboBox Name="satuanCb" HorizontalAlignment="Left" Margin="118,187,0,0" VerticalAlignment="Top" Width="158"/>
 
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="117" Margin="11,329,0,0" VerticalAlignment="Top" Width="280"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="42,369,0,0" VerticalAlignment="Top" Width="90" Height="32" BorderBrush="{x:Null}" Click="Tambah_Click"/>
         <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="42,408,0,0" VerticalAlignment="Top" Width="90" Height="30" BorderBrush="{x:Null}" Click="Ubah_Click"/>
         <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="163,369,0,0" VerticalAlignment="Top" Width="90" Height="34" BorderBrush="{x:Null}" Click="Batal_Click"/>
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="163,408,0,0" VerticalAlignment="Top" Width="90" Height="30" BorderBrush="{x:Null}" Click="Hapus_Click"/>
-        
-        <GroupBox Header="Pencarian Data Produk" HorizontalAlignment="Left" Height="80" Margin="307,44,0,0" VerticalAlignment="Top" Width="475"/>
-        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" TextChanged="CariTxt_TextChanged"/>
-        <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,89,0,0" VerticalAlignment="Top" Width="80" Height="29" BorderBrush="{x:Null}" Click="Cari_Click"/>
 
-        <GroupBox Header="Tampil Data Produk" HorizontalAlignment="Left" Height="461" Margin="307,130,0,0" VerticalAlignment="Top" Width="475"/>
+        <GroupBox Header="Pencarian Data Produk" HorizontalAlignment="Left" Height="80" Margin="307,44,0,0" VerticalAlignment="Top" Width="619"/>
+        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="495" TextChanged="CariTxt_TextChanged"/>
+        <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="832,89,0,0" VerticalAlignment="Top" Width="80" Height="29" BorderBrush="{x:Null}" Click="Cari_Click"/>
+
+        <GroupBox Header="Tampil Data Produk" HorizontalAlignment="Left" Height="598" Margin="307,130,0,0" VerticalAlignment="Top" Width="619"/>
         <Label Name="LabelCount" Content="Tidak ada data Produk yang ditampilkan." HorizontalAlignment="Left" Margin="441,322,0,0" VerticalAlignment="Top"/>
-        <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="produkDT" HorizontalAlignment="Left" Height="403" VerticalAlignment="Top" Width="452" Margin="317,175,0,0">
+        <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="produkDT" HorizontalAlignment="Left" Height="536" VerticalAlignment="Top" Width="595" Margin="317,175,0,0">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Gambar" Width="100" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
@@ -54,8 +54,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="307,9,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-        <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="140" Margin="10,451,0,0" VerticalAlignment="Top" Width="281"/>
-        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="27,493,0,18" Width="249"/>
+        <GroupBox Header="Log" HorizontalAlignment="Left" Height="277" Margin="10,451,0,0" VerticalAlignment="Top" Width="281"/>
+        <DataGrid Name="logDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="27,493,0,26.4" Width="249"/>
         <Button x:Name="gambarBtn" Content="Pilih Gambar" HorizontalAlignment="Left" Margin="112,221,0,0" VerticalAlignment="Top" Width="122" Height="30" BorderBrush="{x:Null}" Click="GambarBtn_Click"/>
         <Image Name="UploadImage" HorizontalAlignment="Left" Height="30" Margin="244,221,0,0" VerticalAlignment="Top" Width="32"/>
         <TextBox x:Name="GambarPath" HorizontalAlignment="Left" Height="27" Margin="118,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>

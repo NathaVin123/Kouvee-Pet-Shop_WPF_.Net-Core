@@ -24,6 +24,8 @@ namespace KouveePetShop_Desktop.Layanan
     {
         MySqlConnection conn;
         DataTable dt;
+
+        DateTime tanggal = DateTime.Now;
         public Layanan()
         {
             InitializeComponent();
@@ -33,9 +35,7 @@ namespace KouveePetShop_Desktop.Layanan
                 conn = new MySqlConnection();
                 conn.ConnectionString = "SERVER=localhost;DATABASE=petshopd;UID=root;PASSWORD=;";
                 BindGrid();
-                BindGridPegawai();
-                BindGridUkuranHewan();
-                FillComboBoxUkuranHewan();
+                BindGridLog();
                 FillComboBoxNIP();
             }
             catch
@@ -54,7 +54,7 @@ namespace KouveePetShop_Desktop.Layanan
             cmd.Connection = conn;
             try
             {
-                cmd.CommandText = "SELECT id_layanan AS 'ID Layanan', nama_layanan AS 'Nama Layanan', harga_layanan AS 'Harga Layanan', id_ukuranHewan AS 'ID Ukuran Hewan', updateLog_by AS 'NIP' FROM layanans";
+                cmd.CommandText = "SELECT id_layanan AS 'ID Layanan', nama_layanan AS 'Nama Layanan', updateLog_by AS 'Diubah Oleh' FROM layanans WHERE aktif LIKE '1'";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
@@ -77,7 +77,7 @@ namespace KouveePetShop_Desktop.Layanan
             }
         }
 
-        private void BindGridPegawai()
+        private void BindGridLog()
         {
             MySqlCommand cmd = new MySqlCommand();
 
@@ -86,96 +86,37 @@ namespace KouveePetShop_Desktop.Layanan
             try
             {
                 cmd.Connection = conn;
-                cmd.CommandText = "SELECT NIP AS 'NIP', nama_pegawai AS 'Nama Pegawai' FROM pegawais";
+                cmd.CommandText = "SELECT nama_layanan AS 'Nama Layanan', createLog_at AS 'Di Buat', updateLog_at AS 'Di Ubah', deleteLog_at AS 'Di Hapus' FROM layanans";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
-                nipDT.ItemsSource = dt.AsDataView();
+                logDT.ItemsSource = dt.AsDataView();
 
                 if (dt.Rows.Count > 0)
                 {
                     LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                    nipDT.Visibility = System.Windows.Visibility.Visible;
+                    logDT.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 {
                     LabelCount.Visibility = System.Windows.Visibility.Visible;
-                    nipDT.Visibility = System.Windows.Visibility.Hidden;
+                    logDT.Visibility = System.Windows.Visibility.Hidden;
                 }
             }
             catch
             {
-                MessageBox.Show("Terjadi kesalahan dalam menampilkan data pegawai");
+                MessageBox.Show("Terjadi kesalahan dalam menampilkan data log");
             }
             
-        }
-
-        private void BindGridUkuranHewan()
-        {
-            MySqlCommand cmd = new MySqlCommand();
-
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-            cmd.Connection = conn;
-            try
-            {
-                cmd.CommandText = "SELECT id_ukuranHewan AS 'ID Ukuran', nama_ukuranHewan AS 'Nama Ukuran' FROM ukuranhewans";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adapter.Fill(dt);
-                uhDT.ItemsSource = dt.AsDataView();
-
-                if (dt.Rows.Count > 0)
-                {
-                    LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                    uhDT.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                {
-                    LabelCount.Visibility = System.Windows.Visibility.Visible;
-                    uhDT.Visibility = System.Windows.Visibility.Hidden;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Terjadi kesalahan dalam menampilkan data ukuran hewan");
-            }
         }
 
         private void ClearAll()
         {
             idlayananTxt.Text = "";
             namalayananTxt.Text = "";
-            hargalayananTxt.Text = "";
-            idukuranhewanCb.Text = "";
             updatelogbyCb.Text = "";
             tambahBtn.Content = "Tambah";
             idlayananTxt.IsEnabled = true;
-        }
-
-        public void FillComboBoxUkuranHewan()
-        {
-            string query = "SELECT id_ukuranHewan, nama_ukuranHewan FROM petshopd.ukuranhewans;";
-    
-            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
-            MySqlDataReader mySqlDataReader;
-
-            try
-            {
-                mySqlDataReader = mySqlCommand.ExecuteReader();
-
-                while (mySqlDataReader.Read())
-                {
-                    string idUkuran = mySqlDataReader.GetString("id_ukuranHewan");
-                    string namaUkuran = mySqlDataReader.GetString("nama_ukuranHewan");
-                    idukuranhewanCb.Items.Add(idUkuran + " - " + namaUkuran);
-                }
-                mySqlDataReader.Close();
-            }
-            catch(Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
         }
 
         public void FillComboBoxNIP()
@@ -202,8 +143,6 @@ namespace KouveePetShop_Desktop.Layanan
             }
         }
 
-        public int id_layanan_ai = 10;
-
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
@@ -211,28 +150,22 @@ namespace KouveePetShop_Desktop.Layanan
                 conn.Open();
             cmd.Connection = conn;
 
-            id_layanan_ai++;
-            string id_layanan_ai_2 = id_layanan_ai.ToString("LYNN0000");
             string nama_layanan = namalayananTxt.Text;
-            string harga_layanan = hargalayananTxt.Text;
-            string id_ukuranHewan = idukuranhewanCb.Text;
             string updateLog_by = updatelogbyCb.Text;
             string id_layanan = idlayananTxt.Text;
 
-            if (/*idlayananTxt.Text != "" && */namalayananTxt.Text != "" && hargalayananTxt.Text != "" && idukuranhewanCb.Text != "" && updatelogbyCb.Text != "")
+            if (namalayananTxt.Text != "" || string.IsNullOrEmpty(updatelogbyCb.Text))
             {
                 if (idlayananTxt.IsEnabled == true)
                 {
                     try
                     {
-                        cmd.CommandText = "INSERT INTO layanans(id_layanan,nama_layanan,harga_layanan,id_ukuranHewan,updateLog_by) VALUES (@id_layanan,@nama_layanan,@harga_layanan,@id_ukuranHewan,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_layanan", id_layanan_ai_2);
+                        cmd.CommandText = "INSERT INTO layanans(nama_layanan,updateLog_by) VALUES (@nama_layanan,@updateLog_by)";
                         cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
-                        cmd.Parameters.AddWithValue("@harga_layanan", harga_layanan);
-                        cmd.Parameters.AddWithValue("@id_ukuranHewan", idukuranhewanCb.SelectedValue);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
                         cmd.ExecuteNonQuery();
                         BindGrid();
+                        BindGridLog();
                         MessageBox.Show("Data Layanan berhasil ditambahkan");
                     }
                     catch
@@ -246,14 +179,13 @@ namespace KouveePetShop_Desktop.Layanan
                 {
                     try
                     {
-                        cmd.CommandText = "UPDATE layanans set id_layanan = @id_layanan,nama_layanan = @nama_layanan, harga_layanan = @harga_layanan, id_ukuranHewan = @id_ukuranHewan, updateLog_By = @updateLog_by WHERE id_layanan = @id_layanan";
+                        cmd.CommandText = "UPDATE layanans set nama_layanan = @nama_layanan, updateLog_By = @updateLog_by WHERE id_layanan = @id_layanan";
                         cmd.Parameters.AddWithValue("@id_layanan", id_layanan);
                         cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
-                        cmd.Parameters.AddWithValue("@harga_layanan", harga_layanan);
-                        cmd.Parameters.AddWithValue("@id_ukuranHewan", idukuranhewanCb.SelectedValue);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
                         cmd.ExecuteNonQuery();
                         BindGrid();
+                        BindGridLog();
                         MessageBox.Show("Data Layanan berhasil di ubah");
                     }
                     catch
@@ -277,9 +209,7 @@ namespace KouveePetShop_Desktop.Layanan
                 DataRowView row = (DataRowView)layananDT.SelectedItems[0];
                 idlayananTxt.Text = row["ID Layanan"].ToString();
                 namalayananTxt.Text = row["Nama Layanan"].ToString();
-                hargalayananTxt.Text = row["Harga Layanan"].ToString();
-                idukuranhewanCb.SelectedValue = row["ID Ukuran Hewan"].ToString();
-                updatelogbyCb.SelectedValue = row["NIP"].ToString();
+                updatelogbyCb.SelectedValue = row["Diubah Oleh"].ToString();
                 idlayananTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
@@ -291,6 +221,12 @@ namespace KouveePetShop_Desktop.Layanan
 
         private void Hapus_Click(object sender, RoutedEventArgs e)
         {
+            int aktif = '0';
+            string message = "Apakah anda ingin menghapus data ini ?";
+            string caption = "Warning";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+
             if (layananDT.SelectedItems.Count > 0)
             {
                 DataRowView row = (DataRowView)layananDT.SelectedItems[0];
@@ -298,21 +234,24 @@ namespace KouveePetShop_Desktop.Layanan
                 MySqlCommand cmd = new MySqlCommand();
                 if(conn.State != ConnectionState.Open)
                     conn.Open();
-
-                cmd.Connection = conn;
-                try
+                if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
                 {
-                    cmd.CommandText = "DELETE FROM layanans where id_layanan =" + row["ID Layanan"].ToString();
-                    cmd.ExecuteNonQuery();
-                    BindGrid();
-                    MessageBox.Show("Data Layanan berhasil di hapus");
+                    try
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = "UPDATE layanans set aktif = @aktif where id_layanan =" + row["ID Layanan"].ToString();
+                        cmd.Parameters.AddWithValue("@aktif", aktif);
+                        cmd.ExecuteNonQuery();
+                        BindGrid();
+                        BindGridLog();
+                        MessageBox.Show("Data Layanan berhasil di hapus");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Terjadi kesalahan dalam menghapus data layanan");
+                    }
+                    ClearAll();
                 }
-                catch
-                {
-                    MessageBox.Show("Terjadi kesalahan dalam menghapus data layanan");
-                }
-                ClearAll();
-                
             }
             else
             {
@@ -337,7 +276,7 @@ namespace KouveePetShop_Desktop.Layanan
             try
             {
                 cmd.Parameters.AddWithValue("@nama_layanan", nama_layanan);
-                cmd.CommandText = "SELECT id_layanan AS 'ID Layanan', nama_layanan AS 'Nama Layanan', harga_layanan AS 'Harga Layanan', id_ukuranHewan AS 'ID Ukuran Hewan', updateLog_by AS 'NIP' FROM layanans WHERE nama_layanan = @nama_layanan";
+                cmd.CommandText = "SELECT id_layanan AS 'ID Layanan', nama_layanan AS 'Nama Layanan', updateLog_by AS 'Diubah Oleh' FROM layanans WHERE nama_layanan = @nama_layanan";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();

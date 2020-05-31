@@ -29,6 +29,7 @@
                 <materialDesign:PackIcon Kind="Power"/>
             </Button>
             <TextBlock x:Name="RoleText"  FontSize="12" Margin="443,30,159.8,41" />
+            <TextBlock x:Name="SessionText" Margin="538,9,317.8,80"/>
         </Grid>
         <Label Content="ADMIN" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
         <Grid Height="484" RenderTransformOrigin="0.5,1.009">

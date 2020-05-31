@@ -25,6 +25,8 @@ namespace KouveePetShop_Desktop.Customer
     {
         MySqlConnection conn;
         DataTable dt;
+
+        DateTime tanggal = DateTime.Now;
         public Customer()
         {
             InitializeComponent();
@@ -34,8 +36,7 @@ namespace KouveePetShop_Desktop.Customer
                 conn = new MySqlConnection();
                 conn.ConnectionString = "SERVER=localhost;DATABASE=petshopd;UID=root;PASSWORD=;Allow Zero Datetime=True";
                 BindGrid();
-                BindGridPegawai();
-                //AutoGenerate();
+                BindGridLog();
                 FillComboBoxNIP();
             }
             catch
@@ -54,7 +55,7 @@ namespace KouveePetShop_Desktop.Customer
             cmd.Connection = conn;
             try
             {
-                cmd.CommandText = "SELECT id_customer AS 'ID Customer', nama_customer AS 'Nama Customer', alamat_customer AS 'Alamat Customer', tglLahir_customer AS 'Tanggal Lahir', noTelp_customer AS 'No Telepon', updateLog_by AS 'NIP' FROM customers";
+                cmd.CommandText = "SELECT id_customer AS 'ID Customer', nama_customer AS 'Nama Customer', alamat_customer AS 'Alamat Customer', tglLahir_customer AS 'Tanggal Lahir', noTelp_customer AS 'No Telepon', updateLog_by AS 'Diubah Oleh' FROM customers WHERE aktif LIKE '1'";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
@@ -78,7 +79,7 @@ namespace KouveePetShop_Desktop.Customer
             
         }
 
-        private void BindGridPegawai()
+        private void BindGridLog()
         {
             MySqlCommand cmd = new MySqlCommand();
 
@@ -87,51 +88,29 @@ namespace KouveePetShop_Desktop.Customer
             try
             {
                 cmd.Connection = conn;
-                cmd.CommandText = "SELECT NIP AS 'NIP', nama_pegawai AS 'Nama Pegawai' FROM pegawais";
+                cmd.CommandText = "SELECT nama_customer AS 'Nama Customer', createLog_at AS 'Di Buat', updateLog_at AS 'Di Ubah', deleteLog_at AS 'Di Hapus' FROM customers";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
-                nipDT.ItemsSource = dt.AsDataView();
+                logDT.ItemsSource = dt.AsDataView();
 
                 if (dt.Rows.Count > 0)
                 {
                     LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                    nipDT.Visibility = System.Windows.Visibility.Visible;
+                    logDT.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 {
                     LabelCount.Visibility = System.Windows.Visibility.Visible;
-                    nipDT.Visibility = System.Windows.Visibility.Hidden;
+                    logDT.Visibility = System.Windows.Visibility.Hidden;
                 }
             }
             catch
             {
-                MessageBox.Show("Terjadi kesalahan dalam menampilkan data pegawai");
+                MessageBox.Show("Terjadi kesalahan dalam menampilkan data log");
             }
             
         }
-
-        //public void AutoGenerate()
-        //{
-        //    string num = "0123456789";
-        //    int len = num.Length;
-        //    string otp = string.Empty;
-        //    int otpdigit = 6;
-        //    string finaldigit;
-
-        //    int getIndex;
-
-        //    for(int i=0; i < otpdigit; i++)
-        //    {
-        //        do
-        //        {
-        //            getIndex = new Random().Next(0, len);
-        //            finaldigit = num.ToCharArray()[getIndex].ToString();
-        //        } while (otp.IndexOf(finaldigit) != -1);
-        //        otp += finaldigit;
-        //    }
-        //    idcustomerTxt.Text = (otp);
-        //}
 
 
         public void FillComboBoxNIP()
@@ -158,7 +137,7 @@ namespace KouveePetShop_Desktop.Customer
             }
         }
 
-        public int id_customer_ai = 10;
+        //public int id_customer_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
@@ -167,30 +146,29 @@ namespace KouveePetShop_Desktop.Customer
             cmd.Connection = conn;
             try
             {
-            id_customer_ai++;
-            string id_customer_ai_2 = id_customer_ai.ToString("CT00");
             string nama_customer = namacustomerTxt.Text;
             string alamat_customer = alamatcustomerTxt.Text;
             string tglLahir_customer = tanggallahirDp.SelectedDate.Value.ToString("yyyy-MM-dd");
             string noTelp_customer = noteleponTxt.Text;
             string updateLog_by = updatelogbyCb.Text;
             string id_customer = idcustomerTxt.Text;
+            string updateLog_at = tanggal.ToString("yyyy-MM-dd H:mm:ss");
 
-            if (/*idcustomerTxt.Text != "" && */namacustomerTxt.Text != "" && updatelogbyCb.Text != "")
+                if (namacustomerTxt.Text != "" && alamatcustomerTxt.Text != "" && tanggallahirDp.SelectedDate != null && noteleponTxt.Text != "" || string.IsNullOrEmpty(updatelogbyCb.Text))
             {
                 if (idcustomerTxt.IsEnabled == true)
                 {
                     try
                     {
-                        cmd.CommandText = "INSERT INTO customers(id_customer,nama_customer,alamat_customer,tglLahir_customer,noTelp_customer,updateLog_by) VALUES (@id_customer,@nama_customer,@alamat_customer,@tglLahir_customer,@noTelp_customer,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_customer", id_customer_ai_2);
+                        cmd.CommandText = "INSERT INTO customers(nama_customer,alamat_customer,tglLahir_customer,noTelp_customer,updateLog_by) VALUES (@nama_customer,@alamat_customer,@tglLahir_customer,@noTelp_customer,@updateLog_by)";
                         cmd.Parameters.AddWithValue("@nama_customer", nama_customer);
                         cmd.Parameters.AddWithValue("@alamat_customer", alamat_customer);
                         cmd.Parameters.AddWithValue("@tglLahir_customer", tglLahir_customer);
                         cmd.Parameters.AddWithValue("@noTelp_customer", noTelp_customer);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
                         cmd.ExecuteNonQuery();
                         BindGrid();
+                        BindGridLog();
                         MessageBox.Show("Data Customer berhasil ditambahkan");
                     }
                     catch
@@ -203,15 +181,17 @@ namespace KouveePetShop_Desktop.Customer
                 {
                     try
                     {
-                        cmd.CommandText = "UPDATE customers set id_customer = @id_customer, nama_customer = @nama_customer, alamat_customer = @alamat_customer, tglLahir_customer = @tglLahir_customer, noTelp_customer = @noTelp_customer, updateLog_By = @updateLog_by WHERE id_customer = @id_customer";
+                        cmd.CommandText = "UPDATE customers set nama_customer = @nama_customer, alamat_customer = @alamat_customer, tglLahir_customer = @tglLahir_customer, noTelp_customer = @noTelp_customer, updateLog_By = @updateLog_by, updateLog_at = @updateLog_at WHERE id_customer = @id_customer";
                         cmd.Parameters.AddWithValue("@id_customer", id_customer);
                         cmd.Parameters.AddWithValue("@nama_customer", nama_customer);
                         cmd.Parameters.AddWithValue("@alamat_customer", alamat_customer);
                         cmd.Parameters.AddWithValue("@tglLahir_customer", tglLahir_customer);
                         cmd.Parameters.AddWithValue("@noTelp_customer", noTelp_customer);
                         cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@updateLog_at", updateLog_at);
                         cmd.ExecuteNonQuery();
                         BindGrid();
+                        BindGridLog();
                         MessageBox.Show("Data Customer berhasil di ubah");
                     }
                     catch
@@ -259,7 +239,7 @@ namespace KouveePetShop_Desktop.Customer
                 alamatcustomerTxt.Text = row["Alamat Customer"].ToString();
                 tanggallahirDp.Text = row["Tanggal Lahir"].ToString();
                 noteleponTxt.Text = row["No Telepon"].ToString();
-                updatelogbyCb.Text = row["NIP"].ToString();
+                updatelogbyCb.SelectedValue = row["Diubah Oleh"].ToString();
                 idcustomerTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
@@ -271,6 +251,13 @@ namespace KouveePetShop_Desktop.Customer
 
         private void Hapus_Click(object sender, RoutedEventArgs e)
         {
+            int aktif = '0';
+            //string deleteLog_at = tanggal.ToString("yyyy-MM-dd H:mm:ss");
+            string message = "Apakah anda ingin menghapus data ini ?";
+            string caption = "Warning";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+
             if (customerDT.SelectedItems.Count > 0)
             {
                 DataRowView row = (DataRowView)customerDT.SelectedItems[0];
@@ -278,21 +265,25 @@ namespace KouveePetShop_Desktop.Customer
                 MySqlCommand cmd = new MySqlCommand();
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
-
-                try
+                if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
                 {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "DELETE FROM customers where id_customer =" + row["ID Customer"].ToString();
-                    cmd.ExecuteNonQuery();
-                    BindGrid();
-                    MessageBox.Show("Data Customer berhasil di hapus");
+                    try
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = "UPDATE customers set aktif = @aktif where id_customer =" + row["ID Customer"].ToString();
+                        cmd.Parameters.AddWithValue("@aktif", aktif);
+                        //cmd.Parameters.AddWithValue("@adeleteLog_at", deleteLog_at);
+                        cmd.ExecuteNonQuery();
+                        BindGrid();
+                        BindGridLog();
+                        MessageBox.Show("Data Customer berhasil di soft delete");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Terjadi kesalahan dalam menghapus data customer");
+                    }
+                    ClearAll();
                 }
-                catch
-                {
-                    MessageBox.Show("Terjadi kesalahan dalam menghapus data customer");
-                }
-                ClearAll();
-
             }
             else
             {
@@ -324,7 +315,7 @@ namespace KouveePetShop_Desktop.Customer
             try
             {
                 cmd.Parameters.AddWithValue("@nama_customer", nama_jenisHewan);
-                cmd.CommandText = "SELECT id_customer AS 'ID Customer', nama_customer AS 'Nama Customer', alamat_customer AS 'Alamat Customer', tglLahir_customer AS 'Tanggal Lahir', noTelp_customer AS 'No Telepon', updateLog_by AS 'NIP' FROM customers WHERE nama_customer = @nama_customer";
+                cmd.CommandText = "SELECT id_customer AS 'ID Customer', nama_customer AS 'Nama Customer', alamat_customer AS 'Alamat Customer', tglLahir_customer AS 'Tanggal Lahir', noTelp_customer AS 'No Telepon', updateLog_by AS 'Diubah Oleh' FROM customers WHERE nama_customer = @nama_customer";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();

@@ -80,6 +80,9 @@
     <Compile Include="Jenis_Hewan\Jenis_Hewan.xaml.cs">
       <DependentUpon>Jenis_Hewan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layanan\Harga_Layanan.xaml.cs">
+      <DependentUpon>Harga_Layanan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layanan\Layanan.xaml.cs">
       <DependentUpon>Layanan.xaml</DependentUpon>
     </Compile>
@@ -98,12 +101,6 @@
     <Compile Include="Supplier\Supplier.xaml.cs">
       <DependentUpon>Supplier.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\Pembayaran_Jasa_Layanan.xaml.cs">
-      <DependentUpon>Pembayaran_Jasa_Layanan.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Transaksi\Pembayaran_Produk.xaml.cs">
-      <DependentUpon>Pembayaran_Produk.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Ukuran_Hewan\Ukuran_Hewan.xaml.cs">
       <DependentUpon>Ukuran_Hewan.xaml</DependentUpon>
     </Compile>
@@ -116,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Jenis_Hewan\Jenis_Hewan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Layanan\Harga_Layanan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,14 +152,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Supplier\Supplier.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Transaksi\Pembayaran_Jasa_Layanan.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Transaksi\Pembayaran_Produk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +195,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AW419642_01.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Kasir\" />
+    <Folder Include="Laporan\" />
+    <Folder Include="Struk\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets')" />

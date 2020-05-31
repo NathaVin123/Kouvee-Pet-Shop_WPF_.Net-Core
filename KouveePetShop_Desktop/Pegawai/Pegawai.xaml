@@ -10,15 +10,15 @@
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Pegawai"
         mc:Ignorable="d"
         xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-        Title="Pegawai" Height="719.759" Width="800">
+        Title="Pegawai" Height="719.759" Width="1028.8">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="360*"/>
             <RowDefinition Height="329*"/>
         </Grid.RowDefinitions>
-        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Margin="696,0,-15,316"/>
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Margin="900,0,0,0" HorizontalAlignment="Left" Width="109" Height="55" VerticalAlignment="Top"/>
         <GroupBox Header="Data Pegawai" HorizontalAlignment="Left" Height="366" Margin="10,10,0,0" VerticalAlignment="Top" Width="280" Grid.RowSpan="2"/>
-        <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
+        <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" Margin="764,10,124.2,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
         <Label Content="NIP" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top"/>
         <Label Content="Nama Pegawai" HorizontalAlignment="Left" Margin="24,75,0,0" VerticalAlignment="Top"/>
         <Label Content="Alamat" HorizontalAlignment="Left" Margin="24,104,0,0" VerticalAlignment="Top"/>
@@ -27,25 +27,25 @@
         <Label Content="Role" HorizontalAlignment="Left" Margin="24,191,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="24,222,0,0" VerticalAlignment="Top"/>
         <Label Content="Gambar" HorizontalAlignment="Left" Margin="24,254,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="nipTxt" HorizontalAlignment="Left" Height="23" Margin="118,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <TextBox Name="nipTxt" HorizontalAlignment="Left" Height="23" Margin="118,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669" IsReadOnly="True"/>
         <TextBox Name="namapegawaiTxt" HorizontalAlignment="Left" Height="23" Margin="118,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <TextBox Name="alamatpegawaiTxt" HorizontalAlignment="Left" Height="23" Margin="118,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <DatePicker Name="tanggallahirDp" Margin="118,133,516,202" Height="25"/>
-        <TextBox Name="notelpTxt" HorizontalAlignment="Left" Height="23" Margin="118,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <TextBox Name="statTxt" HorizontalAlignment="Left" Height="23" Margin="118,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
-        <TextBox Name="passwordTxt" HorizontalAlignment="Left" Height="23" Margin="118,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+        <DatePicker Name="tanggallahirDp" Margin="118,133,743.2,213.2" Height="25"/>
+        <TextBox Name="notelpTxt" HorizontalAlignment="Left" Height="28" Margin="118,158,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
+
+        <PasswordBox Name="passwordTxt" HorizontalAlignment="Left" Height="32" Margin="118,222,0,0" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="117" Margin="11,21,0,0" VerticalAlignment="Top" Width="280" Grid.Row="1"/>
         <Button Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="48,62,0,0" VerticalAlignment="Top" Width="90" Height="32" BorderBrush="{x:Null}" Click="Tambah_Click" Grid.Row="1"/>
         <Button Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="48,100,0,0" VerticalAlignment="Top" Width="90" Height="30" BorderBrush="{x:Null}" Click="Ubah_Click" Grid.Row="1"/>
         <Button Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="169,62,0,0" VerticalAlignment="Top" Width="90" Height="34" BorderBrush="{x:Null}" Click="Batal_Click" Grid.Row="1"/>
         <Button Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="169,100,0,0" VerticalAlignment="Top" Width="90" Height="30" BorderBrush="{x:Null}" Click="Hapus_Click" Grid.Row="1"/>
-        <GroupBox Header="Pencarian Data Pegawai" HorizontalAlignment="Left" Height="80" Margin="307,44,0,0" VerticalAlignment="Top" Width="475"/>
-        <TextBox Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="317,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" TextChanged="CariTxt_TextChanged"/>
-        <Button Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="689,89,0,0" VerticalAlignment="Top" Width="80" Height="29" BorderBrush="{x:Null}" Click="Cari_Click"/>
-
-        <GroupBox Header="Tampil Data Pegawai" HorizontalAlignment="Left" Height="549" Margin="307,130,0,0" VerticalAlignment="Top" Width="475" Grid.RowSpan="2"/>
+        <GroupBox Header="Pencarian Data Pegawai" Height="80" Margin="307,44,8.4,0" VerticalAlignment="Top"/>
+        <TextBox Name="cariTxt" Height="23" Margin="317,89,123.4,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextChanged="CariTxt_TextChanged"/>
+        <Button Name="cariBtn" Content="Cari" Margin="918,89,0,0" VerticalAlignment="Top" Height="29" BorderBrush="{x:Null}" Click="Cari_Click" HorizontalAlignment="Left" Width="80"/>
+        <ComboBox Name="roleCb" HorizontalAlignment="Left" Margin="118,195,0,0" VerticalAlignment="Top" Width="158"/>
+        <GroupBox Header="Tampil Data Pegawai" Height="560" Margin="307,130,8.2,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <Label Name="LabelCount" Content="Tidak ada data Produk yang ditampilkan." HorizontalAlignment="Left" Margin="441,322,0,0" VerticalAlignment="Top"/>
-        <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="pegawaiDT" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="452" Margin="317,175,0,0" Grid.RowSpan="2">
+        <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="pegawaiDT" Height="504" VerticalAlignment="Top" Margin="317,175,21.2,0" Grid.RowSpan="2">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Gambar" Width="100" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
@@ -58,15 +58,15 @@
         </DataGrid>
         <Button Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="307,9,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
 
-        <GroupBox Header="Daftar NIP" HorizontalAlignment="Left" Height="176" Margin="11,143,0,0" VerticalAlignment="Top" Width="281" Grid.Row="1"/>
-        <DataGrid Name="nipDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="27,185,0,18" Width="249" Grid.Row="1"/>
+        <GroupBox Header="Log" HorizontalAlignment="Left" Height="176" Margin="11,143,0,0" VerticalAlignment="Top" Width="281" Grid.Row="1"/>
+        <DataGrid Name="logDT" IsReadOnly="True" HorizontalAlignment="Left" Margin="24,184.8,0,31.4" Width="252" Grid.Row="1"/>
 
-        <Button x:Name="gambarBtn" Content="Pilih Gambar" HorizontalAlignment="Left" Margin="108,254,0,0" VerticalAlignment="Top" Width="122" Height="30" BorderBrush="{x:Null}" Click="GambarBtn_Click"/>
+        <Button x:Name="gambarBtn" Content="Pilih Gambar" HorizontalAlignment="Left" Margin="137,260,0,0" VerticalAlignment="Top" Width="122" Height="32" BorderBrush="{x:Null}" Click="GambarBtn_Click"/>
         <Image Name="UploadImage" HorizontalAlignment="Left" Height="30" Margin="244,254,0,0" VerticalAlignment="Top" Width="32"/>
         <TextBox x:Name="GambarPath" HorizontalAlignment="Left" Height="27" Margin="118,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" RenderTransformOrigin="-1.954,-2.669"/>
         <Label Content="Lokasi Gambar" HorizontalAlignment="Left" Margin="24,295,0,0" VerticalAlignment="Top"/>
-        <Label Content="NIP Update by" HorizontalAlignment="Left" Margin="24,332,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="updatelogbyCb" HorizontalAlignment="Left" Margin="118,332,0,0" VerticalAlignment="Top" Width="158"/>
+        <Label Content="Diubah Oleh" HorizontalAlignment="Left" Margin="24,332,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="updatelogbyCb" HorizontalAlignment="Left" Margin="118,333,0,0" VerticalAlignment="Top" Width="158"/>
 
     </Grid>
 </Window>

@@ -23,6 +23,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
     {
         MySqlConnection conn;
         DataTable dt;
+        DateTime tanggal = DateTime.Now;
         public Jenis_Hewan()
         {
             InitializeComponent();
@@ -30,9 +31,9 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             try
             {
                 conn = new MySqlConnection();
-                conn.ConnectionString = "SERVER=localhost;DATABASE=petshopd;UID=root;PASSWORD=;";
+                conn.ConnectionString = "SERVER=localhost;DATABASE=petshopd;UID=root;PASSWORD=; Allow Zero Datetime=True";
                 BindGrid();
-                BindGridPegawai();
+                BindGridLog();
                 FillComboBoxNIP();
             }
             catch
@@ -51,7 +52,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             cmd.Connection = conn;
             try
             {
-                cmd.CommandText = "SELECT id_jenisHewan AS 'ID Jenis Hewan', nama_jenisHewan AS 'Nama Jenis Hewan', updateLog_by AS 'NIP' FROM jenishewans";
+                cmd.CommandText = "SELECT id_jenisHewan AS 'ID Jenis Hewan', nama_jenisHewan AS 'Nama Jenis Hewan', updateLog_by AS 'Diubah Oleh' FROM jenishewans WHERE aktif LIKE '1'";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
@@ -75,7 +76,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             
         }
 
-        private void BindGridPegawai()
+        private void BindGridLog()
         {
             MySqlCommand cmd = new MySqlCommand();
 
@@ -84,26 +85,26 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             try
             {
                 cmd.Connection = conn;
-                cmd.CommandText = "SELECT NIP AS 'NIP', nama_pegawai AS 'Nama Pegawai' FROM pegawais";
+                cmd.CommandText = "SELECT nama_jenisHewan AS 'Nama Jenis Hewan', createLog_at AS 'Di Buat', updateLog_at AS 'Di Ubah', deleteLog_at AS 'Di Hapus' FROM jenishewans";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
-                nipDT.ItemsSource = dt.AsDataView();
+                logDT.ItemsSource = dt.AsDataView();
 
                 if (dt.Rows.Count > 0)
                 {
                     LabelCount.Visibility = System.Windows.Visibility.Hidden;
-                    nipDT.Visibility = System.Windows.Visibility.Visible;
+                    logDT.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 {
                     LabelCount.Visibility = System.Windows.Visibility.Visible;
-                    nipDT.Visibility = System.Windows.Visibility.Hidden;
+                    logDT.Visibility = System.Windows.Visibility.Hidden;
                 }
             }
             catch
             {
-                MessageBox.Show("Terjadi kesalahan dalam menampilkan data pegawai");
+                MessageBox.Show("Terjadi kesalahan dalam menampilkan data log");
             }
         }
 
@@ -140,7 +141,6 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             }
         }
 
-        public int id_jenishewan_ai = 10;
         private void Tambah_Click(object sender, RoutedEventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
@@ -148,22 +148,21 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 conn.Open();
             cmd.Connection = conn;
             try
-            {
-                id_jenishewan_ai++;
-            string id_jenisHewan_ai_2 = id_jenishewan_ai.ToString("JH0000");
+            { 
             string nama_jenisHewan = namajenishewanTxt.Text;
             string updateLog_by = updatelogbyCb.Text;
             string id_jenisHewan = idjenishewanTxt.Text;
-            if (/*idjenishewanTxt.Text != "" && */namajenishewanTxt.Text != "" && updatelogbyCb.Text != "")
+            string updateLog_at = tanggal.ToString("yyyy-MM-dd H:mm:ss");
+
+            if (namajenishewanTxt.Text != "" || string.IsNullOrEmpty(updatelogbyCb.Text))
             {
                 if (idjenishewanTxt.IsEnabled == true)
                 {
                     try
                     {
-                        cmd.CommandText = "INSERT INTO jenishewans(id_jenisHewan,nama_jenisHewan,updateLog_by) VALUES (@id_jenisHewan,@nama_jenisHewan,@updateLog_by)";
-                        cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan_ai_2);
+                        cmd.CommandText = "INSERT INTO jenishewans(nama_jenisHewan,updateLog_by) VALUES (@nama_jenisHewan,@updateLog_by)";
                         cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Jenis Hewan berhasil ditambahkan");
@@ -178,10 +177,11 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 {
                     try
                     {
-                        cmd.CommandText = "UPDATE jenishewans set id_jenisHewan = @id_jenisHewan,nama_jenisHewan = @nama_jenisHewan,updateLog_By = @updateLog_by WHERE id_jenisHewan = @id_jenisHewan";
+                        cmd.CommandText = "UPDATE jenishewans set id_jenisHewan = @id_jenisHewan,nama_jenisHewan = @nama_jenisHewan,updateLog_By = @updateLog_by, updateLog_at = @updateLog_at WHERE id_jenisHewan = @id_jenisHewan";
                         cmd.Parameters.AddWithValue("@id_jenisHewan", id_jenisHewan);
                         cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
-                        cmd.Parameters.AddWithValue("@updateLog_by", updatelogbyCb.SelectedValue);
+                        cmd.Parameters.AddWithValue("@updateLog_by", updateLog_by);
+                        cmd.Parameters.AddWithValue("@updateLog_at", updateLog_at);
                         cmd.ExecuteNonQuery();
                         BindGrid();
                         MessageBox.Show("Data Jenis Hewan berhasil di ubah");
@@ -211,7 +211,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 DataRowView row = (DataRowView)jenishewanDT.SelectedItems[0];
                 idjenishewanTxt.Text = row["ID Jenis Hewan"].ToString();
                 namajenishewanTxt.Text = row["Nama Jenis Hewan"].ToString();
-                updatelogbyCb.Text = row["NIP"].ToString();
+                updatelogbyCb.SelectedValue = row["Diubah Oleh"].ToString();
                 idjenishewanTxt.IsEnabled = false;
                 tambahBtn.Content = "Update";
             }
@@ -223,6 +223,13 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
 
         private void Hapus_Click(object sender, RoutedEventArgs e)
         {
+            int aktif = '0';
+            //string deleteLog_at = tanggal.ToString("yyyy-MM-dd H:mm:ss");
+            string message = "Apakah anda ingin menghapus data ini ?";
+            string caption = "Warning";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+
             if (jenishewanDT.SelectedItems.Count > 0)
             {
                 DataRowView row = (DataRowView)jenishewanDT.SelectedItems[0];
@@ -230,19 +237,24 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
                 MySqlCommand cmd = new MySqlCommand();
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
-                cmd.Connection = conn;
-                try
+                if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
                 {
-                    cmd.CommandText = "DELETE FROM jenishewans where id_jenisHewan =" + row["ID Jenis Hewan"].ToString();
-                    cmd.ExecuteNonQuery();
-                    BindGrid();
-                    MessageBox.Show("Data Jenis Hewan berhasil di hapus");
+                    try
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = "UPDATE jenishewans set aktif = @aktif where id_jenisHewan =" + row["ID Jenis Hewan"].ToString();
+                        cmd.Parameters.AddWithValue("@aktif", aktif);
+                        cmd.ExecuteNonQuery();
+                        BindGrid();
+                        BindGridLog();
+                        MessageBox.Show("Data Jenis Hewan berhasil di hapus");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Terjadi kesalahan dalam menghapus data jenis hewan");
+                    }
+                    ClearAll();
                 }
-                catch
-                {
-                    MessageBox.Show("Terjadi kesalahan dalam menghapus data jenis hewan");
-                }
-                ClearAll();
             }
             else
             {
@@ -267,7 +279,7 @@ namespace KouveePetShop_Desktop.Jenis_Hewan
             try
             {
                 cmd.Parameters.AddWithValue("@nama_jenisHewan", nama_jenisHewan);
-                cmd.CommandText = "SELECT id_jenisHewan AS 'ID Jenis Hewan', nama_jenisHewan AS 'Nama Jenis Hewan', updateLog_by AS 'NIP' FROM jenishewans WHERE nama_jenisHewan = @nama_jenisHewan";
+                cmd.CommandText = "SELECT id_jenisHewan AS 'ID Jenis Hewan', nama_jenisHewan AS 'Nama Jenis Hewan', updateLog_by AS 'Diubah Oleh' FROM jenishewans WHERE nama_jenisHewan = @nama_jenisHewan";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt = new DataTable();

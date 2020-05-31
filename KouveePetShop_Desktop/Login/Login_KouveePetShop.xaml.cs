@@ -23,7 +23,8 @@ namespace KouveePetShop_Desktop
     {
         Menu.Menu_KouveePetShop ADMIN = new Menu.Menu_KouveePetShop();
         Menu.Menu_Kasir KASIR = new Menu.Menu_Kasir();
-        
+        //Customer.Customer CUSTOMER = new Customer.Customer();
+
         //MySqlConnection conn;
         public Login_KouveePetShop()
         {
@@ -101,6 +102,7 @@ namespace KouveePetShop_Desktop
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         string user = "Anda login sebagai " + ds.Tables[0].Rows[0]["nama_pegawai"].ToString() + " - " + ds.Tables[0].Rows[0]["stat"].ToString();
+
                         ADMIN.RoleText.Text = user;
                         KASIR.RoleText.Text = user;
 
@@ -111,12 +113,12 @@ namespace KouveePetShop_Desktop
                         switch (role)
                         {
                             case "admin":
-                                // dashboardAdmin.GetValueRole(user);
                                 ADMIN.SendValueRole(user);
                                 ADMIN.Show();
                                 this.Close();
                                 break;
                             case "Kasir":
+                                KASIR.SendValueRole(user);
                                 KASIR.Show();
                                 this.Close();
                                 break;

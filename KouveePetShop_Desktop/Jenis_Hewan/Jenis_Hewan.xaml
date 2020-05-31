@@ -10,33 +10,33 @@
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Jenis_Hewan"
         mc:Ignorable="d"
         xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-        Title="Jenis Hewan" Height="535" Width="800">
-    <Grid>
-    <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="690,0,0,440"/>
-    <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="591,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
-        <Grid RenderTransformOrigin="0.679,0.635" Height="513" VerticalAlignment="Top">
-            <GroupBox Header="Data Jenis Hewan" HorizontalAlignment="Left" Height="131" Margin="9,15,0,0" VerticalAlignment="Top" Width="273"/>
-            <Label Content="ID Jenis Hewan" HorizontalAlignment="Left" Margin="25,55,0,0" VerticalAlignment="Top"/>
-            <Label Content="Nama Jenis Hewan" HorizontalAlignment="Left" Margin="25,85,0,0" VerticalAlignment="Top"/>
-            <Label Content="NIP" HorizontalAlignment="Left" Margin="25,115,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="idjenishewanTxt" HorizontalAlignment="Left" Height="23" Margin="140,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="namajenishewanTxt" HorizontalAlignment="Left" Height="23" Margin="140,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <GroupBox Header="Tampil Data Jenis Hewan" Margin="310,149,25,39"/>
+        Title="Jenis Hewan" Height="577" Width="800">
+    <Grid Margin="0,0,0.4,-0.2">
+        <Image gif:AnimationBehavior.SourceUri="/KouveePetShop_Desktop;component/AW419642_01.gif" Width="100" Height="100" Margin="690,0,0,440"/>
+        <Label Content="Kouvee Pet Shop" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="591,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.585,-0.063"/>
+        <Grid RenderTransformOrigin="0.679,0.635" Height="456" VerticalAlignment="Top">
+            <GroupBox Header="Data Jenis Hewan" HorizontalAlignment="Left" Height="145" Margin="9,15,0,0" VerticalAlignment="Top" Width="273"/>
+            <Label Content="ID Jenis Hewan" HorizontalAlignment="Left" Margin="25,62,0,0" VerticalAlignment="Top"/>
+            <Label Content="Nama Jenis Hewan" HorizontalAlignment="Left" Margin="25,92,0,0" VerticalAlignment="Top"/>
+            <Label Content="Di Ubah Oleh" HorizontalAlignment="Left" Margin="25,126,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="idjenishewanTxt" HorizontalAlignment="Left" Height="23" Margin="140,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+            <TextBox x:Name="namajenishewanTxt" HorizontalAlignment="Left" Height="24" Margin="140,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <GroupBox Header="Tampil Data Jenis Hewan" Margin="310,149,10.4,-96"/>
             <Label x:Name="LabelCount" Content="Tidak ada data jenis hewan yang ditampilkan." HorizontalAlignment="Left" Margin="418,230,0,0" VerticalAlignment="Top"/>
-            <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="jenishewanDT" HorizontalAlignment="Left" Height="269" Margin="329,193,0,0" VerticalAlignment="Top" Width="420"/>
+            <DataGrid IsReadOnly="True" AutoGenerateColumns="True" x:Name="jenishewanDT" HorizontalAlignment="Left" Height="346" Margin="329,193,0,-83" VerticalAlignment="Top" Width="438"/>
             <GroupBox Header="Aksi" HorizontalAlignment="Left" Height="144" Margin="9,165,0,0" VerticalAlignment="Top" Width="273"/>
             <Button x:Name="tambahBtn" Content="Tambah" HorizontalAlignment="Left" Margin="52,207,0,0" VerticalAlignment="Top" Width="81" Click="Tambah_Click" Height="41" BorderBrush="White"/>
-            <GroupBox Header="Pencarian Data Jenis Hewan" HorizontalAlignment="Left" Height="78" Margin="310,66,0,0" VerticalAlignment="Top" Width="457"/>
-            <TextBox x:Name="cariTxt" HorizontalAlignment="Left" Height="23" Margin="329,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" TextChanged="CariTxt_TextChanged"/>
+            <GroupBox Header="Pencarian Data Jenis Hewan" Height="78" Margin="310,66,10.4,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="cariTxt" HorizontalAlignment="Left" Height="29" Margin="329,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" TextChanged="CariTxt_TextChanged"/>
             <Button x:Name="cariBtn" Content="Cari" HorizontalAlignment="Left" Margin="673,106,0,0" VerticalAlignment="Top" Width="76"  Click="Cari_Click" BorderBrush="White"/>
             <Button x:Name="batalBtn" Content="Batal" HorizontalAlignment="Left" Margin="174,207,0,0" VerticalAlignment="Top" Width="76" Click="Batal_Click" Height="41" BorderBrush="White"/>
             <Button x:Name="hapusBtn" Content="Hapus" HorizontalAlignment="Left" Margin="174,253,0,0" VerticalAlignment="Top" Width="76" Click="Hapus_Click" Height="41" BorderBrush="White"/>
             <Button x:Name="ubahBtn" Content="Ubah" HorizontalAlignment="Left" Margin="52,253,0,0" VerticalAlignment="Top" Width="81" Click="Ubah_Click" Height="41" BorderBrush="White"/>
             <Button x:Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="310,17,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
-            
-            <GroupBox Header="Daftar Pegawai" HorizontalAlignment="Left" Height="152" Margin="9,322,0,0" VerticalAlignment="Top" Width="273"/>
-            <DataGrid IsReadOnly="True" Name="nipDT" HorizontalAlignment="Left" Margin="25,363,0,50" Width="241"/>
-            <ComboBox Name="updatelogbyCb" HorizontalAlignment="Left" Margin="140,115,0,0" VerticalAlignment="Top" Width="120"/>
+
+            <GroupBox Header="Log" HorizontalAlignment="Left" Height="230" Margin="9,322,0,-96" VerticalAlignment="Top" Width="273"/>
+            <DataGrid IsReadOnly="True" Name="logDT" HorizontalAlignment="Left" Margin="25,363,0,-83" Width="241"/>
+            <ComboBox Name="updatelogbyCb" HorizontalAlignment="Left" Margin="140,126,0,0" VerticalAlignment="Top" Width="120"/>
         </Grid>
     </Grid>
 </Window>
