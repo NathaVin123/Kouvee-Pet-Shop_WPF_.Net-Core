@@ -32,7 +32,7 @@ namespace KouveePetShop_Desktop.Produk
             try
             {
                 conn = new MySqlConnection();
-                conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
+                conn.ConnectionString = "SERVER=localhost;DATABASE=petshopd;UID=root;PASSWORD=;";
                 BindGrid();
                 BindGridPegawai();
                 FillComboBoxNIP();
@@ -132,7 +132,7 @@ namespace KouveePetShop_Desktop.Produk
 
         public void FillComboBoxNIP()
         {
-            string query = "SELECT NIP FROM petshop.pegawais;";
+            string query = "SELECT NIP FROM petshopd.pegawais;";
 
             MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
             MySqlDataReader mySqlDataReader;

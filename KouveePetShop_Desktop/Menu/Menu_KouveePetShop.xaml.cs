@@ -23,6 +23,22 @@ namespace KouveePetShop_Desktop.Menu
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            SendValueRole(RoleText.Text);
+        }
+
+        public void GetValueRole(string value)
+        {
+            RoleText.Text = value;
+            // roleValue = RoleText.Text;           
+        }
+
+        public string SendValueRole(string value)
+        {
+            string roleValue;
+
+            roleValue = value;
+
+            return roleValue;
         }
 
         private void Hewan_Click(object sender, RoutedEventArgs e)
@@ -77,9 +93,17 @@ namespace KouveePetShop_Desktop.Menu
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            var Logout = new Login_KouveePetShop();
-            Logout.Show();
-            this.Close();
+            string message = "Apakah anda ingin keluar?";
+            string caption = "Warning";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+
+            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+            {
+                var Logout = new Login_KouveePetShop();
+                Logout.Show();
+                this.Close();
+            }
         }
 
         private void Supplier_Click(object sender, RoutedEventArgs e)
@@ -101,6 +125,11 @@ namespace KouveePetShop_Desktop.Menu
             var PembayaranLayanan = new Transaksi.Pembayaran_Jasa_Layanan();
             PembayaranLayanan.Show();
             this.Close();
+        }
+
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

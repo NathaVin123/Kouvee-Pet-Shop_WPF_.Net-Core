@@ -30,7 +30,7 @@ namespace KouveePetShop_Desktop.Transaksi
             try
             {
                 conn = new MySqlConnection();
-                conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
+                conn.ConnectionString = "SERVER=localhost;DATABASE=petshopd;UID=root;PASSWORD=;";
                 BindGrid();
             }
             catch

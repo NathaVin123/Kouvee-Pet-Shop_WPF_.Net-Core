@@ -31,7 +31,7 @@ namespace KouveePetShop_Desktop.Layanan
             try
             {
                 conn = new MySqlConnection();
-                conn.ConnectionString = "SERVER=localhost;DATABASE=petshop;UID=root;PASSWORD=;";
+                conn.ConnectionString = "SERVER=localhost;DATABASE=petshopd;UID=root;PASSWORD=;";
                 BindGrid();
                 BindGridPegawai();
                 BindGridUkuranHewan();
@@ -155,7 +155,7 @@ namespace KouveePetShop_Desktop.Layanan
 
         public void FillComboBoxUkuranHewan()
         {
-            string query = "SELECT id_ukuranHewan, nama_ukuranHewan FROM petshop.ukuranhewans;";
+            string query = "SELECT id_ukuranHewan, nama_ukuranHewan FROM petshopd.ukuranhewans;";
     
             MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
             MySqlDataReader mySqlDataReader;
@@ -180,7 +180,7 @@ namespace KouveePetShop_Desktop.Layanan
 
         public void FillComboBoxNIP()
         {
-            string query = "SELECT NIP FROM petshop.pegawais;";
+            string query = "SELECT NIP FROM petshopd.pegawais;";
 
             MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
             MySqlDataReader mySqlDataReader;
