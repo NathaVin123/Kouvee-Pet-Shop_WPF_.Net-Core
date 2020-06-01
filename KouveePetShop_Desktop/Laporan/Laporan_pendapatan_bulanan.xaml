@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Laporan"
         mc:Ignorable="d"
-        Title="Laporan_pendapatan_bulanan" Height="700" Width="535.5">
+        Title="Laporan_pendapatan_bulanan" Height="810.515" Width="535.5">
     <Window.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -15,11 +15,11 @@
 
     <ScrollViewer>
         <Grid>
-            
+
             <Button x:Name="BtnRefresh" HorizontalAlignment="Right" Margin="20 20 80 20"  VerticalAlignment="Top" Visibility="Hidden">
                 <materialDesign:PackIcon Kind="Printer"/>
             </Button>
-            <Grid x:Name="print">
+            <Grid x:Name="print" Margin="0,0,0,9.8">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120"/>
                     <RowDefinition Height="600"/>
@@ -32,11 +32,11 @@
                 <Button x:Name="BtnPrint" HorizontalAlignment="Right" Margin="10"  VerticalAlignment="Top" Click="BtnPrint_Click_1">
                     <materialDesign:PackIcon Kind="Printer"/>
                 </Button>
-                <StackPanel Orientation="Vertical" Margin="10"  Grid.Row="1">
+                <StackPanel Orientation="Vertical" Margin="10,10.2,10,49.6"  Grid.Row="1">
                     <TextBlock Text="Laporan Pendapatan Bulanan" FontSize="16" Margin="0" TextAlignment="Center" FontWeight="DemiBold"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Margin="20">
+                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Margin="20,20.2,20,-38.6" Grid.RowSpan="2">
                     <Grid HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
@@ -100,7 +100,7 @@
                     <Grid Margin="5 40 5 0">
                         <DataGrid x:Name="DataGrid2" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True" VerticalScrollBarVisibility="Auto"  CanUserResizeColumns="True"  Background="White" Foreground="Black">
                             <DataGrid.Columns>
-                                
+
                                 <DataGridTextColumn Header="Nama Produk" Binding="{Binding Produk}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
