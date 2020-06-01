@@ -31,7 +31,6 @@ namespace KouveePetShop_Desktop.Kasir
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
             try
             {
                 connection = "Server=localhost; User Id=root;Password=;Database=petshopd;Allow Zero Datetime=True";

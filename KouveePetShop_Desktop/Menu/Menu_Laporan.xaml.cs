@@ -66,5 +66,12 @@ namespace KouveePetShop_Desktop.Menu
             LayananTerlaris.Show();
             
         }
+
+        private void MenuUtama_Click(object sender, RoutedEventArgs e)
+        {
+            var Menu = new Menu.Menu_KouveePetShop();
+            Menu.Show();
+            this.Close();
+        }
     }
 }

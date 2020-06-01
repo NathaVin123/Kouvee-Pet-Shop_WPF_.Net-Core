@@ -30,6 +30,7 @@ namespace KouveePetShop_Desktop.Kasir
         public Transaksi_Produk()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             try
             {
                 connection = "Server=localhost; User Id=root;Password=;Database=petshopd;Allow Zero Datetime=True";
@@ -241,6 +242,13 @@ namespace KouveePetShop_Desktop.Kasir
         private void BtnRefresh_Click(object sender, RoutedEventArgs e)
         {
             GetRecords();
+        }
+
+        private void MenuUtama_Click(object sender, RoutedEventArgs e)
+        {
+            var Menu = new Menu.Menu_Kasir();
+            Menu.Show();
+            this.Close();
         }
     }
 }

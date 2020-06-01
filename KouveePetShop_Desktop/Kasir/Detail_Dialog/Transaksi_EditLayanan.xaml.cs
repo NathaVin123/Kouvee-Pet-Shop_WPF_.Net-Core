@@ -34,6 +34,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
         public Transaksi_EditLayanan()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             connection = "Server=localhost; User Id=root;Password=;Database=petshop1;Allow Zero Datetime=True";
             conn = new MySqlConnection(connection);
             conn.Open();

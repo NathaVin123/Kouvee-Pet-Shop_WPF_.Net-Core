@@ -108,5 +108,6 @@
                 </DataGrid>
             </StackPanel>
         </GroupBox>
+        <Button x:Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="946,10,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.94,0.617"/>
     </Grid>
 </Window>

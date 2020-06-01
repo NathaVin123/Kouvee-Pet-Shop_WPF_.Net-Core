@@ -22,6 +22,7 @@ namespace KouveePetShop_Desktop.Layanan
         public Harga_Layanan()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }

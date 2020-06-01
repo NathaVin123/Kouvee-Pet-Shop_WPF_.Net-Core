@@ -80,7 +80,7 @@
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
 
-                                <DataGridTextColumn Header="Nama Layanan" Binding="{Binding JumlahPenjualan}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
+                                <DataGridTextColumn Header="Jumlah Penjualan" Binding="{Binding JumlahPenjualan}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="HorizontalAlignment" Value="Center" />

@@ -25,7 +25,8 @@
         <Button Content="Cetak Laporan" HorizontalAlignment="Left" Margin="495,116,0,0" VerticalAlignment="Top" Width="124" Click="PengadaanTahunan_Click"/>
         <Button Content="Cetak Laporan" HorizontalAlignment="Left" Margin="134,307,0,0" VerticalAlignment="Top" Width="124" Click="ProdukTerlaris_Click"/>
         <Button Content="Cetak Laporan" HorizontalAlignment="Left" Margin="134,209,0,0" VerticalAlignment="Top" Width="124" Click="PendapatanBulanan_Click"/>
-        
+        <Button x:Name="menuUtamaBtn" Content=" Kembali ke Menu Utama" HorizontalAlignment="Left" Margin="620,24,0,0" VerticalAlignment="Top" Width="150" Height="30" Click="MenuUtama_Click" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}"/>
+
 
     </Grid>
 </Window>

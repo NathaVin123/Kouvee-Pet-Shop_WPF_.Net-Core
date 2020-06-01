@@ -33,7 +33,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
         public Transaksi_Proses()
         {
             InitializeComponent();
-
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             try
             {
                 connection = "Server=localhost; User Id=root;Password=;Database=petshopd;Allow Zero Datetime=True";
