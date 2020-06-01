@@ -68,9 +68,11 @@
                     </StackPanel>
                 </GroupBox.Header>
                 <StackPanel>
-                    <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True" MaxHeight="200" VerticalScrollBarVisibility="Auto"  CanUserResizeColumns="True" BorderThickness="5" BorderBrush="LightGoldenrodYellow" Background="LightGray">
+                    <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True" MaxHeight="200" VerticalScrollBarVisibility="Auto"  CanUserResizeColumns="True" BorderThickness="5" BorderBrush="LightGoldenrodYellow" Background="LightGray" Height="182">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="PRODUK" Binding="{Binding ID_PEMBAYARAN_PRODUK}"  Width="*" Visibility="Hidden">
+                            
+
+                            <DataGridTextColumn Header="Nama Produk" Binding="{Binding nama_produk}" Width="*">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -78,15 +80,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn Header="PRODUK" Binding="{Binding nama}" Width="*">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-
-                            <DataGridTextColumn Header="JUMLAH" Binding="{Binding jumlah}"  Width="*">
+                            <DataGridTextColumn Header="Jumlah" Binding="{Binding jml_transaksi_produk}"  Width="*">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Center" />
