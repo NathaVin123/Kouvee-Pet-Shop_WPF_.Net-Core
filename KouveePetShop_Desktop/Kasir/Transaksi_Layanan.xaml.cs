@@ -30,6 +30,7 @@ namespace KouveePetShop_Desktop.Kasir
         public Transaksi_Layanan()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             try
             {
@@ -241,6 +242,13 @@ namespace KouveePetShop_Desktop.Kasir
                     conn.Close();
                 }
             }
+        }
+
+        private void MenuUtama_Click(object sender, RoutedEventArgs e)
+        {
+            var Menu = new Menu.Menu_Kasir();
+            Menu.Show();
+            this.Close();
         }
     }
 }
