@@ -80,6 +80,33 @@
     <Compile Include="Jenis_Hewan\Jenis_Hewan.xaml.cs">
       <DependentUpon>Jenis_Hewan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Kasir\Detail_Dialog\Transaksi_EditHewan.xaml.cs">
+      <DependentUpon>Transaksi_EditHewan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kasir\Detail_Dialog\Transaksi_EditLayanan.xaml.cs">
+      <DependentUpon>Transaksi_EditLayanan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kasir\Detail_Dialog\Transaksi_EditProduk.xaml.cs">
+      <DependentUpon>Transaksi_EditProduk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kasir\Detail_Dialog\Transaksi_Proses.xaml.cs">
+      <DependentUpon>Transaksi_Proses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kasir\Detail_Dialog\Transaksi_TambahLayanan.xaml.cs">
+      <DependentUpon>Transaksi_TambahLayanan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kasir\Detail_Dialog\Transaksi_TambahProduk.xaml.cs">
+      <DependentUpon>Transaksi_TambahProduk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kasir\Layanan_Proses.xaml.cs">
+      <DependentUpon>Layanan_Proses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kasir\Transaksi_Layanan.xaml.cs">
+      <DependentUpon>Transaksi_Layanan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kasir\Transaksi_Produk.xaml.cs">
+      <DependentUpon>Transaksi_Produk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layanan\Harga_Layanan.xaml.cs">
       <DependentUpon>Harga_Layanan.xaml</DependentUpon>
     </Compile>
@@ -89,6 +116,9 @@
     <Compile Include="Menu\Menu_Kasir.xaml.cs">
       <DependentUpon>Menu_Kasir.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Menu_Laporan.xaml.cs">
+      <DependentUpon>Menu_Laporan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pegawai\Pegawai.xaml.cs">
       <DependentUpon>Pegawai.xaml</DependentUpon>
     </Compile>
@@ -97,6 +127,12 @@
     </Compile>
     <Compile Include="Menu\Menu_KouveePetShop.xaml.cs">
       <DependentUpon>Menu_KouveePetShop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Struk\Struk_Layanan.xaml.cs">
+      <DependentUpon>Struk_Layanan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Struk\Struk_Produk.xaml.cs">
+      <DependentUpon>Struk_Produk.xaml</DependentUpon>
     </Compile>
     <Compile Include="Supplier\Supplier.xaml.cs">
       <DependentUpon>Supplier.xaml</DependentUpon>
@@ -116,6 +152,42 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Kasir\Detail_Dialog\Transaksi_EditHewan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kasir\Detail_Dialog\Transaksi_EditLayanan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kasir\Detail_Dialog\Transaksi_EditProduk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kasir\Detail_Dialog\Transaksi_Proses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kasir\Detail_Dialog\Transaksi_TambahLayanan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kasir\Detail_Dialog\Transaksi_TambahProduk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kasir\Layanan_Proses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kasir\Transaksi_Layanan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kasir\Transaksi_Produk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Layanan\Harga_Layanan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Menu\Menu_Kasir.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menu\Menu_Laporan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +224,14 @@
       <DependentUpon>Login_KouveePetShop.xaml</DependentUpon>
     </Compile>
     <Page Include="Menu\Menu_KouveePetShop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Struk\Struk_Layanan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Struk\Struk_Produk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,9 +281,10 @@
     <Resource Include="AW419642_01.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Kasir\" />
     <Folder Include="Laporan\" />
-    <Folder Include="Struk\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\logo_kouveepetshop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets')" />

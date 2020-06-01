@@ -31,13 +31,13 @@
             <TextBlock x:Name="RoleText"  FontSize="12" Margin="466,31,159.8,41" />
         </Grid>
         <Label Content="KASIR" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
-        <Grid Height="484" RenderTransformOrigin="0.5,1.009">
+        <Grid Height="465" RenderTransformOrigin="0.5,1.009" Margin="0,0,-0.2,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="231*"/>
                 <RowDefinition Height="254*"/>
             </Grid.RowDefinitions>
-            <Button Content="LAYANAN" Width="164" Height="Auto" Click="Layanan_Click" Margin="530,112,0,0.4" HorizontalAlignment="Left"/>
-            <Button Content="PRODUK" Margin="0,112,504.8,0.4" Height="Auto" Click="Produk_Click" HorizontalAlignment="Right" Width="163"/>
+            <Button Content="PEMBAYARAN LAYANAN" Width="193" Height="Auto" Click="Layanan_Click" Margin="487,112,0,0.6" HorizontalAlignment="Left"/>
+            <Button Content=" PEMBAYARAN PRODUK" Margin="0,112,479,0.6" Height="Auto" Click="Produk_Click" HorizontalAlignment="Right" Width="188"/>
         </Grid>
 
     </StackPanel>

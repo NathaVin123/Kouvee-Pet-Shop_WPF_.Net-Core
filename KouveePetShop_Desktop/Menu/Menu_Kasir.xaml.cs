@@ -63,12 +63,16 @@ namespace KouveePetShop_Desktop.Menu
 
         private void Layanan_Click(object sender, RoutedEventArgs e)
         {
-
+            var Layanan = new Kasir.Transaksi_Layanan();
+            Layanan.Show();
+            this.Close();
         }
 
         private void Produk_Click(object sender, RoutedEventArgs e)
         {
-
+            var Produk = new Kasir.Transaksi_Produk();
+            Produk.Show();
+            this.Close();
         }
     }
 }
