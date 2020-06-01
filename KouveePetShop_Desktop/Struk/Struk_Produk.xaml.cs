@@ -55,7 +55,7 @@ namespace KouveePetShop_Desktop.Struk
         private void TampilDataGrid()
         {
             // Tampil data ke dataGrid
-            MySqlCommand cmd = new MySqlCommand("SELECT p.nama_produk as 'Nama Produk', p.harga_produk as 'Harga Produk', dp.jml_transaksi_produk as Jumlah, dp.total_harga as 'Total Harga' from detailtransaksiproduks dp JOIN produkhargas ph ON dp.id_produkHarga = ph.id_produkHarga JOIN produks p ON ph.id_produk = p.id_produk JOIN transaksipenjualanproduks tp ON dp.kode_penjualan_produk = tp.kode_penjualan_produk WHERE tp.kode_penjualan_produk = '" + idTransaksi + "' ", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT p.nama_produk, ph.harga, dp.jml_transaksi_produk, dp.total_harga from detailtransaksiproduks dp JOIN produkhargas ph ON dp.id_produkHarga = ph.id_produkHarga JOIN produks p ON ph.id_produk = p.id_produk JOIN transaksipenjualanproduks tp ON dp.kode_penjualan_produk = tp.kode_penjualan_produk WHERE tp.kode_penjualan_produk = '" + idTransaksi + "' ", conn);
             try
             {
                 //conn.Open();

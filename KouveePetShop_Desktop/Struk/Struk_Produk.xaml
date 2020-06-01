@@ -101,7 +101,7 @@
                     <Grid Margin="5 30 5 0">
                         <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True" VerticalScrollBarVisibility="Auto"  CanUserResizeColumns="True"  Background="White" Foreground="Black">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="NAMA" Binding="{Binding nama}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
+                                <DataGridTextColumn Header="Nama Produk" Binding="{Binding nama_produk}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -109,7 +109,7 @@
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
 
-                                <DataGridTextColumn Header="Harga" Binding="{Binding hargaProduk}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
+                                <DataGridTextColumn Header="Harga" Binding="{Binding harga}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -117,7 +117,7 @@
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
 
-                                <DataGridTextColumn Header="Jumlah" Binding="{Binding jumlah}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
+                                <DataGridTextColumn Header="Jumlah" Binding="{Binding jml_transaksi_produk}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -125,7 +125,7 @@
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
 
-                                <DataGridTextColumn Header="Harga" Binding="{Binding totalHarga}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
+                                <DataGridTextColumn Header="Subtotal" Binding="{Binding total_harga}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" CanUserSort="False">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="HorizontalAlignment" Value="Center" />

@@ -14,13 +14,8 @@
     <Grid>
         <TextBlock Text="Transaksi Produk" FontSize="20" Margin="270 15"></TextBlock>
         <StackPanel Orientation="Horizontal">
-            <GroupBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Margin="10 60 10 10">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="CustomerService" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="20" Margin="0 0 5 0"/>
-                        <TextBlock Text="Data Customer" FontSize="15"/>
-                    </StackPanel>
-                </GroupBox.Header>
+            <GroupBox Header="Data Customer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Margin="10 60 10 10">
+                
                 <StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -63,14 +58,13 @@
             <GroupBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="420" Margin="10 60 10 10" Height="240">
                 <GroupBox.Header>
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="BoxVariant" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="20" Margin="0 0 5 0"/>
                         <TextBlock Text="Data Transaksi" FontSize="15"/>
                     </StackPanel>
                 </GroupBox.Header>
                 <StackPanel>
-                    <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True" MaxHeight="200" VerticalScrollBarVisibility="Auto"  CanUserResizeColumns="True" BorderThickness="5" BorderBrush="LightGoldenrodYellow" Background="LightGray">
+                    <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True" MaxHeight="200" VerticalScrollBarVisibility="Auto"  CanUserResizeColumns="True" BorderThickness="5" BorderBrush="LightGoldenrodYellow" Background="LightGray" Height="182">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="PRODUK" Binding="{Binding ID_PEMBAYARAN_PRODUK}"  Width="*" Visibility="Hidden">
+                            <DataGridTextColumn Header="Nama Produk" Binding="{Binding nama_produk}" Width="*">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -78,15 +72,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn Header="PRODUK" Binding="{Binding nama}" Width="*">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-
-                            <DataGridTextColumn Header="JUMLAH" Binding="{Binding jumlah}"  Width="*">
+                            <DataGridTextColumn Header="Jumlah" Binding="{Binding jml_transaksi_produk}"  Width="*">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -120,7 +106,6 @@
             <GroupBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Margin="10 310 10 10">
                 <GroupBox.Header>
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Money" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="20" Margin="0 0 5 0"/>
                         <TextBlock Text="Harga" FontSize="15"/>
                     </StackPanel>
                 </GroupBox.Header>
@@ -148,7 +133,6 @@
             <GroupBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="419" Margin="10,310,10,0" Height="130">
                 <GroupBox.Header>
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="CallToAction" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="20" Margin="0 0 5 0"/>
                         <TextBlock Text="Aksi" FontSize="15"/>
                     </StackPanel>
                 </GroupBox.Header>

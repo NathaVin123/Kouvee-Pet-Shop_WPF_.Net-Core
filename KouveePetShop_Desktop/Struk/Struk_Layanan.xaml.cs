@@ -316,10 +316,5 @@ namespace KouveePetShop_Desktop.Struk
         {
             BtnRefresh_Click(sender, e);
         }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

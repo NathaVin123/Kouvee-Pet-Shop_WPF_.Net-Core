@@ -50,7 +50,7 @@ namespace KouveePetShop_Desktop.Kasir
         private void TampilDataGrid()
         {
             // Tampil data ke dataGrid
-            MySqlCommand cmd = new MySqlCommand("select tr.kode_penjualan_produk, h.nama_hewan, tr.diskon, sum(dt.total_harga) as TOTAL, tr.status_transaksi, tr.id_cs, pg1.nama_pegawai as nama1, pg2.nama_pegawai as nama2, tr.id_kasir from transaksipenjualanproduks tr JOIN detailtransaksiproduks dt ON tr.kode_penjualan_produk = dt.kode_penjualan_produk JOIN hewans h on tr.id_hewan = h.id_hewan JOIN pegawais pg1 on tr.id_cs = pg1.NIP LEFT JOIN pegawais pg2 on tr.id_kasir = pg2.NIP where tr.kode_penjualan_produk = dt.kode_penjualan_produk AND tr.kode_penjualan_produk LIKE 'PR%' GROUP BY tr.kode_penjualan_produk ORDER BY tr.kode_penjualan_produk DESC ", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT tr.kode_penjualan_produk, h.nama_hewan, tr.diskon, sum(dt.total_harga) as TOTAL, tr.status_transaksi, tr.id_cs, pg1.nama_pegawai as nama1, pg2.nama_pegawai as nama2, tr.id_kasir from transaksipenjualanproduks tr JOIN detailtransaksiproduks dt ON tr.kode_penjualan_produk = dt.kode_penjualan_produk JOIN hewans h on tr.id_hewan = h.id_hewan JOIN pegawais pg1 on tr.id_cs = pg1.NIP LEFT JOIN pegawais pg2 on tr.id_kasir = pg2.NIP where tr.kode_penjualan_produk = dt.kode_penjualan_produk AND tr.kode_penjualan_produk LIKE 'PR%' GROUP BY tr.kode_penjualan_produk ORDER BY tr.kode_penjualan_produk DESC ", conn);
             try
             {
                 //conn.Open();

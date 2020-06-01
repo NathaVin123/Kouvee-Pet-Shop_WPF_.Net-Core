@@ -29,6 +29,7 @@ namespace KouveePetShop_Desktop.Kasir
 
         public string idTransaksi;
         public string status;
+
         public Layanan_Proses()
         {
             InitializeComponent();
@@ -170,7 +171,7 @@ namespace KouveePetShop_Desktop.Kasir
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT tl.status_transaksi as STATUS from transaksipenjualanlayanans tl JOIN hewans h ON tl.id_hewan = h.id_hewan JOIN customers c ON h.id_customer = c.id_customer WHERE tl.status_transaksi = 'Lunas' AND tl.kode_penjualan_layanan = '" + idTransaksi + "'", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT tl.status_transaksi STATUS from transaksipenjualanlayanans tl JOIN hewans h ON tl.id_hewan = h.id_hewan JOIN customers c ON h.id_customer = c.id_customer WHERE tl.status_transaksi = 'Lunas' AND tl.kode_penjualan_layanan = '" + idTransaksi + "'", conn);
                 MySqlDataReader reader;
 
                 reader = cmd.ExecuteReader();

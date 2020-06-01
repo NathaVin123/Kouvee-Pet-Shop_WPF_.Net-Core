@@ -52,21 +52,21 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
 
         public void FillComboBoxNamaPegawai()
         {
-            string query = "SELECT NIP FROM petshopd.pegawais WHERE stat = 'Kasir';";
-
-            MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
-            MySqlDataReader mySqlDataReader;
-
+            // Ambil ID dan Nama produk dari tabel produk ke combobox
+            string Query = "SELECT NIP, nama_pegawai from petshopd.pegawais WHERE stat = 'Kasir';";
+            MySqlCommand cmdComboBox = new MySqlCommand(Query, conn);
+            MySqlDataReader reader;
             try
             {
-                mySqlDataReader = mySqlCommand.ExecuteReader();
+                reader = cmdComboBox.ExecuteReader();
 
-                while (mySqlDataReader.Read())
+                while (reader.Read())
                 {
-                    string NIP = mySqlDataReader.GetString("NIP");
-                    ComboBoxNamaKasir.Items.Add(NIP);
+                    string idPegawai = reader.GetString("NIP");
+                    string namaPegawai = reader.GetString("nama_pegawai");
+                    ComboBoxNamaKasir.Items.Add(idPegawai + " - " + namaPegawai);
                 }
-                mySqlDataReader.Close();
+                reader.Close();
             }
             catch (Exception err)
             {
@@ -76,8 +76,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
 
         public void FillTextBox()
         {
-            string Query = "SELECT * FROM customers cr JOIN hewans h on cr.id_customer = h.id_customer " +
-                "where h.nama_hewan LIKE '" + NamaHewanText.Text + "'";
+            string Query = "SELECT * FROM customers cr JOIN hewans h on cr.id_customer = h.id_customer where h.nama_hewan LIKE '" + NamaHewanText.Text + "'";
             MySqlCommand namaCmd = new MySqlCommand(Query, conn);
             MySqlDataReader reader;
 
@@ -103,7 +102,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
         private void TampilDataGrid()
         {
             // Tampil data ke dataGrid
-            MySqlCommand cmd = new MySqlCommand("SELECT dt.id_detailproduk, p.nama_produk as nama_produk, dt.jml_transaksi_produk as jumlah from detailtransaksiproduks dt JOIN produkhargas ph ON dt.id_produkHarga = ph.id_produkHarga JOIN produks p ON ph.id_produk = p.id_produk JOIN transaksipenjualanproduks tr ON dt.kode_penjualan_produk = tr.kode_penjualan_produk JOIN hewans h ON tr.id_hewan = h.id_hewan WHERE tr.kode_penjualan_produk = '" + idTransaksi + "' ", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT dt.id_detailproduk, p.nama_produk, dt.jml_transaksi_produk from detailtransaksiproduks dt JOIN produkhargas ph ON dt.id_produkHarga = ph.id_produkHarga JOIN produks p ON ph.id_produk = p.id_produk JOIN transaksipenjualanproduks tr ON dt.kode_penjualan_produk = tr.kode_penjualan_produk JOIN hewans h ON tr.id_hewan = h.id_hewan WHERE tr.kode_penjualan_produk = '" + idTransaksi + "' ", conn);
             try
             {
                 //conn.Open();
@@ -121,7 +120,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
 
         private void HitungTotalDiskon()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT sum(tr.diskon) as DISKON from transaksipenjualanproduks " +
+            MySqlCommand cmd = new MySqlCommand("SELECT sum(tr.diskon) as DISKON from transaksipenjualanproduks tr" +
                 "JOIN hewans h ON tr.id_hewan = h.id_hewan " +
                 "JOIN customers cr ON h.id_customer = cr.id_customer " +
                 "WHERE tr.kode_penjualan_produk = '" + idTransaksi + "'", conn);
@@ -235,7 +234,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
                         using (MySqlCommand cmd = new MySqlCommand())
                         {
                             cmd.Connection = conn;
-                            cmd.CommandText = "UPDATE transaksipenjualanproduks tr, customers cr SET tr.status_transaksi = 'Lunas', tr.id_kasir = '" + ComboBoxNamaKasir.SelectedValue + "' WHERE tr.kode_penjualan_produk = '" + idTransaksi + "'";
+                            cmd.CommandText = "UPDATE transaksipenjualanproduks tr, customers cr SET tr.status_transaksi = 'Lunas' WHERE tr.kode_penjualan_produk = '" + idTransaksi + "'";
                             cmd.ExecuteNonQuery();
 
                             UpdateStok();
@@ -348,7 +347,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
                 MySqlDataReader reader;
 
                 // nama produk
-                string Query2 = "select p.nama_produk as NAMA from produks p JOIN detailtransaksiproduks dt ON p.id_produk = dt.id_produk JOIN transaksipenjualanproduks tr ON dt.kode_penjualan_produk = tr.kode_penjualan_produk WHERE tr.kode_penjualan_produk = '" + idTransaksi + "' AND dt.id_detailproduk = '" + idDetail + "'";
+                string Query2 = "select p.nama_produk as NAMA from produks p JOIN produkhargas ph ON p.id_produk = ph.id_produk JOIN detailtransaksiproduks dt ON ph.id_produkHarga = dt.id_produkHarga JOIN transaksipenjualanproduks tr ON dt.kode_penjualan_produk = tr.kode_penjualan_produk WHERE tr.kode_penjualan_produk = '" + idTransaksi + "' AND dt.id_detailproduk = '" + idDetail + "'";
                 MySqlCommand cmdTextBox2 = new MySqlCommand(Query2, conn);
                 MySqlDataReader reader2;
 
@@ -437,7 +436,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
                 using (MySqlCommand cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "UPDATE detailtransaksiproduks dt SET dt.total_harga = (SELECT sum(dt.jml_transaksi_produk*p.harga) FROM produkHargas p WHERE dt.id_produk = p.id_produk)";
+                    cmd.CommandText = "UPDATE detailtransaksiproduks dt SET dt.total_harga = (SELECT sum(dt.jml_transaksi_produk*p.harga) FROM produkHargas p WHERE dt.id_produkHarga = p.id_produkHarga)";
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -502,7 +501,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
                 using (MySqlCommand cmdMember = new MySqlCommand())
                 {
                     cmdMember.Connection = conn;
-                    cmdMember.CommandText = "UPDATE produk p JOIN detailtransaksiproduks dt ON p.id_produk = dt.id_produk JOIN transaksipenjualanproduks tr ON dt.kode_penjualan_produk = tr.kode_penjualan_produk SET p.stok_produk = (SELECT SUM(stok_produk - dt.jml_transaksi_produk) FROM produks p2 WHERE p2.id_produk = p.id_produk) WHERE dt.kode_penjualan_produk = '" + idTransaksi + "'";
+                    cmdMember.CommandText = "UPDATE produks p JOIN produkhargas ph ON p.id_produk = ph.id_produk JOIN detailtransaksiproduks dt ON ph.id_produkHarga = dt.id_produkHarga JOIN transaksipenjualanproduks tr ON dt.kode_penjualan_produk = tr.kode_penjualan_produk SET p.stok_produk = (SELECT SUM(stok_produk - dt.jml_transaksi_produk) FROM produks p2 WHERE p2.id_produk = p.id_produk) WHERE dt.kode_penjualan_produk = '" + idTransaksi + "'";
                     cmdMember.ExecuteNonQuery();
                 }
             }
