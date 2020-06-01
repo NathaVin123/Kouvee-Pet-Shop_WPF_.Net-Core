@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Laporan"
         mc:Ignorable="d"
-        Title="Laporan_layanan_terlaris" Height="752.8" Width="535.5" WindowStartupLocation="CenterScreen"
+        Title="Laporan_layanan_terlaris" Height="807.2" Width="535.5" WindowStartupLocation="CenterScreen"
         >
     <Window.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">

@@ -112,7 +112,7 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="Dicetak Tanggal : " Grid.Column="0" FontSize="15" Margin="-82,5,48,5" HorizontalAlignment="Right" Width="116"/>
-                            <TextBlock x:Name="TotalText" FontSize="15" Margin="39,5,5,5" Grid.ColumnSpan="2"/>
+                            <TextBlock x:Name="TanggalText" FontSize="15" Margin="39,5,5,5" Grid.ColumnSpan="2"/>
                         </Grid>
                     </StackPanel>
                 </StackPanel>
