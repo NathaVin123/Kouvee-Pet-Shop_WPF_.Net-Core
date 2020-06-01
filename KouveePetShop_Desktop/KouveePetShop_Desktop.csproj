@@ -107,6 +107,24 @@
     <Compile Include="Kasir\Transaksi_Produk.xaml.cs">
       <DependentUpon>Transaksi_Produk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Laporan\Laporan_layanan_terlaris.xaml.cs">
+      <DependentUpon>Laporan_layanan_terlaris.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\Laporan_pendapatan_bulanan.xaml.cs">
+      <DependentUpon>Laporan_pendapatan_bulanan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\Laporan_pendapatan_tahunan.xaml.cs">
+      <DependentUpon>Laporan_pendapatan_tahunan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\Laporan_pengadaan_bulanan.xaml.cs">
+      <DependentUpon>Laporan_pengadaan_bulanan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\Laporan_pengadaan_tahunan.xaml.cs">
+      <DependentUpon>Laporan_pengadaan_tahunan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Laporan\Laporan_produk_terlaris.xaml.cs">
+      <DependentUpon>Laporan_produk_terlaris.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layanan\Harga_Layanan.xaml.cs">
       <DependentUpon>Harga_Layanan.xaml</DependentUpon>
     </Compile>
@@ -185,6 +203,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Kasir\Transaksi_Produk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Laporan\Laporan_layanan_terlaris.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Laporan\Laporan_pendapatan_bulanan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Laporan\Laporan_pendapatan_tahunan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Laporan\Laporan_pengadaan_bulanan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Laporan\Laporan_pengadaan_tahunan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Laporan\Laporan_produk_terlaris.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -280,9 +322,7 @@
   <ItemGroup>
     <Resource Include="AW419642_01.gif" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Laporan\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\logo_kouveepetshop.png" />
   </ItemGroup>

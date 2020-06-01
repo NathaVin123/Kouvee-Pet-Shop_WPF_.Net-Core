@@ -117,5 +117,12 @@ namespace KouveePetShop_Desktop.Menu
         {
             Application.Current.Shutdown();
         }
+
+        private void Laporan_Click(object sender, RoutedEventArgs e)
+        {
+            var MenuLaporan = new Menu.Menu_Laporan();
+            MenuLaporan.Show();
+            this.Close();
+        }
     }
 }
