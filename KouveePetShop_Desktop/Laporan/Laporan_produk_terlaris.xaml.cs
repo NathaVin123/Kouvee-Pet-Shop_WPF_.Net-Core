@@ -22,6 +22,7 @@ namespace KouveePetShop_Desktop.Laporan
         public Laporan_produk_terlaris()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }
