@@ -44,7 +44,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
         public void FillComboBoxNamaProduk()
         {
             // Ambil ID dan Nama produk dari tabel produk ke combobox
-            string Query = "select ID_PRODUK, NAMA_PRODUK from petshop1.produk;";
+            string Query = "select id_produk, nama_produk from petshopd.produks;";
             MySqlCommand cmdComboBox = new MySqlCommand(Query, conn);
             MySqlDataReader reader;
             try
@@ -53,8 +53,8 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
 
                 while (reader.Read())
                 {
-                    int idProduk = reader.GetInt32("ID_PRODUK");
-                    string namaProduk = reader.GetString("NAMA_PRODUK");
+                    int idProduk = reader.GetInt32("id_produk");
+                    string namaProduk = reader.GetString("nama_produk");
                     ComboBoxNamaProduk.Items.Add(idProduk + " - " + namaProduk);
                 }
                 reader.Close();
@@ -84,7 +84,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
                     try
                     {
                         conn.Open();
-                        cmd.CommandText = "INSERT INTO DETAIL_TRANSAKSI_PRODUK(ID_TRANSAKSI, ID_PRODUK, JUMLAH) VALUES(@idtransaksi, @idproduk, @jumlah)";
+                        cmd.CommandText = "INSERT INTO detailtransaksiproduks dp JOIN produkhargas ph ON dp.id_produkHarga = ph.id_produkHarga JOIN produks p ON ph.id_produk = p.id_produk(kode_penjualan_produk, id_produk, jml_transaksi_produk) VALUES(@idtransaksi, @idproduk, @jumlah)";
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = conn;
 

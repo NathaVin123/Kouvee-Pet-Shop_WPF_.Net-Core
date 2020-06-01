@@ -29,42 +29,42 @@ namespace KouveePetShop_Desktop.Menu
         {
             var PengadaanBulanan = new Laporan.Laporan_pengadaan_bulanan();
             PengadaanBulanan.Show();
-            this.Close();
+            
         }
 
         private void PendapatanBulanan_Click(object sender, RoutedEventArgs e)
         {
             var PendapatanBulanan = new Laporan.Laporan_pendapatan_bulanan();
             PendapatanBulanan.Show();
-            this.Close();
+            
         }
 
         private void ProdukTerlaris_Click(object sender, RoutedEventArgs e)
         {
             var ProdukTerlaris = new Laporan.Laporan_produk_terlaris();
             ProdukTerlaris.Show();
-            this.Close();
+            
         }
 
         private void PengadaanTahunan_Click(object sender, RoutedEventArgs e)
         {
             var PengadaanTahunan = new Laporan.Laporan_pengadaan_tahunan();
             PengadaanTahunan.Show();
-            this.Close();
+            
         }
 
         private void PendapatanTahunan_Click(object sender, RoutedEventArgs e)
         {
             var PendapatanTahunan = new Laporan.Laporan_pendapatan_tahunan();
             PendapatanTahunan.Show();
-            this.Close();
+            
         }
 
         private void LayananTerlaris_Click(object sender, RoutedEventArgs e)
         {
             var LayananTerlaris = new Laporan.Laporan_layanan_terlaris();
             LayananTerlaris.Show();
-            this.Close();
+            
         }
     }
 }

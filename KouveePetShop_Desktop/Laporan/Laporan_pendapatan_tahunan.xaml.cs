@@ -22,6 +22,7 @@ namespace KouveePetShop_Desktop.Laporan
         public Laporan_pendapatan_tahunan()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }

@@ -32,6 +32,7 @@ namespace KouveePetShop_Desktop.Struk
         public Struk_Layanan()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
       
             try
             {

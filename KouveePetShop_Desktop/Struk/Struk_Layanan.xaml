@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:KouveePetShop_Desktop.Struk"
         mc:Ignorable="d"
         Title="StrukJasaLayanan" Height="700" Width="535.5" ResizeMode="NoResize" FontFamily="Roboto" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
+        >
     <Window.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
