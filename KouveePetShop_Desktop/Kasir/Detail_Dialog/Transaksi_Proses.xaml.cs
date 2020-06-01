@@ -120,10 +120,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
 
         private void HitungTotalDiskon()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT sum(tr.diskon) as DISKON from transaksipenjualanproduks tr" +
-                "JOIN hewans h ON tr.id_hewan = h.id_hewan " +
-                "JOIN customers cr ON h.id_customer = cr.id_customer " +
-                "WHERE tr.kode_penjualan_produk = '" + idTransaksi + "'", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT sum(tr.diskon) as DISKON from transaksipenjualanproduks tr JOIN hewans h ON tr.id_hewan = h.id_hewan JOIN customers cr ON h.id_customer = cr.id_customer WHERE tr.kode_penjualan_produk = '" + idTransaksi + "'", conn);
             MySqlDataReader reader;
 
             try
@@ -147,11 +144,7 @@ namespace KouveePetShop_Desktop.Kasir.Detail_Dialog
 
         private void HitungTotalHarga()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT sum(dt.total_harga) as TOTAL from detailtransaksiproduk dt " +
-                "JOIN transaksipenjualanproduks tr ON dt.kode_penjualan_produk = tr.kode_penjualan_produk " +
-                "JOIN hewans h ON tr.id_hewan = h.id_hewan " +
-                "JOIN customers cr ON h.id_customer = cr.id_customer " +
-                "WHERE tr.kode_penjualan_produk = '" + idTransaksi + "'", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT sum(dt.total_harga) as TOTAL from detailtransaksiproduks dt JOIN transaksipenjualanproduks tr ON dt.kode_penjualan_produk = tr.kode_penjualan_produk JOIN hewans h ON tr.id_hewan = h.id_hewan JOIN customers cr ON h.id_customer = cr.id_customer WHERE tr.kode_penjualan_produk = '" + idTransaksi + "'", conn);
             MySqlDataReader reader;
 
             try
